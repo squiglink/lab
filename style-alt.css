@@ -909,7 +909,6 @@ div.extra-panel button.import-filters,
 div.extra-panel button.export-filters {
     position: relative;
     
-    flex: calc(50% - 2px) 0 0;
     flex: 100% 0 0;
 }
 
@@ -939,6 +938,15 @@ button.export-filters:after {
     -webkit-mask-size: 20px;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
+}
+
+div.settings-row {
+    display: flex;
+    align-items: center;
+}
+
+div.settings-row > span:nth-child(1) {
+    margin-right: auto;
 }
 
 div.miscTools button span {

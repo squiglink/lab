@@ -166,15 +166,17 @@ doc.html(`
                     <span><input name="q" type="number" min="0" max="10" step="0.1" value="0"></input></span>
                 </div>
               </div>
+              <div class="filters-button">
+                <button class="add-filter">＋</button>
+                <button class="remove-filter">－</button>
+                <button class="sort-filters">Sort</button>
+              </div>
               <div class="settings-row">
                 <span>AutoEQ Range</span>
                 <span><input name="autoeq-from" type="number" min="20" max="20000" step="1" value="20"></input></span>
                 <span><input name="autoeq-to" type="number" min="20" max="20000" step="1" value="20000"></input></span>
               </div>
               <div class="filters-button">
-                <button class="add-filter">＋</button>
-                <button class="remove-filter">－</button>
-                <button class="sort-filters">Sort</button>
                 <button class="autoeq">AutoEQ</button>
                 <button class="readme">Readme</button>
                 <button class="import-filters">Import</button>
