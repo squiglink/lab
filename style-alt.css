@@ -879,6 +879,7 @@ div.miscTools button,
 div.extra-panel button {
     order: 1;
     
+    flex: auto 1 1;
     padding: 11px 8px;
     margin: 0;
     
@@ -896,6 +897,48 @@ div.extra-panel button {
     white-space: nowrap;
     cursor: pointer;
     outline: none;
+}
+
+div.filters-button {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 4px;
+}
+
+div.extra-panel button.import-filters,
+div.extra-panel button.export-filters {
+    position: relative;
+    
+    flex: calc(50% - 2px) 0 0;
+    flex: 100% 0 0;
+}
+
+button.export-graphic-filters {
+    border-color: var(--background-color-contrast) !important;
+}
+
+button.export-filters:after {
+    content: '';
+    
+    position: absolute;
+    top: 0;
+    right: 0;
+    content: '';
+    box-sizing: border-box;
+    display: block;
+    width: 34px;
+    height: 34px;
+    background-color: var(--background-color-contrast-more);
+    pointer-events: none;
+    
+    mask: var(--icon-download);
+    -webkit-mask: var(--icon-download);
+    mask-size: 20px;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-size: 20px;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
 }
 
 div.miscTools button span {

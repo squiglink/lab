@@ -175,11 +175,11 @@ doc.html(`
                 <button class="add-filter">＋</button>
                 <button class="remove-filter">－</button>
                 <button class="sort-filters">Sort</button>
+                <button class="autoeq">AutoEQ</button>
+                <button class="readme">Readme</button>
                 <button class="import-filters">Import</button>
                 <button class="export-filters">Export</button>
-                <button class="autoeq">AutoEQ</button>
                 <button class="export-graphic-filters">Export Graphic EQ (For Wavelet)</button>
-                <button class="readme">Readme</button>
               </div>
               <a style="display: none" id="file-filters-export"></a>
               <form style="display:none"><input type="file" id="file-filters-import" accept=".txt" /></form>
