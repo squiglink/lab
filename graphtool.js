@@ -1059,7 +1059,7 @@ function setBaseline(b, no_transition) {
     gpath.selectAll("path")
         .transition().duration(500).ease(d3.easeQuad)
         .attr("d", drawLine);
-    table.selectAll("tr").select(".button")
+    table.selectAll("tr").select(".button-baseline")
         .classed("selected", p=>p===baseline.p);
     
     // Analytics event

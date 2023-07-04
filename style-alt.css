@@ -384,6 +384,8 @@ ul.header-links {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0 32px;
     
     box-sizing: border-box;
     flex: 100% 0 1;
@@ -410,10 +412,6 @@ ul.header-links li {
     
     list-style: none;
     white-space: nowrap;
-}
-
-ul.header-links li + li {
-    margin-left: 32px;
 }
 
 ul.header-links a {
