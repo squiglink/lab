@@ -3183,8 +3183,10 @@ function userConfigApplyViewSettings() {
                         rowPhoneFullName = textContents.join(" ").replace("  ", " ");
 
                     if (rowPhoneFullName === phone.fullName) {
-                        if (phone.isHidden) row.querySelector("td.hideIcon:not(.selected)").click();
-                        if (phone.isBaseline) row.querySelector("td.button-baseline:not(.selected)").click();
+                        console.log(phone.fullName);
+                        if (phone.isHidden && row.querySelectorAll("td.hideIcon:not(.selected)").length) row.querySelector("td.hideIcon:not(.selected)").click();
+                        if (phone.isBaseline && row.querySelectorAll("td.button-baseline:not(.selected)").length) row.querySelector("td.button-baseline:not(.selected)").click();
+                        if (phone.isBaseline && row.querySelectorAll("td.button-pin").length) row.querySelector("td.button-pin").click();
                     }
                 });
             }
