@@ -1063,7 +1063,7 @@ function setBaseline(b, no_transition) {
         .classed("selected", p=>p===baseline.p);
     
     // Update user config
-    setUserConfig();
+    if (!userConfigApplicationActive) setUserConfig();
     
     // Analytics event
     if (analyticsEnabled && b.p) { pushPhoneTag("baseline_set", b.p); }
@@ -1143,10 +1143,11 @@ function updatePaths(trigger) {
     if (trigger === undefined) setUserConfig();
 }
 let colorBar = p=>'url(\'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 8"><path d="M0 8v-8h1c0.05 1.5,-0.3 3,-0.16 5s0.1 2,0.15 3z" fill="'+getBgColor(p)+'"/></svg>\')';
-function updatePhoneTable() {
+function updatePhoneTable(trigger) {
     let c = table.selectAll("tr").data(activePhones, p=>p.fileName);
     c.exit().remove();
-    let f = c.enter().append("tr"),
+
+    let f = c.enter().append("tr").attr("data-filename", p=>p.fileName),
         td = () => f.append("td");
     f   .call(setHover, h => p => hl(p,h))
         .style("color", p => getDivColor(p.id,true));
@@ -1209,7 +1210,7 @@ function updatePhoneTable() {
         }
         
         // Update user config
-        setUserConfig();
+        if (!userConfigApplicationActive) setUserConfig();
     }
     td().attr("class","button hideIcon")
         .attr("title", "Hide graph")
@@ -1601,7 +1602,7 @@ function showPhone(p, exclusive, suppressVariant, trigger) {
         setCurves(p, avg);
     }
     updatePaths(trigger);
-    updatePhoneTable();
+    updatePhoneTable(trigger);
     d3.selectAll("#phones .phone-item,.target")
         .filter(p=>p.id!==undefined)
         .call(setPhoneTr);
@@ -1616,9 +1617,11 @@ function showPhone(p, exclusive, suppressVariant, trigger) {
     }
     if (!p.isTarget && alt_augment ) { augmentList(p); }
     
+    // Apply user config view settings
     if (typeof trigger !== "undefined") {
-        // Apply user config view settings
-        userConfigApplyViewSettings();
+        userConfigApplicationActive = 1;
+        userConfigApplyViewSettings(p.fileName);
+        userConfigApplicationActive = 0;
     }
 }
 
@@ -1729,6 +1732,7 @@ d3.json(typeof PHONE_BOOK !== "undefined" ? PHONE_BOOK
     
     // Apply user config to inits
     userConfigAppendInits(initReq);
+    
     let isInit = initReq ? f => initReq.indexOf(f) !== -1
                          : _ => false;
     
@@ -1752,9 +1756,6 @@ d3.json(typeof PHONE_BOOK !== "undefined" ? PHONE_BOOK
     let allPhones = window.allPhones = d3.merge(brands.map(b=>b.phoneObjs)),
         currentBrands = [];
     if (!initReq) inits.push(allPhones[0]);
-    
-    // Apply user config view settings
-    //userConfigApplyViewSettings();
 
     function setClicks(fn) { return function (elt) {
         elt .on("mousedown", () => d3.event.preventDefault())
@@ -3123,7 +3124,6 @@ if ( expandable && accessDocumentTop ) { toggleExpandCollapse(); }
 // Update user config for target + baseline
 function setUserConfig() {
     let configJson = {
-            "baseline": '',
             "phones": []
         },
         activeBaseline = baseline.p ? baseline.p.fileName : 0;
@@ -3143,8 +3143,6 @@ function setUserConfig() {
             phoneJson.isHidden = isHidden;
             phoneJson.isBaseline = isBaseline;
             
-            if (isBaseline) { configJson.baseline = phoneJson.fileName }
-            
             configJson.phones.push(phoneJson);
         }
     });
@@ -3158,7 +3156,9 @@ function userConfigAppendInits(initReq) {
     
     if (configJson) {
         initReq.forEach(function(req, i) {
-            if (req.endsWith(' Target')) initReq.splice(i, 1);
+            if (req.endsWith(' Target')) {
+                initReq.splice(i, 1);
+            }
         });
         
         configJson.phones.forEach(function(phone) {
@@ -3166,31 +3166,30 @@ function userConfigAppendInits(initReq) {
                 initReq.push(phone.fileName);
             }
         });
-        
     }
 }
 
 // Apply baseline and hide settings
-function userConfigApplyViewSettings() {
+function userConfigApplyViewSettings(phoneInTable) {
     let configJson = JSON.parse(localStorage.getItem("userConfig"));
-    
-    if (configJson) {
-        configJson.phones.forEach(function(phone) {
-            if (phone.isHidden || phone.isBaseline) {
-                document.querySelectorAll("tbody.curves tr").forEach(function(row) {
-                    let spans = row.querySelectorAll("td.item-line *"),
-                        textContents = Array.from(spans).map(span => span.textContent),
-                        rowPhoneFullName = textContents.join(" ").replace("  ", " ");
 
-                    if (rowPhoneFullName === phone.fullName) {
-                        console.log(phone.fullName);
-                        if (phone.isHidden && row.querySelectorAll("td.hideIcon:not(.selected)").length) row.querySelector("td.hideIcon:not(.selected)").click();
-                        if (phone.isBaseline && row.querySelectorAll("td.button-baseline:not(.selected)").length) row.querySelector("td.button-baseline:not(.selected)").click();
-                        if (phone.isBaseline && row.querySelectorAll("td.button-pin").length) row.querySelector("td.button-pin").click();
-                    }
-                });
+    if (configJson) {
+        let phone = configJson.phones.find(item => item.fileName === phoneInTable);
+        
+        if (typeof phone !== "undefined") {
+            let row = document.querySelector("tr[data-filename='"+ phone.fileName +"']"),
+                hideButton  = row.querySelector("td.hideIcon"),
+                baselineButton  = row.querySelector("td.button-baseline"),
+                pinButton = row.querySelector("td.button-pin");
+
+            if (phone.isHidden && !hideButton.classList.contains("selected")) {
+                hideButton.click();
             }
             
-        });
+            if (phone.isBaseline && !baselineButton.classList.contains("selected")) {
+                baselineButton.click();
+                pinButton.click();
+            }
+        }
     }
-}
+};
