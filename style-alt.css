@@ -329,7 +329,7 @@ Alt header *****/
 
 header.header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     
     box-sizing: border-box;
     
@@ -905,8 +905,7 @@ div.filters-button {
 
 div.extra-panel button.sort-filters,
 div.extra-panel button.readme {
-    order: 0 !important;
-    flex: 49% 0 0;
+    flex: calc(50% - 2px) 0 0;
     border-color: var(--background-color-contrast) !important;
 }
 
@@ -952,7 +951,7 @@ div.settings-row {
 }
 
 div.settings-row > span {
-    flex: 24.5% 0 0;
+    flex: calc(25% - 4px) 0 0;
 }
 
 div.settings-row > span:nth-child(1) {
@@ -1241,11 +1240,13 @@ div.extra-panel div:has(> button.play) {
 }
 
 div.extra-panel button.play {
-    flex: 50% 0 0;
+    order: 0;
+    flex: calc(50% - 2px) 0 0;
 }
 
 div.extra-panel button.play + span {
     flex: auto 1 1;
+    margin: 0 0 0 10px;
     
     font-size: 12px;
     line-height: 1em;
@@ -1256,10 +1257,9 @@ div.extra-panel > div.extra-tone-generator input[name='tone-generator-freq'] {
     width: 100%;
     
     background-color: var(--background-color-inputs);
-    border: 1px solid var(--background-color-contrast-more);
     border-radius: 100px;
     
-    accent-color: var(--background-color-contrast-more);
+    accent-color: var(--accent-color-contrast);
     
     cursor: pointer;
     
