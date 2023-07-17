@@ -903,6 +903,13 @@ div.filters-button {
     gap: 0 4px;
 }
 
+div.extra-panel button.sort-filters,
+div.extra-panel button.readme {
+    order: 0 !important;
+    flex: 49% 0 0;
+    border-color: var(--background-color-contrast) !important;
+}
+
 div.extra-panel button.import-filters,
 div.extra-panel button.export-filters {
     position: relative;
@@ -941,10 +948,19 @@ button.export-filters:after {
 div.settings-row {
     display: flex;
     align-items: center;
+    gap: 4px;
+}
+
+div.settings-row > span {
+    flex: 24.5% 0 0;
 }
 
 div.settings-row > span:nth-child(1) {
-    margin-right: auto;
+    flex: auto 1 1;
+    
+    font-size: 12px;
+    line-height: 1em;
+    text-align: left;
 }
 
 div.miscTools button span {
@@ -1014,12 +1030,78 @@ div.extra-panel > div {
 }
 
 div.extra-panel h5 {
-    margin: 0 0 1em 0;
+    margin: 16px 0 8px 0;
+    
+    font-size: 14px;
+    line-height: 1em;
     color: var(--accent-color-contrast);
+}
+
+div.extra-upload {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div.extra-upload h5 {
+    flex: 100% 0 0;
+}
+
+div.extra-upload button {
+    flex: calc(50% - 2px) 1 1;
+}
+
+div.extra-upload button + button {
+    margin-left: 4px;
+}
+
+div.extra-upload span {
+    order: 2;
+    flex: 100% 0 0;
 }
 
 div.extra-panel span {
     color: var(--background-color-contrast-more);
+}
+
+div.extra-panel select {
+    position: relative;
+    
+    padding: 10px 0;
+    
+    background-color: transparent;
+    border: none;
+    
+    font-family: var(--font-family-secondary);
+    font-size: 11px;
+    line-height: 1em;
+    
+    cursor: pointer;
+    outline: none;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+div.extra-panel select {
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--background-color-contrast-more) 50%),
+    linear-gradient(135deg, var(--background-color-contrast-more) 50%, transparent 50%);
+  background-position:
+    calc(100% - 5px) calc(1em + 2px),
+    calc(100% - 0px) calc(1em + 2px);
+  background-size:
+    5px 5px,
+    5px 5px;
+  background-repeat: no-repeat;
+}
+
+div.extra-panel select[name="phone"] {
+  background-position:
+    calc(100% - 14px) calc(1em + 3px),
+    calc(100% - 9px) calc(1em + 3px);
 }
 
 div.extra-panel > div.extra-eq > div.select-eq-phone,
@@ -1029,12 +1111,17 @@ div.extra-panel div.settings-row {
 }
 
 div.extra-panel > div.extra-eq > div.select-eq-phone > select {
-    width: 99%;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    
+    border: 1px solid var(--background-color-contrast-more);
+    border-radius: 6px;
 }
 
 div.extra-panel > div.extra-eq > div.filters-header > span,
 div.extra-panel > div.extra-eq > div.filters > div.filter > span {
-    width: 24%;
+    flex: 25% 1 1;
     display: inline-block;
 }
 
@@ -1043,6 +1130,13 @@ div.extra-panel > div.extra-eq > div.filters > div.filter > span > input[type='c
     margin: 0;
     -webkit-appearance: checkbox;
     appearance: checkbox;
+    
+    accent-color: var(--background-color-contrast);
+    
+    cursor: pointer;
+}
+
+div.extra-panel > div.extra-eq > div.filters > div.filter > span > input[type='checkbox']:checked {
 }
 
 div.extra-panel > div.extra-eq > div.filters > div.filter > span > select {
@@ -1056,7 +1150,69 @@ div.extra-panel div.settings-row > span {
 
 div.extra-panel > div.extra-eq > div.filters > div.filter > span > input,
 div.extra-panel div.settings-row > span > input {
-    width: 90%;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 6px 10px;
+    
+    background-color: var(--background-color-inputs);
+    border: 1px solid var(--background-color-contrast);
+    border-radius: 6px;
+    
+    color: var(--font-color-inputs);
+    font-family: var(--font-secondary);
+    font-size: 11px;
+    line-height: 12px;
+    
+    outline: none;
+}
+
+span:has(input[name="freq"]),
+span:has(input[name="gain"]),
+span:has(input[name="autoeq-to"]),
+span:has(input[name="tone-generator-to"]) {
+    position: relative;
+}
+
+span:has(input[name="freq"]):after,
+span:has(input[name="gain"]):after,
+span:has(input[name="autoeq-to"]):after,
+span:has(input[name="tone-generator-to"]):after {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    
+    content: 'Hz';
+    
+    box-sizing: border-box;
+    padding: 6px 10px 6px 0;
+    
+    border-left: none;
+    border-radius: 0 6px 6px 0;
+    
+    font-family: var(--font-secondary);
+    font-size: 11px;
+    line-height: 11px;
+    
+    pointer-events: none;
+}
+
+span:has(input[name="gain"]):after {
+    content: 'dB';
+}
+
+div.filters-header {
+    display: flex;
+    gap: 4px;
+    margin: 8px 0;
+    
+    font-size: 12px;
+    line-height: 1em;
+}
+
+div.filter {
+    box-sizing: border-box;
+    display: flex;
+    gap: 4px;
 }
 
 div.extra-eq-overlay {
@@ -1077,9 +1233,35 @@ div.extra-panel button {
     margin-bottom: 4px !important;
 }
 
+div.extra-panel div:has(> button.play) {
+    display: flex;
+    align-items: center;
+    
+    margin: 8px 0 0 0;
+}
+
+div.extra-panel button.play {
+    flex: 50% 0 0;
+}
+
+div.extra-panel button.play + span {
+    flex: auto 1 1;
+    
+    font-size: 12px;
+    line-height: 1em;
+}
+
 div.extra-panel > div.extra-tone-generator input[name='tone-generator-freq'] {
+    box-sizing: border-box;
     width: 100%;
-    border: 1px solid var(--accent-color-contrast);
+    
+    background-color: var(--background-color-inputs);
+    border: 1px solid var(--background-color-contrast-more);
+    border-radius: 100px;
+    
+    accent-color: var(--background-color-contrast-more);
+    
+    cursor: pointer;
     
 }
 
