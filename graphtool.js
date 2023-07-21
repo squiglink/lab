@@ -161,9 +161,9 @@ doc.html(`
                         <option value="HSQ">HSQ</option>
                       </select>
                     </span>
-                    <span><input name="freq" type="number" min="20" max="20000" step="1" value="0"></input></span>
-                    <span><input name="gain" type="number" min="-40" max="40" step="0.1" value="0"></input></span>
-                    <span><input name="q" type="number" min="0" max="10" step="0.1" value="0"></input></span>
+                    <span><input name="freq" type="number" min="20" max="20000" step="1" value="0" onclick="this.focus();this.select()"></input></span>
+                    <span><input name="gain" type="number" min="-40" max="40" step="0.1" value="0" onclick="this.focus();this.select()"></input></span>
+                    <span><input name="q" type="number" min="0" max="10" step="0.1" value="0" onclick="this.focus();this.select()"></input></span>
                 </div>
               </div>
               <div class="filters-button">
@@ -1520,7 +1520,13 @@ function setNorm(_, i, change) {
     activePhones.forEach(normalizePhone);
     if (baseline.p) { baseline = getBaseline(baseline.p); }
     updateYCenter();
-    updatePaths();
+    
+    if (!userConfigApplicationActive) {
+        setUserConfig();
+        updatePaths();
+    } else {
+        updatePaths("config");
+    }
 }
 norms.select("input")
     .on("change input",setNorm)
@@ -1619,9 +1625,7 @@ function showPhone(p, exclusive, suppressVariant, trigger) {
     
     // Apply user config view settings
     if (typeof trigger !== "undefined") {
-        userConfigApplicationActive = 1;
         userConfigApplyViewSettings(p.fileName);
-        userConfigApplicationActive = 0;
     }
 }
 
@@ -1721,6 +1725,7 @@ d3.json(typeof PHONE_BOOK !== "undefined" ? PHONE_BOOK
             par = "share=";
             emb = "embed";
         baseURL = url.split("?").shift();
+        
         if (url.includes(par) && url.includes(emb)) {
             initReq = decodeURIComponent(url.replace(/_/g," ").split(par).pop()).split(",");
             loadFromShare = 2;
@@ -1905,6 +1910,8 @@ d3.json(typeof PHONE_BOOK !== "undefined" ? PHONE_BOOK
     doc.select("#theme").on("click", function () {
         themeChooser("change");
     });
+    
+    userConfigApplyNormalization();
 });
 
 let pathHoverTimeout;
@@ -3124,7 +3131,9 @@ if ( expandable && accessDocumentTop ) { toggleExpandCollapse(); }
 // Update user config for target + baseline
 function setUserConfig() {
     let configJson = {
-            "phones": []
+            "phones": [],
+            "normalMode": (norm_sel === 1) ? "Hz" : "dB",
+            "normalValue": (norm_sel === 1) ? norm_fr : norm_phon
         },
         activeBaseline = baseline.p ? baseline.p.fileName : 0;
     
@@ -3153,7 +3162,6 @@ function setUserConfig() {
 // Insert user config phones to inits
 function userConfigAppendInits(initReq) {
     let configJson = JSON.parse(localStorage.getItem("userConfig"));
-    
     if (configJson) {
         initReq.forEach(function(req, i) {
             if (req.endsWith(' Target')) {
@@ -3171,6 +3179,8 @@ function userConfigAppendInits(initReq) {
 
 // Apply baseline and hide settings
 function userConfigApplyViewSettings(phoneInTable) {
+    userConfigApplicationActive = 1;
+    
     let configJson = JSON.parse(localStorage.getItem("userConfig"));
 
     if (configJson) {
@@ -3192,4 +3202,23 @@ function userConfigApplyViewSettings(phoneInTable) {
             }
         }
     }
+    
+    userConfigApplicationActive = 0;
 };
+
+// Apply normalization config
+function userConfigApplyNormalization() {
+    userConfigApplicationActive = 1;
+    
+    let configJson = JSON.parse(localStorage.getItem("userConfig"));
+    
+    if ( configJson.normalMode === "Hz" ) {
+        document.querySelector("input#norm-fr").value = configJson.normalValue;
+        document.querySelector("input#norm-fr").dispatchEvent(new Event("change"));
+    } else if ( configJson.normalMode === "dB" ) {
+        document.querySelector("input#norm-phon").value = configJson.normalValue;
+        document.querySelector("input#norm-phon").dispatchEvent(new Event("change"));
+    }
+    
+    userConfigApplicationActive = 0;
+}
