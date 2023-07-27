@@ -2396,6 +2396,26 @@ function addExtra() {
                     brand: brandTarget,
                     dispName: name,
                     phone: name,
+                    fullName: "Custom Target",
+                    fileName: fullName,
+                    rawChannels: ch,
+                    isDynamic: true,
+                    id: -brandTarget.phoneObjs.length
+                };
+                showPhone(phoneObj, true);
+                storeUploadedTarget(file);
+            } else if (uploadType == null) {
+                let fullName = name + (name.match(/ Target$/i) ? "" : " Target");
+                let existsTargets = targets.reduce((a, b) => a.concat(b.files), []).map(f => f += " Target");
+                if (existsTargets.indexOf(fullName) >= 0) {
+                    alert("This target already exists on this tool, please select it instead of upload.");
+                    return;
+                }
+                let phoneObj = {
+                    isTarget: true,
+                    brand: brandTarget,
+                    dispName: name,
+                    phone: name,
                     fullName: fullName,
                     fileName: fullName,
                     rawChannels: ch,
@@ -3162,6 +3182,9 @@ function setUserConfig() {
 // Insert user config phones to inits
 function userConfigAppendInits(initReq) {
     let configJson = JSON.parse(localStorage.getItem("userConfig"));
+    
+    readUploadedTarget();
+    
     if (configJson) {
         initReq.forEach(function(req, i) {
             if (req.endsWith(' Target')) {
@@ -3175,6 +3198,7 @@ function userConfigAppendInits(initReq) {
             }
         });
     }
+    
 }
 
 // Apply baseline and hide settings
@@ -3221,4 +3245,38 @@ function userConfigApplyNormalization() {
     }
     
     userConfigApplicationActive = 0;
+}
+
+// Store uploaded target
+function storeUploadedTarget(file) {
+    let reader = new FileReader();
+    reader.onload = function(event) {
+        let content = event.target.result;
+
+        localStorage.setItem('userUploadedTarget', content);
+    };
+    reader.readAsText(file);
+}
+    
+// Read uploaded target and load it
+function readUploadedTarget() {
+    //return;
+    let contentFromStorage = localStorage.getItem("userUploadedTarget"),
+        filename = 'test.txt',
+        userUploadFile = new Blob([contentFromStorage], { type: 'text/plain' });
+    
+    userUploadFile.name = filename;
+    
+    let fileFR = document.querySelector("#file-fr");
+    uploadType = "fr";
+    
+    // Attempt #2
+    let list = new DataTransfer();
+    let file = new File([userUploadFile], "Custom Target.txt", {type: "text/json"});
+    list.items.add(file);
+
+    let myFileList = list.files;
+
+    fileFR.files = myFileList;
+    fileFR.dispatchEvent(new Event("change"));
 }
