@@ -2422,7 +2422,7 @@ function addExtra() {
                     isDynamic: true,
                     id: -brandTarget.phoneObjs.length
                 };
-                showPhone(phoneObj, true);
+                showPhone(phoneObj, 0);
             }
         };
         reader.readAsText(file);
@@ -3183,8 +3183,6 @@ function setUserConfig() {
 function userConfigAppendInits(initReq) {
     let configJson = JSON.parse(localStorage.getItem("userConfig"));
     
-    readUploadedTarget();
-    
     if (configJson) {
         initReq.forEach(function(req, i) {
             if (req.endsWith(' Target')) {
@@ -3199,6 +3197,7 @@ function userConfigAppendInits(initReq) {
         });
     }
     
+    readUploadedTarget();
 }
 
 // Apply baseline and hide settings
