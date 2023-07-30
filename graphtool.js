@@ -1242,6 +1242,7 @@ function updatePhoneTable(trigger) {
                     "stroke-linecap":"round",
                     d:"M265 110V25q0 -10 -10 -10H105q-24 0 -48 20l-24 20q-24 20 -2 40l18 15q24 20 42 20h100"
                 });
+            if (!userConfigApplicationActive) setUserConfig();
         });
 }
 
@@ -3143,7 +3144,8 @@ function setUserConfig() {
             fileName = phone.fileName,
             isTarget = phone.isTarget ? phone.isTarget : false,
             isHidden = phone.hide ? phone.hide : false,
-            isBaseline = fileName === activeBaseline ? true : false;
+            isBaseline = fileName === activeBaseline ? true : false,
+            isPinned = phone.pin ? phone.pin : false;
         
         if (isTarget || isBaseline) {
             phoneJson.fullName = fullName;
@@ -3151,6 +3153,7 @@ function setUserConfig() {
             phoneJson.isTarget = isTarget;
             phoneJson.isHidden = isHidden;
             phoneJson.isBaseline = isBaseline;
+            phoneJson.isPinned = isPinned;
             
             configJson.phones.push(phoneJson);
         }
@@ -3198,6 +3201,9 @@ function userConfigApplyViewSettings(phoneInTable) {
             
             if (phone.isBaseline && !baselineButton.classList.contains("selected")) {
                 baselineButton.click();
+            }
+            
+            if (phone.isPinned && pinButton.getAttribute('data-pinned') !== "true") {
                 pinButton.click();
             }
         }
@@ -3210,12 +3216,12 @@ function userConfigApplyViewSettings(phoneInTable) {
 function userConfigApplyNormalization() {
     userConfigApplicationActive = 1;
     
-    let configJson = JSON.parse(localStorage.getItem("userConfig"));
+    let configJson = localStorage.getItem("userConfig") ? JSON.parse(localStorage.getItem("userConfig")) : 0;
     
-    if ( configJson.normalMode === "Hz" ) {
+    if ( configJson && configJson.normalMode === "Hz" ) {
         document.querySelector("input#norm-fr").value = configJson.normalValue;
         document.querySelector("input#norm-fr").dispatchEvent(new Event("change"));
-    } else if ( configJson.normalMode === "dB" ) {
+    } else if ( configJson && configJson.normalMode === "dB" ) {
         document.querySelector("input#norm-phon").value = configJson.normalValue;
         document.querySelector("input#norm-phon").dispatchEvent(new Event("change"));
     }
