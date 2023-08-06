@@ -1375,7 +1375,9 @@ function addModel(t) {
                     return j!==-1 ? o[j] :
                         {fileName:f, dispName:q.dispNames[i]};
                 });
-            let d = n.selectAll().data(vars).join("div")
+            let nVariantNames = n.append("div").attr("class","variant-names");
+            let nVariantPopouts = n.append("div").attr("class","variant-popouts");
+            let d = nVariantNames.selectAll().data(vars).join("div")
                      .attr("class","variantName").text(v=>v.dispName),
                 w = d3.max(d.nodes(), d=>d.getBoundingClientRect().width);
             d.style("width",w+"px");
@@ -1386,7 +1388,7 @@ function addModel(t) {
                     table.selectAll("tr").filter(q=>q===p)
                         .classed("highlight", h)
                 );
-            let c = n.selectAll().data(vars).join("span")
+            let c = nVariantPopouts.selectAll().data(vars).join("span")
                 .html("&nbsp;+&nbsp;").attr("class","variantPopout")
                 .style("left",(w+5)+"px")
                 .style("display",v=>v.active?"none":null);
