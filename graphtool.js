@@ -1242,6 +1242,7 @@ function updatePhoneTable(trigger) {
                     "stroke-linecap":"round",
                     d:"M265 110V25q0 -10 -10 -10H105q-24 0 -48 20l-24 20q-24 20 -2 40l18 15q24 20 42 20h100"
                 });
+            if (!userConfigApplicationActive) setUserConfig();
         });
 }
 
@@ -1856,7 +1857,7 @@ d3.json(typeof PHONE_BOOK !== "undefined" ? PHONE_BOOK
         allPhones,
         {
             shouldSort: false,
-            tokenize: true,
+            tokenize: false,
             threshold: 0.2,
             minMatchCharLength: 2,
             keys: [
@@ -1870,7 +1871,7 @@ d3.json(typeof PHONE_BOOK !== "undefined" ? PHONE_BOOK
         brands,
         {
             shouldSort: false,
-            tokenize: true,
+            tokenize: false,
             threshold: 0.05,
             minMatchCharLength: 3,
             keys: [
@@ -3163,7 +3164,8 @@ function setUserConfig() {
             fileName = phone.fileName,
             isTarget = phone.isTarget ? phone.isTarget : false,
             isHidden = phone.hide ? phone.hide : false,
-            isBaseline = fileName === activeBaseline ? true : false;
+            isBaseline = fileName === activeBaseline ? true : false,
+            isPinned = phone.pin ? phone.pin : false;
         
         if (isTarget || isBaseline) {
             phoneJson.fullName = fullName;
@@ -3171,6 +3173,7 @@ function setUserConfig() {
             phoneJson.isTarget = isTarget;
             phoneJson.isHidden = isHidden;
             phoneJson.isBaseline = isBaseline;
+            phoneJson.isPinned = isPinned;
             
             configJson.phones.push(phoneJson);
         }
@@ -3221,6 +3224,9 @@ function userConfigApplyViewSettings(phoneInTable) {
             
             if (phone.isBaseline && !baselineButton.classList.contains("selected")) {
                 baselineButton.click();
+            }
+            
+            if (phone.isPinned && pinButton.getAttribute('data-pinned') !== "true") {
                 pinButton.click();
             }
         }
@@ -3233,49 +3239,15 @@ function userConfigApplyViewSettings(phoneInTable) {
 function userConfigApplyNormalization() {
     userConfigApplicationActive = 1;
     
-    let configJson = JSON.parse(localStorage.getItem("userConfig"));
+    let configJson = localStorage.getItem("userConfig") ? JSON.parse(localStorage.getItem("userConfig")) : 0;
     
-    if ( configJson.normalMode === "Hz" ) {
+    if ( configJson && configJson.normalMode === "Hz" ) {
         document.querySelector("input#norm-fr").value = configJson.normalValue;
         document.querySelector("input#norm-fr").dispatchEvent(new Event("change"));
-    } else if ( configJson.normalMode === "dB" ) {
+    } else if ( configJson && configJson.normalMode === "dB" ) {
         document.querySelector("input#norm-phon").value = configJson.normalValue;
         document.querySelector("input#norm-phon").dispatchEvent(new Event("change"));
     }
     
     userConfigApplicationActive = 0;
-}
-
-// Store uploaded target
-function storeUploadedTarget(file) {
-    let reader = new FileReader();
-    reader.onload = function(event) {
-        let content = event.target.result;
-
-        localStorage.setItem('userUploadedTarget', content);
-    };
-    reader.readAsText(file);
-}
-    
-// Read uploaded target and load it
-function readUploadedTarget() {
-    //return;
-    let contentFromStorage = localStorage.getItem("userUploadedTarget"),
-        filename = 'test.txt',
-        userUploadFile = new Blob([contentFromStorage], { type: 'text/plain' });
-    
-    userUploadFile.name = filename;
-    
-    let fileFR = document.querySelector("#file-fr");
-    uploadType = "fr";
-    
-    // Attempt #2
-    let list = new DataTransfer();
-    let file = new File([userUploadFile], "Custom Target.txt", {type: "text/json"});
-    list.items.add(file);
-
-    let myFileList = list.files;
-
-    fileFR.files = myFileList;
-    fileFR.dispatchEvent(new Event("change"));
 }
