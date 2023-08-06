@@ -1857,7 +1857,7 @@ d3.json(typeof PHONE_BOOK !== "undefined" ? PHONE_BOOK
         allPhones,
         {
             shouldSort: false,
-            tokenize: true,
+            tokenize: false,
             threshold: 0.2,
             minMatchCharLength: 2,
             keys: [
@@ -1871,7 +1871,7 @@ d3.json(typeof PHONE_BOOK !== "undefined" ? PHONE_BOOK
         brands,
         {
             shouldSort: false,
-            tokenize: true,
+            tokenize: false,
             threshold: 0.05,
             minMatchCharLength: 3,
             keys: [
