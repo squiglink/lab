@@ -2397,13 +2397,33 @@ function addExtra() {
                     brand: brandTarget,
                     dispName: name,
                     phone: name,
-                    fullName: fullName,
+                    fullName: "Custom Target",
                     fileName: fullName,
                     rawChannels: ch,
                     isDynamic: true,
                     id: -brandTarget.phoneObjs.length
                 };
                 showPhone(phoneObj, true);
+                storeUploadedTarget(file);
+            } else if (uploadType == null) {
+                let fullName = name + (name.match(/ Target$/i) ? "" : " Target");
+                let existsTargets = targets.reduce((a, b) => a.concat(b.files), []).map(f => f += " Target");
+                if (existsTargets.indexOf(fullName) >= 0) {
+                    alert("This target already exists on this tool, please select it instead of upload.");
+                    return;
+                }
+                let phoneObj = {
+                    isTarget: true,
+                    brand: brandTarget,
+                    dispName: name,
+                    phone: name,
+                    fullName: fullName,
+                    fileName: fullName,
+                    rawChannels: ch,
+                    isDynamic: true,
+                    id: -brandTarget.phoneObjs.length
+                };
+                showPhone(phoneObj, 0);
             }
         };
         reader.readAsText(file);
@@ -3165,6 +3185,7 @@ function setUserConfig() {
 // Insert user config phones to inits
 function userConfigAppendInits(initReq) {
     let configJson = JSON.parse(localStorage.getItem("userConfig"));
+    
     if (configJson) {
         initReq.forEach(function(req, i) {
             if (req.endsWith(' Target')) {
@@ -3178,6 +3199,8 @@ function userConfigAppendInits(initReq) {
             }
         });
     }
+    
+    readUploadedTarget();
 }
 
 // Apply baseline and hide settings
