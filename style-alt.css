@@ -1066,10 +1066,12 @@ div.extra-panel select {
     position: relative;
     
     padding: 10px 0;
+    margin: 0;
     
     background-color: transparent;
     border: none;
     
+    color: var(--font-color-primary);
     font-family: var(--font-family-secondary);
     font-size: 11px;
     line-height: 1em;
