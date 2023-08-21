@@ -1123,7 +1123,8 @@ div.extra-panel > div.extra-eq > div.select-eq-phone > select {
 div.extra-panel > div.extra-eq > div.filters-header > span,
 div.extra-panel > div.extra-eq > div.filters > div.filter > span {
     flex: 25% 1 1;
-    display: inline-block;
+    display: flex;
+    align-items: center;
 }
 
 div.extra-panel > div.extra-eq > div.filters > div.filter > span > input[type='checkbox'] {
