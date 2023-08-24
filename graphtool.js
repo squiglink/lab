@@ -1169,27 +1169,29 @@ function updatePhoneTable(trigger) {
         .attrs({type:"number",step:"any",value:0})
         .property("value", p=>p.offset)
         .on("change input",function(p){ setOffset(p, +this.value); });
-    td().attr("class","button button-export")
-        .attr("title", "Export graph")
-        .on("click", function(p) {
-        let phoneName = p.fullName,
-            channels = p.rawChannels,
-            exportContainer = document.querySelector('body');
+    if (exportableGraphs) {
+        td().attr("class","button button-export")
+            .attr("title", "Export graph")
+            .on("click", function(p) {
+            let phoneName = p.fullName,
+                channels = p.rawChannels,
+                exportContainer = document.querySelector('body');
 
-        channels.forEach(function(channel, i) {
-            let channelNum = i + 1,
-                text = channel.join('\n');
-                blob = new Blob([text], { type: 'text/plain' }),
-                url = URL.createObjectURL(blob),
-                exportLink = document.createElement('a');
+            channels.forEach(function(channel, i) {
+                let channelNum = i + 1,
+                    text = channel.join('\n');
+                    blob = new Blob([text], { type: 'text/plain' }),
+                    url = URL.createObjectURL(blob),
+                    exportLink = document.createElement('a');
 
-            exportLink.download = phoneName + ' [' + channelNum + ']' + '.txt';
-            exportLink.href = url;
-            exportContainer.appendChild(exportLink);
-            exportLink.click();
-            exportLink.remove();
+                exportLink.download = phoneName + ' [' + channelNum + ']' + '.txt';
+                exportLink.href = url;
+                exportContainer.appendChild(exportLink);
+                exportLink.click();
+                exportLink.remove();
+            });
         });
-    });
+    }
     td().attr("class","button button-baseline")
         .attr("title", "Set as baseline")
         .html("<svg viewBox='-170 -120 340 240'><use xlink:href='#baseline-icon'></use></svg>")
