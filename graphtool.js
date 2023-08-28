@@ -3135,7 +3135,10 @@ if ( expandable && accessDocumentTop ) { toggleExpandCollapse(); }
 
 // Update user config for target + baseline
 function setUserConfig() {
-    let configJson = {
+    let urlObj = new URL(document.URL),
+        pathClean = urlObj.pathname.replace(/\W/g, ""),
+        configName = pathClean.length > 0 ? "_" + pathClean : null,
+        configJson = {
             "phones": [],
             "normalMode": (norm_sel === 1) ? "Hz" : "dB",
             "normalValue": (norm_sel === 1) ? norm_fr : norm_phon
@@ -3163,12 +3166,16 @@ function setUserConfig() {
         }
     });
     
-    localStorage.setItem("userConfig", JSON.stringify(configJson));
+    localStorage.setItem("userConfig" + configName, JSON.stringify(configJson));
 }
 
 // Insert user config phones to inits
 function userConfigAppendInits(initReq) {
-    let configJson = JSON.parse(localStorage.getItem("userConfig"));
+    let urlObj = new URL(document.URL),
+        pathClean = urlObj.pathname.replace(/\W/g, ""),
+        configName = pathClean.length > 0 ? "_" + pathClean : null,
+        configJson = JSON.parse(localStorage.getItem("userConfig" + configName));
+    
     if (configJson) {
         initReq.forEach(function(req, i) {
             if (req.endsWith(' Target')) {
@@ -3188,7 +3195,10 @@ function userConfigAppendInits(initReq) {
 function userConfigApplyViewSettings(phoneInTable) {
     userConfigApplicationActive = 1;
     
-    let configJson = JSON.parse(localStorage.getItem("userConfig"));
+    let urlObj = new URL(document.URL),
+        pathClean = urlObj.pathname.replace(/\W/g, ""),
+        configName = pathClean.length > 0 ? "_" + pathClean : null,
+        configJson = JSON.parse(localStorage.getItem("userConfig" + configName));
 
     if (configJson) {
         let phone = configJson.phones.find(item => item.fileName === phoneInTable);
