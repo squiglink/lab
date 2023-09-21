@@ -1133,6 +1133,7 @@ function updatePaths(trigger) {
         .classed("sample", c=>c.p.samp)
         .attr("stroke", getColor_AC).call(redrawLine)
         .filter(c=>c.p.isTarget)
+        .attr("data-phone-name", c=>c.p.fullName)
         .attr("class", "target");
     if (targetDashed) t.style("stroke-dasharray", "6, 3");
     if (targetColorCustom) t.attr("stroke", targetColorCustom);
