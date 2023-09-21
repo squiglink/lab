@@ -1056,7 +1056,6 @@ function setBaseline(b, no_transition) {
     baseline = b;
     updateYCenter();
     if (no_transition) return;
-    clearLabels();
     gpath.selectAll("path")
         .transition().duration(500).ease(d3.easeQuad)
         .attr("d", drawLine);
