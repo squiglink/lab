@@ -835,7 +835,7 @@ let baseline0 = { p:null, l:null, fn:l=>l },
 let gpath = gr.insert("g",".dBScaler")
     .attr("fill","none")
     .attr("stroke-width",2.3)
-    .attr("class", "curves")
+    .attr("class", "curves-g")
     .attr("mask","url(#graphFade)");
 function hl(p, h) {
     gpath.selectAll("path").filter(c=>c.p===p).classed("highlight",h);
