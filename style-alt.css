@@ -1729,7 +1729,7 @@ tbody.curves > tr > td.item-line div.variantName[style*="color"] {
 
 tbody.curves > tr > td.item-line span.variantPopout {
     position: relative;
-    top: auto !important;
+    top: 7px !important;
     left: auto !important;
     
     box-sizing: border-box;
@@ -1792,6 +1792,7 @@ div.variant-names {
 div.variant-popouts {
     flex: 36px 0 0;
     padding: 7px 0 0 0;
+    padding: 0;
 }
 
 span.variantPopout {
