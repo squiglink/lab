@@ -3178,9 +3178,9 @@ function userConfigAppendInits(initReq) {
         configJson = JSON.parse(localStorage.getItem("userConfig" + configName));
     
     if (configJson) {
-        initReq.forEach(function(req, i) {
-            if (req.endsWith(' Target')) {
-                initReq.splice(i, 1);
+        initReq.slice(0).forEach(function(item) {
+            if (item.endsWith(' Target')) {
+                initReq.splice(initReq.indexOf(item), 1);
             }
         });
         
@@ -3235,7 +3235,6 @@ function userConfigApplyNormalization() {
         pathClean = urlObj.pathname.replace(/\W/g, ""),
         configName = pathClean.length > 0 ? "_" + pathClean : null,
         configJson = JSON.parse(localStorage.getItem("userConfig" + configName));
-    console.log(configJson);
     
     if ( configJson && configJson.normalMode === "Hz" ) {
         document.querySelector("input#norm-fr").value = configJson.normalValue;
