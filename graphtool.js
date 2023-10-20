@@ -3231,7 +3231,11 @@ function userConfigApplyViewSettings(phoneInTable) {
 function userConfigApplyNormalization() {
     userConfigApplicationActive = 1;
     
-    let configJson = localStorage.getItem("userConfig") ? JSON.parse(localStorage.getItem("userConfig")) : 0;
+    let urlObj = new URL(document.URL),
+        pathClean = urlObj.pathname.replace(/\W/g, ""),
+        configName = pathClean.length > 0 ? "_" + pathClean : null,
+        configJson = JSON.parse(localStorage.getItem("userConfig" + configName));
+    console.log(configJson);
     
     if ( configJson && configJson.normalMode === "Hz" ) {
         document.querySelector("input#norm-fr").value = configJson.normalValue;
