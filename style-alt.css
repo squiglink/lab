@@ -1705,6 +1705,7 @@ tbody.curves > tr > td.item-line div.variantName {
     position: relative;
     top: auto !important;
     
+    width: auto !important;
     flex: calc(100% - 52px) 0 0;
     height: 50px;
     
