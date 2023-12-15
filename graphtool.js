@@ -161,9 +161,9 @@ doc.html(`
                         <option value="HSQ">HSQ</option>
                       </select>
                     </span>
-                    <span><input name="freq" type="number" min="20" max="20000" step="1" value="0" onclick="this.focus();this.select()"></input></span>
-                    <span><input name="gain" type="number" min="-40" max="40" step="0.1" value="0" onclick="this.focus();this.select()"></input></span>
-                    <span><input name="q" type="number" min="0" max="10" step="0.1" value="0" onclick="this.focus();this.select()"></input></span>
+                    <span><input name="freq" inputmode="decimal" type="number" min="20" max="20000" step="1" value="0" onclick="this.focus();this.select()"></input></span>
+                    <span><input name="gain" inputmode="decimal" type="number" min="-40" max="40" step="0.1" value="0" onclick="this.focus();this.select()"></input></span>
+                    <span><input name="q" inputmode="decimal" type="number" min="0" max="10" step="0.1" value="0" onclick="this.focus();this.select()"></input></span>
                 </div>
               </div>
               <div class="filters-button">
@@ -173,8 +173,8 @@ doc.html(`
               </div>
               <div class="settings-row">
                 <span>AutoEQ Range</span>
-                <span><input name="autoeq-from" type="number" min="20" max="20000" step="1" value="20"></input></span>
-                <span><input name="autoeq-to" type="number" min="20" max="20000" step="1" value="20000"></input></span>
+                <span><input name="autoeq-from" inputmode="decimal" type="number" min="20" max="20000" step="1" value="20"></input></span>
+                <span><input name="autoeq-to" inputmode="decimal" type="number" min="20" max="20000" step="1" value="20000"></input></span>
               </div>
               <div class="filters-button">
                 <button class="autoeq">AutoEQ</button>
@@ -190,8 +190,8 @@ doc.html(`
               <h5>Tone Generator</h2>
               <div class="settings-row">
                 <span>Freq Range</span>
-                <span><input name="tone-generator-from" type="number" min="20" max="20000" step="1" value="20"></input></span>
-                <span><input name="tone-generator-to" type="number" min="20" max="20000" step="1" value="20000"></input></span>
+                <span><input name="tone-generator-from" inputmode="decimal" type="number" min="20" max="20000" step="1" value="20"></input></span>
+                <span><input name="tone-generator-to" inputmode="decimal" type="number" min="20" max="20000" step="1" value="20000"></input></span>
               </div>
               <div><input name="tone-generator-freq" type="range" min="0" max="1" step="0.0001" value="0" /></div>
               <div>
