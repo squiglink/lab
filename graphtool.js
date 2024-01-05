@@ -1723,7 +1723,7 @@ d3.json(typeof PHONE_BOOK !== "undefined" ? PHONE_BOOK
             : DIR+"phone_book.json?"+ new Date().getTime()).then(function (brands) {
     let brandMap = window.brandMap = {},
         inits = [],
-        initReq = typeof init_phones !== "undefined" ? init_phones : false;
+        initReq = typeof init_phones !== "undefined" ? [init_phones].flat() : false;
     loadFromShare = 0;
     
     if (ifURL) {
@@ -3138,7 +3138,7 @@ if ( expandable && accessDocumentTop ) { toggleExpandCollapse(); }
 function setUserConfig() {
     let urlObj = new URL(document.URL),
         pathClean = urlObj.pathname.replace(/\W/g, ""),
-        configName = pathClean.length > 0 ? "_" + pathClean : null,
+        configName = pathClean.length > 0 ? "_" + pathClean : '',
         configJson = {
             "phones": [],
             "normalMode": (norm_sel === 1) ? "Hz" : "dB",
@@ -3174,7 +3174,7 @@ function setUserConfig() {
 function userConfigAppendInits(initReq) {
     let urlObj = new URL(document.URL),
         pathClean = urlObj.pathname.replace(/\W/g, ""),
-        configName = pathClean.length > 0 ? "_" + pathClean : null,
+        configName = pathClean.length > 0 ? "_" + pathClean : '',
         configJson = JSON.parse(localStorage.getItem("userConfig" + configName));
     
     if (configJson) {
@@ -3198,7 +3198,7 @@ function userConfigApplyViewSettings(phoneInTable) {
     
     let urlObj = new URL(document.URL),
         pathClean = urlObj.pathname.replace(/\W/g, ""),
-        configName = pathClean.length > 0 ? "_" + pathClean : null,
+        configName = pathClean.length > 0 ? "_" + pathClean : '',
         configJson = JSON.parse(localStorage.getItem("userConfig" + configName));
 
     if (configJson) {
@@ -3233,7 +3233,7 @@ function userConfigApplyNormalization() {
     
     let urlObj = new URL(document.URL),
         pathClean = urlObj.pathname.replace(/\W/g, ""),
-        configName = pathClean.length > 0 ? "_" + pathClean : null,
+        configName = pathClean.length > 0 ? "_" + pathClean : '',
         configJson = JSON.parse(localStorage.getItem("userConfig" + configName));
     
     if ( configJson && configJson.normalMode === "Hz" ) {
