@@ -1180,7 +1180,9 @@ function updatePhoneTable(trigger) {
 
             channels.forEach(function(channel, i) {
                 let channelNum = i + 1,
-                    text = channel.join('\n');
+                    text = channel.reduce((acc, c) => {
+                        return acc.concat([Object.values(c).join('\t')]);
+                    }, []).join('\n'),
                     blob = new Blob([text], { type: 'text/plain' }),
                     url = URL.createObjectURL(blob),
                     exportLink = document.createElement('a');
