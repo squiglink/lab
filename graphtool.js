@@ -3174,59 +3174,63 @@ function setUserConfig() {
 
 // Insert user config phones to inits
 function userConfigAppendInits(initReq) {
-    let urlObj = new URL(document.URL),
-        pathClean = urlObj.pathname.replace(/\W/g, ""),
-        configName = pathClean.length > 0 ? "_" + pathClean : '',
-        configJson = JSON.parse(localStorage.getItem("userConfig" + configName));
-    
-    if (configJson) {
-        initReq.slice(0).forEach(function(item) {
-            if (item.endsWith(' Target')) {
-                initReq.splice(initReq.indexOf(item), 1);
-            }
-        });
-        
-        configJson.phones.forEach(function(phone) {
-            if (!initReq.includes(phone.fileName)) {
-                initReq.push(phone.fileName);
-            }
-        });
+    if (targetRestoreLastUsed) {
+        let urlObj = new URL(document.URL),
+            pathClean = urlObj.pathname.replace(/\W/g, ""),
+            configName = pathClean.length > 0 ? "_" + pathClean : '',
+            configJson = JSON.parse(localStorage.getItem("userConfig" + configName));
+
+        if (configJson) {
+            initReq.slice(0).forEach(function(item) {
+                if (item.endsWith(' Target')) {
+                    initReq.splice(initReq.indexOf(item), 1);
+                }
+            });
+
+            configJson.phones.forEach(function(phone) {
+                if (!initReq.includes(phone.fileName)) {
+                    initReq.push(phone.fileName);
+                }
+            });
+        }
     }
 }
 
 // Apply baseline and hide settings
 function userConfigApplyViewSettings(phoneInTable) {
-    userConfigApplicationActive = 1;
-    
-    let urlObj = new URL(document.URL),
-        pathClean = urlObj.pathname.replace(/\W/g, ""),
-        configName = pathClean.length > 0 ? "_" + pathClean : '',
-        configJson = JSON.parse(localStorage.getItem("userConfig" + configName));
+    if (targetRestoreLastUsed) {
+        userConfigApplicationActive = 1;
 
-    if (configJson) {
-        let phone = configJson.phones.find(item => item.fileName === phoneInTable);
-        
-        if (typeof phone !== "undefined") {
-            let row = document.querySelector("tr[data-filename='"+ phone.fileName +"']"),
-                hideButton  = row.querySelector("td.hideIcon"),
-                baselineButton  = row.querySelector("td.button-baseline"),
-                pinButton = row.querySelector("td.button-pin");
+        let urlObj = new URL(document.URL),
+            pathClean = urlObj.pathname.replace(/\W/g, ""),
+            configName = pathClean.length > 0 ? "_" + pathClean : '',
+            configJson = JSON.parse(localStorage.getItem("userConfig" + configName));
 
-            if (phone.isHidden && !hideButton.classList.contains("selected")) {
-                hideButton.click();
-            }
-            
-            if (phone.isBaseline && !baselineButton.classList.contains("selected")) {
-                baselineButton.click();
-            }
-            
-            if (phone.isPinned && pinButton.getAttribute('data-pinned') !== "true") {
-                pinButton.click();
+        if (configJson) {
+            let phone = configJson.phones.find(item => item.fileName === phoneInTable);
+
+            if (typeof phone !== "undefined") {
+                let row = document.querySelector("tr[data-filename='"+ phone.fileName +"']"),
+                    hideButton  = row.querySelector("td.hideIcon"),
+                    baselineButton  = row.querySelector("td.button-baseline"),
+                    pinButton = row.querySelector("td.button-pin");
+
+                if (phone.isHidden && !hideButton.classList.contains("selected")) {
+                    hideButton.click();
+                }
+
+                if (phone.isBaseline && !baselineButton.classList.contains("selected")) {
+                    baselineButton.click();
+                }
+
+                if (phone.isPinned && pinButton.getAttribute('data-pinned') !== "true") {
+                    pinButton.click();
+                }
             }
         }
+
+        userConfigApplicationActive = 0;
     }
-    
-    userConfigApplicationActive = 0;
 };
 
 // Apply normalization config
