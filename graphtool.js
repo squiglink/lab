@@ -162,7 +162,7 @@ doc.html(`
                       </select>
                     </span>
                     <span><input name="freq" inputmode="decimal" type="number" min="20" max="20000" step="1" value="0" onclick="this.focus();this.select()"></input></span>
-                    <span><input name="gain" inputmode="decimal" type="number" min="-40" max="40" step="0.1" value="0" onclick="this.focus();this.select()"></input></span>
+                    <span><input name="gain" inputmode="text" type="number" min="-40" max="40" step="0.1" value="0" onclick="this.focus();this.select()"></input></span>
                     <span><input name="q" inputmode="decimal" type="number" min="0" max="10" step="0.1" value="0" onclick="this.focus();this.select()"></input></span>
                 </div>
               </div>
