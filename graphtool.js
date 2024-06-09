@@ -1062,9 +1062,6 @@ function setBaseline(b, no_transition) {
     table.selectAll("tr").select(".button-baseline")
         .classed("selected", p=>p===baseline.p);
     
-    // Update user config
-    if (!userConfigApplicationActive) setUserConfig();
-    
     // Analytics event
     if (analyticsEnabled && b.p) { pushPhoneTag("baseline_set", b.p); }
 }
@@ -1139,9 +1136,6 @@ function updatePaths(trigger) {
     if (targetColorCustom) t.attr("stroke", targetColorCustom);
     if (ifURL && !trigger) addPhonesToUrl();
     if (stickyLabels) drawLabels();
-    
-    // Update user config
-    if (trigger === undefined) setUserConfig();
 }
 let colorBar = p=>'url(\'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 8"><path d="M0 8v-8h1c0.05 1.5,-0.3 3,-0.16 5s0.1 2,0.15 3z" fill="'+getBgColor(p)+'"/></svg>\')';
 function updatePhoneTable(trigger) {
@@ -1213,9 +1207,6 @@ function updatePhoneTable(trigger) {
             clearLabels();
             drawLabels();
         }
-        
-        // Update user config
-        if (!userConfigApplicationActive) setUserConfig();
     }
     td().attr("class","button hideIcon")
         .attr("title", "Hide graph")
@@ -1653,6 +1644,9 @@ function removePhone(p) {
         if (ap.length === 1) {
             setCurves(ap[0], false);
         }
+    }
+    if (p.isTarget) {
+        if (!userConfigApplicationActive) setUserConfig();
     }
     updatePaths();
     if (baseline.p && !baseline.p.active) { setBaseline(baseline0); }
@@ -3140,7 +3134,7 @@ if ( expandable && accessDocumentTop ) { toggleExpandCollapse(); }
 function setUserConfig() {
     let urlObj = new URL(document.URL),
         pathClean = urlObj.pathname.replace(/\W/g, ""),
-        configName = pathClean.length > 0 ? "_" + pathClean : '',
+        configName = pathClean.length > 0 ? "_" + pathClean + "_a" : "_a",
         configJson = {
             "phones": [],
             "normalMode": (norm_sel === 1) ? "Hz" : "dB",
@@ -3177,10 +3171,11 @@ function userConfigAppendInits(initReq) {
     if (targetRestoreLastUsed) {
         let urlObj = new URL(document.URL),
             pathClean = urlObj.pathname.replace(/\W/g, ""),
-            configName = pathClean.length > 0 ? "_" + pathClean : '',
-            configJson = JSON.parse(localStorage.getItem("userConfig" + configName));
+            configName = pathClean.length > 0 ? "_" + pathClean + "_a" : "_a",
+            configJson = JSON.parse(localStorage.getItem("userConfig" + configName)),
+            configNumOfPhones = configJson ? configJson.phones.length : 0;
 
-        if (configJson) {
+        if (configJson && configNumOfPhones) {
             initReq.slice(0).forEach(function(item) {
                 if (item.endsWith(' Target')) {
                     initReq.splice(initReq.indexOf(item), 1);
@@ -3203,7 +3198,7 @@ function userConfigApplyViewSettings(phoneInTable) {
 
         let urlObj = new URL(document.URL),
             pathClean = urlObj.pathname.replace(/\W/g, ""),
-            configName = pathClean.length > 0 ? "_" + pathClean : '',
+            configName = pathClean.length > 0 ? "_" + pathClean + "_a" : "_a",
             configJson = JSON.parse(localStorage.getItem("userConfig" + configName));
 
         if (configJson) {
@@ -3239,7 +3234,7 @@ function userConfigApplyNormalization() {
     
     let urlObj = new URL(document.URL),
         pathClean = urlObj.pathname.replace(/\W/g, ""),
-        configName = pathClean.length > 0 ? "_" + pathClean : '',
+        configName = pathClean.length > 0 ? "_" + pathClean + "_a" : "_a",
         configJson = JSON.parse(localStorage.getItem("userConfig" + configName));
     
     if ( configJson && configJson.normalMode === "Hz" ) {
