@@ -1122,6 +1122,12 @@ function addPhonesToUrl() {
     targetWindow.document.title = title;
     targetWindow.document.querySelector("meta[name='description']").setAttribute("content",baseDescription + ", including " + namesCombined +".");
 }
+
+function setModeEmbed() {
+    document.querySelector("body").setAttribute("embed-mode", "true");
+    document.querySelector("#inspector").click();
+}
+
 function updatePaths(trigger) {
     clearLabels();
     let c = d3.merge(activePhones.map(p => p.activeCurves)),
@@ -1731,9 +1737,13 @@ d3.json(typeof PHONE_BOOK !== "undefined" ? PHONE_BOOK
         if (url.includes(par) && url.includes(emb)) {
             initReq = decodeURIComponent(url.replace(/_/g," ").split(par).pop()).split(",");
             loadFromShare = 2;
+            
+            setModeEmbed();
         } else if (url.includes(par)) {
             initReq = decodeURIComponent(url.replace(/_/g," ").split(par).pop()).split(",");
             loadFromShare = 1;
+        } else if (url.includes(emb)) {
+            setModeEmbed();
         }
     }
     
@@ -2030,7 +2040,8 @@ gr.append("rect")
     .on("click", graphInteract(true));
 
 doc.select("#inspector").on("click", function () {
-    clearLabels(); stopInspect();
+    //clearLabels();
+    stopInspect();
     d3.select(this).classed("selected", interactInspect = !interactInspect);
 });
 
