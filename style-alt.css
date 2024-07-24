@@ -1788,6 +1788,7 @@ tbody.curves > tr > td.item-line span.variantPopout[style*="display"]:after {
 /* Styles for variantName + variantPopout layout */
 div.variant-names {
     flex: auto 1 1;
+    max-width: calc(100% - 40px);
 }
 
 div.variant-popouts {
