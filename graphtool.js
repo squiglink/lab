@@ -1126,6 +1126,8 @@ function addPhonesToUrl() {
 function setModeEmbed() {
     document.querySelector("body").setAttribute("embed-mode", "true");
     document.querySelector("#inspector").click();
+    
+    embedMode = true;
 }
 
 function updatePaths(trigger) {
