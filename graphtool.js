@@ -1125,9 +1125,6 @@ function addPhonesToUrl() {
 
 function setModeEmbed() {
     document.querySelector("body").setAttribute("embed-mode", "true");
-    document.querySelector("#inspector").click();
-    
-    embedMode = true;
 }
 
 function updatePaths(trigger) {
@@ -2042,7 +2039,7 @@ gr.append("rect")
     .on("click", graphInteract(true));
 
 doc.select("#inspector").on("click", function () {
-    //clearLabels();
+    clearLabels();
     stopInspect();
     d3.select(this).classed("selected", interactInspect = !interactInspect);
 });
