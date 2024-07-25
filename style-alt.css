@@ -3456,3 +3456,46 @@ Responsive styles *****/
         pointer-events: none;
     }
 }
+
+/*****
+Embed mode *****/
+body[embed-mode="true"] header.header {
+    display: none;
+}
+
+body[embed-mode="true"] section.parts-primary {
+    z-index: 3;
+
+    flex: 100vh 1 1 !important;
+    max-height: -webkit-fill-available;
+}
+
+body[embed-mode="true"] section.parts-secondary {
+    display: none;
+}
+
+body[embed-mode="true"] div.graph-sizer {
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    max-height: -webkit-fill-available;
+    margin: 0;
+
+    background-color: var(--background-color);
+}
+
+body[embed-mode="true"] svg#fr-graph {
+    width: 100%;
+
+    pointer-events: none;
+}
