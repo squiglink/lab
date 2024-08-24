@@ -1062,6 +1062,10 @@ function setBaseline(b, no_transition) {
     table.selectAll("tr").select(".button-baseline")
         .classed("selected", p=>p===baseline.p);
     
+    if (!userConfigApplicationActive) {
+        setUserConfig();
+    }
+    
     // Analytics event
     if (analyticsEnabled && b.p) { pushPhoneTag("baseline_set", b.p); }
 }
@@ -1652,9 +1656,6 @@ function removePhone(p) {
         if (ap.length === 1) {
             setCurves(ap[0], false);
         }
-    }
-    if (p.isTarget) {
-        if (!userConfigApplicationActive) setUserConfig();
     }
     updatePaths();
     if (baseline.p && !baseline.p.active) { setBaseline(baseline0); }
