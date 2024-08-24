@@ -1062,10 +1062,6 @@ function setBaseline(b, no_transition) {
     table.selectAll("tr").select(".button-baseline")
         .classed("selected", p=>p===baseline.p);
     
-    if (!userConfigApplicationActive) {
-        setUserConfig();
-    }
-    
     // Analytics event
     if (analyticsEnabled && b.p) { pushPhoneTag("baseline_set", b.p); }
 }
