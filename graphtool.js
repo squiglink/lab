@@ -792,6 +792,7 @@ function loadFiles(p, callback) {
             alert("Headphone not found!");
         } else {
             let ch = frs.map(f => f && Equalizer.interp(f_values, tsvParse(f)));
+            ch = ch.filter(c => c !== null);
             callback(ch);
         }
     });
@@ -991,7 +992,7 @@ function setCurves(p, avg, lr, samp) {
     if (samp===undefined) samp = avg ? false : LR.length===1||p.ssamp||false;
     else { p.ssamp = samp; if (samp) avg = false; }
     let dx = +avg - +p.avg,
-        n  = sampnums.length,
+        n  = p.channels.length/2,
         selCh = (l,i) => l.slice(i*n,(i+1)*n);
     p.avg = avg;
     p.samp = samp = n>1 && samp;
