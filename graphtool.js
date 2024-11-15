@@ -2124,7 +2124,7 @@ function themeChooser(command) {
     
     themeButton.setAttribute("current-theme", themePref);
 }
-if ( darkModeButton ) {
+if ( themingEnabled ) {
     let themeButton = document.createElement("button"),
         miscTools = document.querySelector("div.miscTools");
         
