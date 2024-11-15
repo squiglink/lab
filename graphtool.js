@@ -2098,7 +2098,7 @@ function themeChooser(command) {
             localStorage.setItem("theme-pref", "theme-contrast");
         } else if (themeCurrent === "theme-contrast") {
             localStorage.setItem("theme-pref", "theme-default");
-        } else if (themeCurrent === "theme-default") {
+        } else {
             localStorage.setItem("theme-pref", "theme-dark");
         }
     }
@@ -2116,7 +2116,7 @@ function themeChooser(command) {
         docBody.classList.add("theme-contrast");
         themeButton.textContent = "default mode";
         
-    } else if (themePref === "theme-default") {
+    } else {
         docBody.classList.remove("theme-dark", "theme-contrast");
         docBody.classList.add("theme-default");
         themeButton.textContent = "dark mode";
