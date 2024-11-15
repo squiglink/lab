@@ -1009,6 +1009,11 @@ svg#expandTools path {
     display: none;
 }
 
+button#theme {
+    justify-content: center;
+    min-width: 120px;
+}
+
 body.dark-mode div.miscTools button#theme,
 div.miscTools button#theme:active {
     background-color: var(--accent-color) !important;

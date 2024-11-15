@@ -2089,22 +2089,40 @@ copyUrlInit();
 // Theme Chooser
 function themeChooser(command) {
     let docBody = document.querySelector("body"),
-        darkClass = "dark-mode",
-        darkModePref = localStorage.getItem("dark-mode-pref");
+        themeButton = document.querySelector("button#theme"),
+        themeCurrent = themeButton.getAttribute("current-theme");
     
-    if ( darkModePref ) {
-        if ( command === "change") {
-            localStorage.removeItem("dark-mode-pref");
-            docBody.classList.remove(darkClass);
-        } else {
-            docBody.classList.add(darkClass);
-        }
-    } else {
-        if ( command === "change" ) {
-            localStorage.setItem("dark-mode-pref", "true");
-            docBody.classList.add(darkClass);
+    // If a change event, make changes to state
+    if (command === "change") {
+        if (themeCurrent === "theme-dark") {
+            localStorage.setItem("theme-pref", "theme-contrast");
+        } else if (themeCurrent === "theme-contrast") {
+            localStorage.setItem("theme-pref", "theme-default");
+        } else if (themeCurrent === "theme-default") {
+            localStorage.setItem("theme-pref", "theme-dark");
         }
     }
+    
+    let themePref = localStorage.getItem("theme-pref");
+    
+    // Apply state
+    if (themePref === "theme-dark") {
+        docBody.classList.remove("theme-default", "theme-contrast");
+        docBody.classList.add("theme-dark");
+        themeButton.textContent = "contrast mode";
+        
+    } else if (themePref === "theme-contrast") {
+        docBody.classList.remove("theme-default", "theme-dark");
+        docBody.classList.add("theme-contrast");
+        themeButton.textContent = "default mode";
+        
+    } else if (themePref === "theme-default") {
+        docBody.classList.remove("theme-dark", "theme-contrast");
+        docBody.classList.add("theme-default");
+        themeButton.textContent = "dark mode";
+    }
+    
+    themeButton.setAttribute("current-theme", themePref);
 }
 if ( darkModeButton ) {
     let themeButton = document.createElement("button"),
@@ -2112,6 +2130,7 @@ if ( darkModeButton ) {
         
     themeButton.setAttribute("id", "theme");
     themeButton.textContent = "dark mode";
+    themeButton.setAttribute("current-theme", "theme-default");
     miscTools.append(themeButton);
     
     themeChooser();
