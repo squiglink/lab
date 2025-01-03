@@ -9,8 +9,8 @@ const init_phones = ["BKF"],            // Optional. Which graphs to display on 
       alt_layout = true,                            // Toggle between classic and alt layouts
       alt_sticky_graph = true,                      // If active graphs overflows the viewport, does the graph scroll with the page or stick to the viewport?
       alt_animated = false,                         // Determines if new graphs are drawn with a 1-second animation, or appear instantly
-      alt_header = false,                           // Display a configurable header at the top of the alt layout
-      alt_header_new_tab = true,                    // Clicking alt_header links opens in new tab
+      alt_header = true,                            // Display a configurable header at the top of the alt layout
+      alt_header_new_tab = false,                   // Clicking alt_header links opens in new tab
       alt_tutorial = false,                         // Display a configurable frequency response guide below the graph
       alt_augment = false,                          // Display augment card in phone list, e.g. review sore, shop link
       site_url = 'graph.html',                      // URL of your graph "homepage"
@@ -251,6 +251,11 @@ let headerLogoText = "CrinGraph",
     {
         name: "Sample",
         url: "https://sample.com"
+    },
+    {
+        name: "Sample External",
+        url: "https://sample.com",
+        external: true
     }
 ];
 

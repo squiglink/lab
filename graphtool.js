@@ -2807,6 +2807,7 @@ function addHeader() {
         
         linkElem.setAttribute("href", link.url);
         if ( alt_header_new_tab ) { linkElem.setAttribute("target", "_blank"); }
+        if ( link.external ) { linkElem.setAttribute("target", "_blank"); linkElem.classList.add('external'); }
         linkElem.textContent = link.name;
         linkContainerElem.append(linkElem);
         linksList.append(linkContainerElem);
