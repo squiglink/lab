@@ -1,7 +1,7 @@
 
 /* Primary color theme */
 :root {
-    --accent-color: hsl(0, 0%, 0%);
+    --accent-color: hsl(210, 70%, 40%);
     --accent-color-contrast: hsl(0, 0%, 55%);
 
     --background-color: hsl(0, 0%, 96%);
