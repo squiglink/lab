@@ -2630,15 +2630,19 @@ function addExtra() {
             phoneObj.eq.rawChannels.filter(c => c)[0]);
         let settings = "Preamp: " + preamp.toFixed(1) + " dB\r\n";
         filters.forEach((f, i) => {
-            let on = (!f.disabled && f.type && f.freq && f.gain && f.q) ? "ON" : "OFF";
-            let type = f.type;
-            if (type === "LSQ" || type === "HSQ") {
-                // Equalizer APO use LSC/HSC instead of LSQ/HSQ
-                type = type.substr(0, 2) + "C";
+            let filterValid = f.freq != 0 && f.q != 0 && f.gain != 0 ? true : false;
+            
+            if (filterValid) {
+                let on = (!f.disabled && f.type && f.freq && f.gain && f.q) ? "ON" : "OFF";
+                let type = f.type;
+                if (type === "LSQ" || type === "HSQ") {
+                    // Equalizer APO use LSC/HSC instead of LSQ/HSQ
+                    type = type.substr(0, 2) + "C";
+                }
+                settings += ("Filter " + (i+1) + ": " + on + " " + type + " Fc " +
+                    f.freq.toFixed(0) + " Hz Gain " + f.gain.toFixed(1) + " dB Q " +
+                    f.q.toFixed(3) + "\r\n");
             }
-            settings += ("Filter " + (i+1) + ": " + on + " " + type + " Fc " +
-                f.freq.toFixed(0) + " Hz Gain " + f.gain.toFixed(1) + " dB Q " +
-                f.q.toFixed(3) + "\r\n");
         });
         let exportElem = document.querySelector("#file-filters-export");
         exportElem.href && URL.revokeObjectURL(exportElem.href);
