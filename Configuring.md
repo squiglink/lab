@@ -35,17 +35,12 @@ page works and isn't claiming it's crinacle.com.
 * Remove or change the watermark.
 * Remove the `targets`, replace them with your own, or get permission
   from Crinacle to use the ones in the CrinGraph repository.
-* If you are using a free/premium model, change `premium_html` in
-  `config_free.js` to point to your own site(s).
 
 ## Configuring CrinGraph
 
-The main page used to display graphs is [graph.html](graph.html), which
+The main page used to display graphs is [index.html](index.html), which
 defines the basic structure of a page and then includes a bunch of
 Javascript files that do the real work (at the end of the file).
-[graph_free.html](graph_free.html) is identical but uses a different 
-configuration file to remove some functionality. You will only need to
-use it if you intend to have both a free and a paid graph tool.
 
 Ideally all configuration can be done simply by changing
 [config.js](config.js). However, there are currently not very many
@@ -72,7 +67,7 @@ Here are the current configuration parameters:
   key) is. You probably don't need to change this.
 * `targets` lists the available target frequency responses. If you don't
   want to display any targets set it to `false`. If you do use targets,
-  each one should be a file named `... Target.txt` in the `DIR`
+  each one should be a file named `... Target.txt` in the `DIR/targets`
   directory you specified. The targets which are already there were
   provided by Crinacle so make sure you have his permission before using
   them.
@@ -80,21 +75,6 @@ Here are the current configuration parameters:
   at a given "Smooth:" setting. The setting will always start at 5, but
   its value is multiplied by `scale_smoothing` to get the actual level
   of smoothing.
-
-The following parameters can be set to configure a restricted version
-of the graph tool. They are only present in
-[config_free.js](config_free.js). If you don't set them the tool will
-be unrestricted.
-
-* `max_compare` is the maximum number of graphs allowed at a time.
-* `disallow_target` prevents target FRs from ever being loaded.
-* `allow_targets` is a list of target names, and overrides
-  `disallow_target` for those targets, so they can be loaded. If
-  `disallow_target` isn't set, it has no effect.
-* `premium_html` is the message shown when a user tries to do something
-  which isn't allowed according to the previous two settings. Given that
-  it points to Crinacle's patreon and not yours, you probably want to
-  change it.
 
 The following parameters are used to allow multiple samples per channel
 and different channel configurations than L/R. For example,
