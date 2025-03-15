@@ -1,6 +1,3 @@
-# Demo Page
-https://graphtool-demo.harutohiroki.com/
-
 # Changes
 - Added Equalizer (cred to Rohsa)
 - Added Uploads
@@ -11,7 +8,7 @@ https://graphtool-demo.harutohiroki.com/
 - Changed parser to universal parser
 - Removed Restricted mode (cuz I want to keep it free)
 - Reorganised code
-- Moved targets to a different folder for organization
+- Moved targets to a different folder for organization (RECOMMENDED BUT OPTIONAL for squiglink user's ease of migration)
 - Moved phone_book outside for easier access (reverted for squiglink compatibility)
 - Added a function to average all active graphs (requested by listener)
 - Custom Diffuse Field Tilt (requested by listener)
