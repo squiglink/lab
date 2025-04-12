@@ -299,5 +299,5 @@ let tutorialDefinitions = [
 ]
 // Configure paths to extraEQ plugins here
 let extraEQplugins = [
-    //'./devicePEQ/plugin.js' // Path to one or more "extraEQ" plugins
+    './plugins/devicePEQ/plugin.js' // Path to one or more "extraEQ" plugins
 ];
