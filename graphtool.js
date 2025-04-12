@@ -2763,11 +2763,11 @@ function addExtra() {
     let calcEqDevPreamp = (filters) => {
         const phoneSelected = eqPhoneSelect.value;
         const phoneObj = phoneSelected &&
-            context.activePhones.find(
+            activePhones.find(
                 (p) => p.fullName === phoneSelected && p.eq
             );
 
-        return context.Equalizer.calc_preamp(
+        return Equalizer.calc_preamp(
             phoneObj.rawChannels.filter(Boolean)[0],
             phoneObj.eq.rawChannels.filter(Boolean)[0]
         );
@@ -2802,7 +2802,7 @@ function addExtra() {
         }
     }
     // Might come from the config.js
-    let config = {showNetwork:false}; // Hide the extra selection of network based devices for now
+    let config = {advanced:true}; // Show the extra selection of network based devices for now
 
     // Load the plugin with the provided functions
     if (typeof extraEQplugins !== "undefined") {
