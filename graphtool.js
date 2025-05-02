@@ -2762,9 +2762,14 @@ function addExtra() {
     // Wrap up preamp Calculation Function for plugin
     let calcEqDevPreamp = (filters) => {
         const phoneSelected = eqPhoneSelect.value;
+        if (phoneSelected === "") {
+            alert("Please select model and one target for accurate preamp calculation.");
+            return 0.0;
+        }
+
         const phoneObj = phoneSelected &&
             activePhones.find(
-                (p) => p.fullName === phoneSelected && p.eq
+                (p) => getFullName(p) === phoneSelected && p.eq
             );
 
         return Equalizer.calc_preamp(
