@@ -5,146 +5,201 @@
 //
 // Many thanks to ma0shu for providing a dump
 
-const REPORT_ID = 0x4B;  // Report ID
-const ALT_REPORT_ID = 0x3C;  // Alternative Report ID
-const READ_VALUE = 0x80;  // From capture provided
-const WRITE_VALUE = 0x01; //
-const END_HEADER = 0x00;
-const PEQ_VALUES = 0x09;  // Read or write PEQ - read is current slot / write contains
-const RESET_DEVICE = 0x23;
-const RESET_EQ_DEFAULT = 0x05;
-const FIRMWARE_VERSION = 0x0C;
-const TEMP_WRITE = 0x0A;
-const FLASH_EQ = 0x01;
+export const walkplayUsbHID = (function () {
+  const REPORT_ID = 0x4B;
+  const ALT_REPORT_ID = 0x3C;
+  const READ = 0x80;
+  const WRITE = 0x01;
+  const END = 0x00;
+  const CMD = {
+    PEQ_VALUES: 0x09,
+    VERSION: 0x0C,
+    TEMP_WRITE: 0x0A,
+    FLASH_EQ: 0x01,
+    GET_SLOT: 0x0F,
+  };
 
-// These are probably not suitable for this plugin - but here because ma0shu provided the capture
-const ADC_OFFSET = 0x02;
-const DAC_OFFSET = 0x03;
-const DAC_WORKING_MODE = 0x1D; // 0 ->  "Class-H"  1 ->  "Class-AB"
-const ENC_STATUS = 0x1B;  // environment noise cancellation ??  Microphone ??
-const FILTER_MODE = 0x11;   // FAST-LL etc
-const HIGH_LOW_GAIN = 0x19; // 0 = LOW 1 = HIGH
+  const DEFAULT_FILTER_COUNT = 8;
 
-export const walkplayUsbHID = (function() {
-
-  // Get the currently selected EQ slot
   const getCurrentSlot = async (deviceDetails) => {
-    var device = deviceDetails.rawDevice;
+    const device = deviceDetails.rawDevice;
     if (!device) throw new Error("Device not connected.");
+
+    // Get the version number first
+    await sendReport(device, REPORT_ID, [READ, CMD.VERSION, END]);
+    var response = await waitForResponse(device);
+    const versionBytes = response.slice(3, 6);
+    const version = String.fromCharCode(...versionBytes);
+
+    console.log("USB Device PEQ: Walkplay firmware version:", version);
+    const versionNumber = parseFloat(version);
+
+    if (isNaN(versionNumber)) {
+      console.warn("Could not parse firmware version:", versionNumber);
+      deviceDetails.version = null;
+      return;
+    }
+
+    // Save version number to deviceDetails
+    deviceDetails.version = versionNumber;
+
     console.log("Fetching current EQ slot...");
 
-    await sendReport(device, REPORT_ID,[READ_VALUE, PEQ_VALUES, END_HEADER]);
-    const response = await waitForResponse(device);
+    await sendReport(device, REPORT_ID, [READ, CMD.PEQ_VALUES, END]);
+    response = await waitForResponse(device);
     const slot = response ? response[35] : -1;
 
-    console.log("Current EQ Slot:", slot);
+    console.log("Walkplay current EQ slot:", slot);
     return slot;
   };
 
   // Push PEQ settings to Walkplay device
   const pushToDevice = async (deviceDetails, slot, preampGain, filters) => {
-    var device = deviceDetails.rawDevice;
+    const device = deviceDetails.rawDevice;
     if (!device) throw new Error("Device not connected.");
     console.log("Pushing PEQ settings...");
     if (typeof slot === "string" )  // Convert from string
       slot = parseInt(slot, 10);
 
-    var useAltReport = false;
+    const useAltReport = false;
 
     for (let i = 0; i < filters.length; i++) {
       const filter = filters[i];
       const bArr = computeIIRFilter(i, filter.freq, filter.gain, filter.q);
 
       const packet = [
-        WRITE_VALUE, PEQ_VALUES, 0x18, 0x00, i, 0x00, 0x00,
+        WRITE, CMD.PEQ_VALUES, 0x18, 0x00, i, 0x00, 0x00,
         ...bArr,
         ...convertToByteArray(filter.freq, 2),
         ...convertToByteArray(Math.round(filter.q * 256), 2),
         ...convertToByteArray(Math.round(filter.gain * 256), 2),
-        0x02,
-        0x0,
+        0x02, 0x00,
         slot,
-        END_HEADER
+        END
       ];
-      console.log("Write HID data:", packet);
 
-      await sendReport(device,useAltReport ? ALT_REPORT_ID : REPORT_ID ,packet);
+      await sendReport(device, useAltReport ? ALT_REPORT_ID : REPORT_ID, packet);
     }
 
-    // Apply EQ settings temporarily
-    await sendReport(device,REPORT_ID,[WRITE_VALUE, TEMP_WRITE, 0x04, 0x00, 0x00, 0xFF, 0xFF,END_HEADER]);
+    await sendReport(device, REPORT_ID, [WRITE, CMD.TEMP_WRITE, 0x04, 0x00, 0x00, 0xFF, 0xFF, END]);
+    await sendReport(device, REPORT_ID, [WRITE, CMD.FLASH_EQ, 0x01, END]);
 
-    // Apply EQ settings temporarily
-    await sendReport(device,REPORT_ID,[WRITE_VALUE, FLASH_EQ, 0x01, END_HEADER]);
-
-    console.log("PEQ filters pushed successfully.");
+    console.log("PEQ filters successfully pushed to Walkplay device.");
   };
 
-  // Pull PEQ settings from Walkplay device
-  const pullFromDevice = async (deviceDetails, slot = DEFAULT_EQ_SLOT) => {
-    try {
-      var device = deviceDetails.rawDevice;
-      if (!device) throw new Error("Device not connected.");
-      console.log("Pulling PEQ settings...");
+  const pullFromDevice = async (deviceDetails, slot = -1) => {
+    const device = deviceDetails.rawDevice;
+    if (!device) throw new Error("Device not connected.");
 
-      const filters = [];
-      let globalGain = 0;
-      let currentSlot = -1;
-      const expectedFilters = 8; // WalkPlay has 8 filters
+    const filters = [];
+    let globalGain = 0;
+    let currentSlot = -1;
 
-      // Set up event listener to process incoming data
-      device.oninputreport = async (event) => {
-        const data = new Uint8Array(event.data.buffer);
-        console.log("Received HID response:", data);
+    device.oninputreport = async (event) => {
+      const data = new Uint8Array(event.data.buffer);
+      console.log(`USB Device PEQ: Walkplay pullFromDevice onInputReport received data:`, data);
 
-        // Extract filter data if it's a valid response
-        if (data.length >= 32) {
-          let filter = parseIndividualPEQPacket(data);
-            filters[filter.filterIndex] = filter; // Store at correct index
-        }
-
-        // Extract global gain if available
-        if (data.length > 40) {
-          globalGain = parseGlobalGain(data);
-        }
-
-        // Extract EQ slot
-        if (data.length >= 37) {
-          currentSlot = data[36];
-        }
-      };
-
-      // Request each filter (0-7) individually
-      for (let i = 0; i < expectedFilters; i++) {
-        await sendReport(device, REPORT_ID,[READ_VALUE, PEQ_VALUES, 0x00, 0x00, i, END_HEADER]);  // Read filter `i`
-        await delay(50);  // Give time for each request to be processed
+      if (data.length >= 32) {
+        const filter = parseFilterPacket(data);
+        console.log(`USB Device PEQ: Walkplay parsed filter ${filter.filterIndex}:`, filter);
+        filters[filter.filterIndex] = filter;
       }
 
-      // Wait until all 8 filters are retrieved
-      const result = await waitForFilters(() => {
-        return filters.filter(f => f !== undefined).length === expectedFilters;
-      }, device, 10000, () => ({
-        filters: filters,
-        globalGain: globalGain,
-        currentSlot: currentSlot,
-        deviceDetails: deviceDetails.modelConfig,
-      }));
+      if (data.length >= 40) {
+        globalGain = parseGlobalGain(data);
+        console.log(`USB Device PEQ: Walkplay parsed global gain: ${globalGain}dB`);
+      }
 
-      console.log("PEQ Data Pulled:", result);
-      return result;
-    } catch (error) {
-      console.error("Failed to pull data from WalkPlay Device:", error);
-      throw error;
+      if (data.length >= 37) {
+        currentSlot = data[36];
+        console.log(`USB Device PEQ: Walkplay parsed current slot: ${currentSlot}`);
+      }
+    };
+
+    // Send requests for each filter with increased delay
+    for (let i = 0; i < DEFAULT_FILTER_COUNT; i++) {
+      await sendReport(device, REPORT_ID, [READ, CMD.PEQ_VALUES, 0x00, 0x00, i, END]);
+      await delay(100); // Increased delay between requests
     }
+
+    // Check for missing filters after initial requests
+    await delay(200); // Wait a bit after sending all requests
+
+    // Retry for any missing filters
+    const missingIndices = [];
+    for (let i = 0; i < DEFAULT_FILTER_COUNT; i++) {
+      if (filters[i] === undefined) {
+        missingIndices.push(i);
+      }
+    }
+
+    if (missingIndices.length > 0) {
+      console.log(`Retrying missing filters: ${missingIndices.join(', ')}`);
+      for (const index of missingIndices) {
+        await sendReport(device, REPORT_ID, [READ, CMD.PEQ_VALUES, 0x00, 0x00, index, END]);
+        await delay(200); // Even longer delay for retries
+      }
+    }
+
+    // Wait for filters with increased timeout
+    const result = await waitForFilters(() => {
+      return filters.filter(f => f !== undefined).length === DEFAULT_FILTER_COUNT;
+    }, device, 15000, () => ({  // Increased timeout to 15 seconds
+      filters,
+      globalGain,
+      currentSlot,
+      deviceDetails: deviceDetails.modelConfig,
+    }));
+
+    console.log("Pulled PEQ filters from Walkplay:", result);
+    return result;
   };
 
-  // Enable or disable PEQ
+  function parseFilterPacket(packet) {
+    if (packet.length < 32) {
+      throw new Error("Packet too short to contain filter data.");
+    }
+
+    const filterIndex = packet[4];
+
+    // Frequency (little-endian 16-bit)
+    const freq = packet[27] | (packet[28] << 8);
+
+    // Q factor (8.8 fixed-point)
+    const qRaw = packet[29] | (packet[30] << 8);
+    const q = Math.round((qRaw / 256) * 10) / 10;
+
+    // Gain (8.8 fixed-point signed)
+    let gainRaw = packet[31] | (packet[32] << 8);
+    if (gainRaw > 32767) gainRaw -= 65536;
+    const gain = Math.round((gainRaw / 256) * 10) / 10;
+
+    // Filter type — Walkplay seems to only use Peaking
+    const type = convertToFilterType(packet[26]);
+
+    return {
+      filterIndex,
+      freq,
+      q,
+      gain,
+      type,
+      disabled: !(freq || q || gain)
+    };
+  }
+
+  function convertToFilterType(byte) {
+    switch (byte) {
+      case 0: return "PK"; // Peaking
+      case 1: return "LSQ"; // Low Shelf (if seen in future captures)
+      case 3: return "HSQ"; // High Shelf (future-proof)
+      default: return "PK";
+    }
+  }
   const enablePEQ = async (deviceDetails, enable, slotId) => {
-    var device = deviceDetails.rawDevice;
-    if (!enable) slotId = 0x00; // ?? Determine the not enabled
-    const packet = [WRITE_VALUE, FLASH_EQ, 0x00, slotId, END_HEADER]
+    const device = deviceDetails.rawDevice;
+    if (!enable) slotId = 0x00;
+    const packet = [WRITE, CMD.FLASH_EQ, 0x00, slotId, END];
     await sendReport(device, REPORT_ID, packet);
-    console.log(`PEQ ${enable ? "enabled" : "disabled"}.`);
   };
 
 
@@ -152,7 +207,7 @@ export const walkplayUsbHID = (function() {
   async function sendReport(device, reportId, packet) {
     if (!device) throw new Error("Device not connected.");
     const data = new Uint8Array(packet);
-    console.log("Sending:", data);
+    console.log(`USB Device PEQ: Walkplay sending report (ID: ${reportId}):`, data);
     await device.sendReport(reportId, data);
   }
 
@@ -160,12 +215,15 @@ export const walkplayUsbHID = (function() {
   async function waitForResponse(device, timeout = 5000) {
     return new Promise((resolve, reject) => {
       let response = null;
-      const timer = setTimeout(() => reject("Timeout waiting for HID response"), timeout);
+      const timer = setTimeout(() => {
+        console.log(`USB Device PEQ: Walkplay timeout waiting for response after ${timeout}ms`);
+        reject("Timeout waiting for HID response");
+      }, timeout);
 
       device.oninputreport = (event) => {
         clearTimeout(timer);
         response = new Uint8Array(event.data.buffer);
-        console.log("Received:", response);
+        console.log(`USB Device PEQ: Walkplay received response:`, response);
         resolve(response);
       };
     });
@@ -175,7 +233,7 @@ export const walkplayUsbHID = (function() {
     pushToDevice,
     pullFromDevice,
     getCurrentSlot,
-    enablePEQ,
+    enablePEQ
   };
 })();
 
@@ -188,9 +246,20 @@ async function waitForFilters(condition, device, timeout, callback) {
     const timer = setTimeout(() => {
       if (!condition()) {
         console.warn("Timeout: Filters not fully received.");
-        reject(callback(device));
+        // Instead of rejecting with the callback result, create a proper result with partial data
+        const result = callback(device);
+        // Add information about the timeout to help with debugging
+        result.complete = false;
+        result.timedOut = true;
+        result.receivedCount = result.filters.filter(f => f !== undefined).length;
+        result.expectedCount = DEFAULT_FILTER_COUNT;
+        // Resolve with partial data instead of rejecting
+        resolve(result);
       } else {
-        resolve(callback(device));
+        const result = callback(device);
+        result.complete = true;
+        result.timedOut = false;
+        resolve(result);
       }
     }, timeout);
 
@@ -198,42 +267,15 @@ async function waitForFilters(condition, device, timeout, callback) {
       if (condition()) {
         clearTimeout(timer);
         clearInterval(interval);
-        resolve(callback(device));
+        const result = callback(device);
+        result.complete = true;
+        result.timedOut = false;
+        resolve(result);
       }
     }, 100);
   });
 }
 
-function parseIndividualPEQPacket(packet) {
-  if (packet.length < 32) {
-    throw new Error("Packet too short to contain filter data.");
-  }
-  let filterType = convertToFilterType(packet[26]);
-  let filterIndex = packet[4]; // Extract filter index
-  let freq = packet[27] | (packet[28] << 8); // Frequency (little-endian)
-  let qFactor = (packet[29] | (packet[30] << 8)) / 256; // Q factor (scaled)
-
-  let gainRaw = packet[31] | (packet[32] << 8); // Gain (little-endian)
-  if (gainRaw > 32767) gainRaw -= 65536; // Handle negative values
-  let gain = Math.round((gainRaw / 256) * 10) / 10; // Convert to dB and round to 1 decimal
-
-  return {
-    type: filterType,
-    filterIndex: filterIndex,
-    freq: freq,
-    q: qFactor,
-    gain: gain,
-    disabled: (gain || freq || qFactor) ? false : true // Disable filter if 0 value found
-  };
-}
-function convertToFilterType(datum) {
-  switch (datum) {
-    case 0:
-      return "PK";  // Walkplay only seems to have Peaking filters
-    default:
-      return "PK";
-  }
-}
 
 function parseGlobalGain(data) {
   if (data.length < 40) return 0; // No global gain found
