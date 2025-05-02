@@ -8,7 +8,72 @@
  * @returns {Promise<void>}
  */
 async function initializeDeviceEqPlugin(context) {
-  console.log("Plugin initialized with context:", context);
+  // Initialize console log history array if it doesn't exist
+  if (!window.consoleLogHistory) {
+    window.consoleLogHistory = [];
+
+    // Store original console methods
+    const originalConsoleLog = console.log;
+    const originalConsoleError = console.error;
+    const originalConsoleWarn = console.warn;
+
+    // Flag to control logging visibility
+    window.showDeviceLogs = false;
+
+    // Override console.log to capture logs
+    console.log = function() {
+      // Convert arguments to string and add to history
+      const logString = Array.from(arguments).map(arg =>
+        typeof arg === 'object' ? JSON.stringify(arg) : String(arg)
+      ).join(' ');
+      window.consoleLogHistory.push(`[LOG] ${logString}`);
+
+      // Call original method only if showLogs is true or we have an experimental device
+      if (window.showDeviceLogs) {
+        originalConsoleLog.apply(console, arguments);
+      }
+    };
+
+    // Override console.error to capture errors
+    console.error = function() {
+      // Convert arguments to string and add to history
+      const logString = Array.from(arguments).map(arg =>
+        typeof arg === 'object' ? JSON.stringify(arg) : String(arg)
+      ).join(' ');
+      window.consoleLogHistory.push(`[ERROR] ${logString}`);
+
+      // Always show errors regardless of log settings
+      originalConsoleError.apply(console, arguments);
+    };
+
+    // Override console.warn to capture warnings
+    console.warn = function() {
+      // Convert arguments to string and add to history
+      const logString = Array.from(arguments).map(arg =>
+        typeof arg === 'object' ? JSON.stringify(arg) : String(arg)
+      ).join(' ');
+      window.consoleLogHistory.push(`[WARN] ${logString}`);
+
+      // Always show warnings regardless of log settings
+      originalConsoleWarn.apply(console, arguments);
+    };
+
+    // Limit history to last 500 entries
+    const MAX_LOG_HISTORY = 500;
+    setInterval(() => {
+      if (window.consoleLogHistory.length > MAX_LOG_HISTORY) {
+        window.consoleLogHistory = window.consoleLogHistory.slice(-MAX_LOG_HISTORY);
+      }
+    }, 10000); // Check every 10 seconds
+  }
+
+  // Check if showLogs flag is passed in context
+  if (context && context.config && context.config.showLogs === true) {
+    window.showDeviceLogs = true;
+    console.log("Plugin initialized with showLogs enabled");
+  } else {
+    console.log("Plugin initialized with context:", context);
+  }
 
   class DeviceEqUI {
     constructor() {
@@ -20,6 +85,7 @@ async function initializeDeviceEqPlugin(context) {
       this.peqDropdown = document.getElementById('device-peq-slot-dropdown');
       this.pullButton = this.deviceEqArea.querySelector('.pull-filters-fromdevice');
       this.pushButton = this.deviceEqArea.querySelector('.push-filters-todevice');
+      this.lastPushTime = 0; // Track when the push button was last clicked
 
       this.useNetwork = false;
       this.currentDevice = null;
@@ -45,6 +111,26 @@ async function initializeDeviceEqPlugin(context) {
       this.pushButton.hidden = false;
       this.peqDropdown.hidden = false;
       this.peqSlotArea.hidden = false;
+
+      // Check if the push button should still be disabled based on lastPushTime
+      const currentTime = Math.floor(Date.now() / 1000);
+      const cooldownTime = 0.2; // Cooldown time in seconds (200ms)
+
+      if (currentTime < this.lastPushTime + cooldownTime) {
+        // Button is still in cooldown period
+        this.pushButton.disabled = true;
+        this.pushButton.style.opacity = "0.5";
+        this.pushButton.style.cursor = "not-allowed";
+
+        // Set a new timeout for the remaining cooldown time
+        const remainingTime = (this.lastPushTime + cooldownTime) - currentTime;
+        setTimeout(() => {
+          this.pushButton.disabled = false;
+          this.pushButton.style.opacity = "";
+          this.pushButton.style.cursor = "";
+          console.log("Push button re-enabled after cooldown period");
+        }, remainingTime * 1000); // Convert seconds to milliseconds
+      }
     }
 
     showDisconnectedState() {
@@ -220,7 +306,7 @@ async function initializeDeviceEqPlugin(context) {
         <div id="deviceInfoModal" class="modal hidden">
           <div class="modal-content">
             <button id="closeModalBtn" class="close" aria-label="Close Modal">&times;</button>
-            <h3>About Device PEQ - v0.3</h3>
+            <h3>About Device PEQ - v0.5</h3>
 
             <div class="tabs">
               <button class="tab-button active" data-tab="tab-overview">Overview</button>
@@ -233,15 +319,17 @@ async function initializeDeviceEqPlugin(context) {
 
               <h4>Supported Brands & Manufacturers</h4>
               <ul>
-                <li><strong>FiiO:</strong> Most of their USB dongles including JA11, KA15 and KA17</li>
-                <li><strong>Moondrop:</strong> Moondrop CDSP, Chu II DSP, Quark2 and others </li>
-                <li><strong>Tanchjim:</strong> Bunny DSP, One DSP and others should work</li>
+                <li><strong>FiiO:</strong> JA11, KA15 and KA17</li>
+                <li><strong>Moondrop:</strong> CDSP, Chu II DSP, Quark2 </li>
+                <li><strong>Tanchjim:</strong> Bunny DSP, One DSP </li>
+                <li><strong>EPZ:</strong> GM20 and TP13</li>
+                <li><strong>KiwiEars:</strong> Allegro and Allegro Pro</li>
+                <li><strong>JCally:</strong> JM20 Pro, JM12</li>
                 <li><strong>Walkplay</strong> Most devices compatible with Walkplay Android APK</li>
                 <li><strong>KTMicro</strong> Many KTMicro DSP devices should work </li>
-                <li><strong>EPZ:</strong> GM20 and TP13</li>
-                <li><strong>JCally:</strong> JM20 Pro and JM12 and possible others</li>
                 <li><strong>JDS Labs:</strong> Supporting the Element IV via USB Serial interface</li>
                 <li><strong>WiiM:</strong> Supports pushing parametric EQ over the home network</li>
+                <li><strong>Experimental:</strong> Many more device's that have yet to be tested, will be marked as 'Experimental' but may work fine</li>
               </ul>
             </div>
 
@@ -426,6 +514,11 @@ async function initializeDeviceEqPlugin(context) {
 
               // Connect via Network using the provided IP
               const device = await NetworkDeviceConnector.getDeviceConnected(selection.ipAddress, selection.deviceType);
+              if (device?.handler == null) {
+                alert("Sorry, this network device is not currently supported.");
+                await NetworkDeviceConnector.disconnectDevice();
+                return;
+              }
               if (device) {
                 deviceEqUI.showConnectedState(
                   device,
@@ -437,7 +530,28 @@ async function initializeDeviceEqPlugin(context) {
             } else if (selection.connectionType == "usb") {
               // Connect via USB and show the HID device picker
               const device = await UsbHIDConnector.getDeviceConnected();
+              if (device?.handler == null) {
+                alert("Sorry, this USB device is not currently supported.");
+                await UsbHIDConnector.disconnectDevice();
+                return;
+              }
               if (device) {
+                // Check if the device is experimental
+                const isExperimental = device.modelConfig?.experimental === true;
+
+                if (isExperimental) {
+                  // Enable logs for experimental devices
+                  showDeviceLogs = true;
+                  console.log(`Enabling detailed logs for experimental device: ${device.model}`);
+
+                  // Show warning popup for experimental devices
+                  const proceedWithConnection = await showExperimentalDeviceWarning(device.model);
+                  if (!proceedWithConnection) {
+                    await UsbHIDConnector.disconnectDevice();
+                    return;
+                  }
+                }
+
                 deviceEqUI.showConnectedState(
                   device,
                   selection.connectionType,
@@ -453,7 +567,28 @@ async function initializeDeviceEqPlugin(context) {
             } else if (selection.connectionType == "serial") {
               // Connect via USB and show the Serial device picker
               const device = await UsbSerialConnector.getDeviceConnected();
+              if (device?.handler == null) {
+                alert("Sorry, this USB Serial device is not currently supported.");
+                await UsbSerialConnector.disconnectDevice();
+                return;
+              }
               if (device) {
+                // Check if the device is experimental
+                const isExperimental = device.modelConfig?.experimental === true;
+
+                if (isExperimental) {
+                  // Enable logs for experimental devices
+                  window.showDeviceLogs = true;
+                  console.log(`Enabling detailed logs for experimental serial device: ${device.model}`);
+
+                  // Show warning popup for experimental devices
+                  const proceedWithConnection = await showExperimentalDeviceWarning(device.model);
+                  if (!proceedWithConnection) {
+                    await UsbSerialConnector.disconnectDevice();
+                    return;
+                  }
+                }
+
                 deviceEqUI.showConnectedState(
                   device,
                   selection.connectionType,
@@ -500,6 +635,195 @@ async function initializeDeviceEqPlugin(context) {
           document.cookie = name + "=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC";
         }
 
+        // Function to show warning for experimental devices
+        function showExperimentalDeviceWarning(deviceName) {
+          return new Promise((resolve) => {
+            const dialogHTML = `
+              <div id="experimental-device-dialog" style="
+                  position: fixed;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  background: #fff;
+                  padding: 20px;
+                  border-radius: 8px;
+                  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+                  text-align: center;
+                  z-index: 10000;
+                  min-width: 340px;
+                  font-family: Arial, sans-serif;
+              ">
+                <h3 style="margin-bottom: 10px; color: #d9534f;">Experimental Device Warning</h3>
+                <p style="color: black; margin-bottom: 15px;">
+                  <strong>${deviceName}</strong> is marked as an experimental device.
+                  This means it hasn't been fully tested and while it may work perfectly, it may not work as expected.
+                </p>
+                <p style="color: black; margin-bottom: 15px;">
+                  If the device is working for you please consider submiting feedback below, and we will mark it as not experimental in the next release.
+                  If you noticed any issues, please disconnect the device and then come back here and submit feedback below.
+                </p>
+                <p style="color: black; margin-bottom: 15px;">
+                  Would you like to proceed with the connection anyway?
+                </p>
+
+                <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 15px;">
+                  <button id="proceed-button" style="padding: 8px 15px; background: #5cb85c; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                    Proceed
+                  </button>
+                  <button id="cancel-button" style="padding: 8px 15px; background: #d9534f; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                    Cancel
+                  </button>
+                </div>
+
+                <div style="border-top: 1px solid #eee; padding-top: 15px;">
+                  <p style="color: black; margin-bottom: 10px;">
+                    <strong>Help us improve!</strong> If you proceed, please consider providing feedback:
+                  </p>
+                  <div style="margin-bottom: 10px; text-align: left; display: flex; align-items: center;">
+                    <input type="checkbox" id="is-working-checkbox" style="margin-right: 8px;">
+                    <label for="is-working-checkbox" style="color: black; font-size: 14px;">
+                      Feature is working correctly
+                    </label>
+                  </div>
+                  <div style="margin-bottom: 10px; text-align: left; display: flex; align-items: center;">
+                    <input type="checkbox" id="include-logs-checkbox" style="margin-right: 8px;">
+                    <label for="include-logs-checkbox" style="color: black; font-size: 14px;">
+                      Include console logs to help diagnose issues
+                    </label>
+                  </div>
+                  <div style="margin-bottom: 10px; text-align: left;">
+                    <label for="comments-input" style="color: black; font-size: 14px; display: block; margin-bottom: 5px;">
+                      Comments (optional):
+                    </label>
+                    <textarea id="comments-input" placeholder="Please describe any issues you're experiencing..." style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px; min-height: 60px;"></textarea>
+                  </div>
+                  <button id="feedback-button" style="padding: 8px 15px; background: #5bc0de; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                    Send Feedback
+                  </button>
+                </div>
+              </div>
+            `;
+
+            // Force checkboxes
+            const styleFix = document.createElement("style");
+            styleFix.innerHTML = `
+              input[type="checkbox"] {
+                appearance: auto !important;
+                -webkit-appearance: auto !important;
+                width: 16px;
+                height: 16px;
+                vertical-align: middle;
+              }
+            `;
+            document.head.appendChild(styleFix);
+
+            const dialogContainer = document.createElement("div");
+            dialogContainer.innerHTML = dialogHTML;
+            document.body.appendChild(dialogContainer);
+
+            // Proceed button
+            document.getElementById("proceed-button").addEventListener("click", () => {
+              document.body.removeChild(dialogContainer);
+              resolve(true);
+            });
+
+            // Cancel button
+            document.getElementById("cancel-button").addEventListener("click", () => {
+              document.body.removeChild(dialogContainer);
+              resolve(false);
+            });
+
+            // Function to collect recent console logs
+            function collectConsoleLogs() {
+              // Return the last 100 console logs that contain plugin-related keywords
+              if (!window.consoleLogHistory) {
+                return "No console logs available";
+              }
+
+              // Filter logs related to the plugin
+              const pluginLogs = window.consoleLogHistory.filter(log =>
+                log.includes("Device") ||
+                log.includes("PEQ") ||
+                log.includes("USB") ||
+                log.includes("plugin") ||
+                log.includes("connector")
+              );
+
+              // Return the last 100 logs or all if less than 100
+              return pluginLogs.slice(-100).join("\n");
+            }
+
+            // Feedback button
+            document.getElementById("feedback-button").addEventListener("click", () => {
+              // Get values from form elements
+              const includeLogsCheckbox = document.getElementById("include-logs-checkbox");
+              const isWorkingCheckbox = document.getElementById("is-working-checkbox");
+              const commentsInput = document.getElementById("comments-input");
+
+              // If console log is empty, capture it now
+              let logs = "";
+              if (includeLogsCheckbox && includeLogsCheckbox.checked) {
+                logs = collectConsoleLogs();
+              }
+
+              // Show status message
+              const statusContainer = document.createElement("div");
+              statusContainer.style.marginTop = "10px";
+              statusContainer.style.padding = "8px";
+              statusContainer.style.borderRadius = "4px";
+              statusContainer.style.textAlign = "center";
+              statusContainer.style.backgroundColor = "#f8f9fa";
+              statusContainer.style.color = "#333";
+              statusContainer.textContent = "Submitting your feedback...";
+
+              // Add status container after the feedback button
+              document.getElementById("feedback-button").insertAdjacentElement('afterend', statusContainer);
+
+              // Submit to Google Form
+              submitToGoogleFormProxy(deviceName, commentsInput, logs, isWorkingCheckbox && isWorkingCheckbox.checked, statusContainer);
+            });
+
+            async function submitToGoogleFormProxy(deviceName, comments, logs, isWorking, statusContainer) {
+              const formData = new URLSearchParams();
+              formData.append('entry.1909598303', deviceName);
+              formData.append('entry.1928983035', comments && comments.value ? comments.value : "No comments provided");
+              formData.append('entry.466843002', logs || "No logs available");
+              formData.append('entry.1088832316', isWorking ? "Working" : "Not Working");
+
+              try {
+                const response = await fetch('https://docs.google.com/forms/d/e/1FAIpQLSfSaNpdpAvd39tOupDqzyUW_aFEVawywAz4xls4m1z2_T3BOQ/formResponse', {
+                  method: 'POST',
+                  mode: 'no-cors', // Google Forms requires no-cors mode
+                  headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                  },
+                  body: formData.toString()
+                });
+
+                // Note: With no-cors mode, we can't access the response details
+                // But we can assume it worked if no error was thrown
+                console.log("Google Form Submission Completed");
+
+                statusContainer.style.backgroundColor = "#d4edda";
+                statusContainer.style.color = "#155724";
+                statusContainer.textContent = "Thank you for your feedback!";
+
+                setTimeout(() => {
+                  if (statusContainer.parentNode) {
+                    statusContainer.parentNode.removeChild(statusContainer);
+                  }
+                }, 3000);
+
+              } catch (error) {
+                console.error("Error submitting to Google Form Proxy:", error);
+                statusContainer.style.backgroundColor = "#f8d7da";
+                statusContainer.style.color = "#721c24";
+                statusContainer.textContent = "Failed to submit feedback.";
+              }
+            }
+          });
+        }
+
         function showDeviceSelectionDialog() {
           return new Promise((resolve) => {
             const storedIP = getCookie("networkDeviceIP") || "";
@@ -523,10 +847,12 @@ async function initializeDeviceEqPlugin(context) {
         <h3 style="margin-bottom: 10px; color: black;">Select Connection Type</h3>
         <p style="color: black;">Choose how you want to connect to your device.</p>
 
-        <!-- Selection Buttons -->
-        <button id="usb-hid-button" style="margin: 10px; padding: 10px 15px; font-size: 14px; background: #007BFF; color: #fff; border: none; border-radius: 4px; cursor: pointer;">USB Device</button>
-        <button id="usb-serial-button" style="margin: 10px; padding: 10px 15px; font-size: 14px; background: #6f42c1; color: #fff; border: none; border-radius: 4px; cursor: pointer;">USB Serial Device</button>
-        <button id="network-button" style="margin: 10px; padding: 10px 15px; font-size: 14px; background: #28a745; color: #fff; border: none; border-radius: 4px; cursor: pointer;">Network</button>
+        <!-- Selection Buttons (Vertical Layout) -->
+        <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+          <button id="usb-hid-button" style="margin: 5px 0; padding: 10px 15px; font-size: 14px; background: #007BFF; color: #fff; border: none; border-radius: 4px; cursor: pointer; width: 80%;">USB Device</button>
+          <button id="usb-serial-button" style="margin: 5px 0; padding: 10px 15px; font-size: 14px; background: #6f42c1; color: #fff; border: none; border-radius: 4px; cursor: pointer; width: 80%;">USB Serial Device</button>
+          <button id="network-button" style="margin: 5px 0; padding: 10px 15px; font-size: 14px; background: #28a745; color: #fff; border: none; border-radius: 4px; cursor: pointer; width: 80%;">Network</button>
+        </div>
 
         <!-- IP Address Input -->
         <input type="text" id="ip-input" placeholder="Enter IP Address" value="${storedIP}" style="display: none; margin-top: 10px; width: 80%;">
@@ -664,7 +990,20 @@ async function initializeDeviceEqPlugin(context) {
             } else if (deviceEqUI.connectionType == "serial") {
               result = await UsbSerialConnector.pullFromDevice(device, selectedSlot);
             }
-            if (result.filters.length > 0) {
+
+            // Check if we have a timeout but still received some filters
+            if (result.timedOut === true && result.filters.length > 0) {
+              console.warn(`Received ${result.receivedCount} of ${result.expectedCount} filters due to timeout`);
+              // Show a warning but still use the partial data if we have at least some filters
+              if (confirm(`Only received ${result.receivedCount} of ${result.expectedCount} filters. Use partial data anyway?`)) {
+                context.filtersToElem(result.filters.filter(f => f !== undefined));
+                context.applyEQ();
+              } else {
+                // User chose not to use partial data
+                return;
+              }
+            } else if (result.filters.length > 0) {
+              // Normal case - all filters received
               context.filtersToElem(result.filters);
               context.applyEQ();
             } else {
@@ -686,6 +1025,17 @@ async function initializeDeviceEqPlugin(context) {
         // Push Button Event Listener
         deviceEqUI.pushButton.addEventListener('click', async () => {
           try {
+            // Check if the button is in cooldown period
+            const currentTime = Math.floor(Date.now() / 1000); // Current time in seconds
+            const cooldownTime = 0.2; // Cooldown period in seconds (200ms)
+
+            if (currentTime < deviceEqUI.lastPushTime + cooldownTime) {
+              const remainingTime = (deviceEqUI.lastPushTime + cooldownTime) - currentTime;
+              const remainingMinutes = Math.floor(remainingTime / 60);
+              const remainingSeconds = remainingTime % 60;
+              return;
+            }
+
             const device = deviceEqUI.currentDevice;
             const selectedSlot = deviceEqUI.peqDropdown.value;
             if (!device || !selectedSlot) {
@@ -721,6 +1071,20 @@ async function initializeDeviceEqPlugin(context) {
               deviceEqUI.showDisconnectedState();
               alert("PEQ Saved - Restarting");
             }
+
+            // Set the last push time to current time and disable the button
+            deviceEqUI.lastPushTime = Math.floor(Date.now() / 1000);
+            deviceEqUI.pushButton.disabled = true;
+            deviceEqUI.pushButton.style.opacity = "0.5";
+            deviceEqUI.pushButton.style.cursor = "not-allowed";
+
+            // Set a timeout to re-enable the button after the cooldown period
+            setTimeout(() => {
+              deviceEqUI.pushButton.disabled = false;
+              deviceEqUI.pushButton.style.opacity = "";
+              deviceEqUI.pushButton.style.cursor = "";
+              console.log("Push button re-enabled after cooldown period");
+            }, 200); // 200ms timeout as requested
           } catch (error) {
 
             console.error("Error pushing PEQ filters:", error);

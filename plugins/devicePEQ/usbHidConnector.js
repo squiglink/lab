@@ -10,20 +10,21 @@ export const UsbHIDConnector = ( async function () {
 
     const getDeviceConnected = async () => {
         try {
-            // Build filters from your configuration
-            // (Assuming each configuration has a unique vendorId)
-            const vendorToManufacturer = usbHidDeviceHandlerConfig.map(entry => ({
-              vendorId: entry.vendorId,
-              // You could also include productId if needed
-            }));
-
+            const vendorToManufacturer = usbHidDeviceHandlerConfig.flatMap(entry =>
+              entry.vendorIds.map(vendorId => ({
+                vendorId,
+                name: entry.name
+              }))
+            );
             // Request devices matching the filters
             const selectedDevices = await navigator.hid.requestDevice({ filters: vendorToManufacturer });
 
             if (selectedDevices.length > 0) {
                 const rawDevice = selectedDevices[0];
                 // Find the vendor configuration matching the selected device
-                const vendorConfig = usbHidDeviceHandlerConfig.find(entry => entry.vendorId === rawDevice.vendorId);
+              const vendorConfig = usbHidDeviceHandlerConfig.find(entry =>
+                entry.vendorIds.includes(rawDevice.vendorId)
+              );
 
                 if (!vendorConfig) {
                   console.error("No configuration found for vendor:", rawDevice.vendorId);
@@ -35,7 +36,11 @@ export const UsbHIDConnector = ( async function () {
                 // Look up the model-specific configuration from the vendor config.
                 // If no specific model configuration exists, fall back to a default if provided.
                 let deviceDetails = vendorConfig.devices[model] || {};
-                let modelConfig = deviceDetails.modelConfig || vendorConfig.defaultModelConfig || {};
+                let modelConfig = Object.assign(
+                  {},
+                  vendorConfig.defaultModelConfig || {},
+                  deviceDetails.modelConfig || {}
+                );
 
                 const manufacturer = deviceDetails.manufacturer | vendorConfig.manufacturer;
                 let handler = deviceDetails.handler ||  vendorConfig.handler;
