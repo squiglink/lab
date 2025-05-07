@@ -40,3 +40,15 @@ The primary headphone measurement supported by this tool is the frequency respon
 - Temporarily hide or unhide a graph.
 - Pin a model to avoid losing it while adding others.
 - Click on the small dots in the bottom left to change a model's color.
+
+## Tips
+
+```sh
+docker compose run lab pnpm prettier --check .
+docker compose run lab pnpm prettier --write .
+```
+
+## Contributing
+
+1. Install dependencies (`docker compose run lab pnpm install`).
+2. Ensure that formatters are passing.
