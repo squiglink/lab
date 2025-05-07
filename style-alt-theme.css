@@ -1,88 +1,87 @@
-
 /* Primary color theme */
 :root {
-    --accent-color: hsl(210, 70%, 40%);
-    --accent-color-contrast: hsl(0, 0%, 55%);
+  --accent-color: hsl(210, 70%, 40%);
+  --accent-color-contrast: hsl(0, 0%, 55%);
 
-    --background-color: hsl(0, 0%, 96%);
-    --background-color-contrast: hsl(0, 0%, 90%);
-    --background-color-contrast-more: hsl(0, 0%, 65%);
-    --background-color-graph: hsl(0, 0%, 100%);
-    
-    --background-color-inputs: hsl(0, 0%, 100%);
-    
-    --font-color-primary: hsl(0, 0%, 10%);
-    --font-color-secondary: hsl(0, 0%, 100%);
-    --font-color-inputs: hsl(0, 0%, 50%);
-    
-    --font-primary: 'Open Sans', sans-serif;
-    --font-secondary: monospace;
-    
-    --scrollbar-color: 255,255,255;
-    --scrollbar-accent: 0,0,0;
-    
-    --header-color: hsl(215, 20%, 10%);
-    --header-links-color: hsl(0, 0%, 100%);
-    --header-menu-icon-color: hsl(0, 0%, 100%);
-    
-    --logo-filter: invert(1.0);
-    --svg-filter: none;
+  --background-color: hsl(0, 0%, 96%);
+  --background-color-contrast: hsl(0, 0%, 90%);
+  --background-color-contrast-more: hsl(0, 0%, 65%);
+  --background-color-graph: hsl(0, 0%, 100%);
+
+  --background-color-inputs: hsl(0, 0%, 100%);
+
+  --font-color-primary: hsl(0, 0%, 10%);
+  --font-color-secondary: hsl(0, 0%, 100%);
+  --font-color-inputs: hsl(0, 0%, 50%);
+
+  --font-primary: "Open Sans", sans-serif;
+  --font-secondary: monospace;
+
+  --scrollbar-color: 255, 255, 255;
+  --scrollbar-accent: 0, 0, 0;
+
+  --header-color: hsl(215, 20%, 10%);
+  --header-links-color: hsl(0, 0%, 100%);
+  --header-menu-icon-color: hsl(0, 0%, 100%);
+
+  --logo-filter: invert(1);
+  --svg-filter: none;
 }
 
 body.theme-dark {
-    --accent-color: hsl(0, 0%, 100%);
-    --accent-color-contrast: hsl(0, 0%, 50%);
+  --accent-color: hsl(0, 0%, 100%);
+  --accent-color-contrast: hsl(0, 0%, 50%);
 
-    --background-color: hsl(0, 0%, 6%);
-    --background-color-contrast: hsl(0, 0%, 15%);
-    --background-color-contrast-more: hsl(0, 0%, 30%);
-    --background-color-graph: hsl(0, 0%, 8%);
+  --background-color: hsl(0, 0%, 6%);
+  --background-color-contrast: hsl(0, 0%, 15%);
+  --background-color-contrast-more: hsl(0, 0%, 30%);
+  --background-color-graph: hsl(0, 0%, 8%);
 
-    --background-color-inputs: hsl(0, 0%, 15%);
+  --background-color-inputs: hsl(0, 0%, 15%);
 
-    --font-color-primary: hsl(0, 0%, 80%);
-    --font-color-secondary: hsl(0, 0%, 0%);
-    --font-color-inputs: hsl(0, 0%, 60%);
+  --font-color-primary: hsl(0, 0%, 80%);
+  --font-color-secondary: hsl(0, 0%, 0%);
+  --font-color-inputs: hsl(0, 0%, 60%);
 
-    --font-primary: 'Open Sans', sans-serif;
-    --font-secondary: monospace;
+  --font-primary: "Open Sans", sans-serif;
+  --font-secondary: monospace;
 
-    --scrollbar-color: 0,0,0;
-    --scrollbar-accent: 255,255,255;
+  --scrollbar-color: 0, 0, 0;
+  --scrollbar-accent: 255, 255, 255;
 
-    --header-color: hsl(0, 0%, 0%);
-    --header-links-color: hsl(0, 0%, 100%);
-    --header-menu-icon-color: hsl(0, 0%, 100%);
-    
-    --logo-filter: invert(1.0);
-    --svg-filter: invert(1);
+  --header-color: hsl(0, 0%, 0%);
+  --header-links-color: hsl(0, 0%, 100%);
+  --header-menu-icon-color: hsl(0, 0%, 100%);
+
+  --logo-filter: invert(1);
+  --svg-filter: invert(1);
 }
 
 body.theme-contrast {
-    --accent-color: hsl(0, 0%, 0%);
-    --accent-color-contrast: hsl(0, 0%, 0%);
+  --accent-color: hsl(0, 0%, 0%);
+  --accent-color-contrast: hsl(0, 0%, 0%);
 
-    --background-color: hsl(0, 0%, 100%);
-    --background-color-contrast: hsl(0, 0%, 0%);
-    --background-color-contrast-more: hsl(0, 0%, 0%);
-    --background-color-graph: hsl(0, 0%, 100%);
-    
-    --background-color-inputs: hsl(0, 0%, 100%);
-    
-    --font-color-primary: hsl(0, 0%, 0%);
-    --font-color-secondary: hsl(0, 0%, 100%);
-    --font-color-inputs: hsl(0, 0%, 0%);
-    
-    --font-primary: 'Open Sans', sans-serif;
-    --font-secondary: monospace;
-    
-    --scrollbar-color: 255,255,255;
-    --scrollbar-accent: 0,0,0;
-    
-    --header-color: hsl(215, 20%, 10%);
-    --header-links-color: hsl(0, 0%, 100%);
-    --header-menu-icon-color: hsl(0, 0%, 100%);
-    
-    --logo-filter: invert(1.0);
-    --svg-filter: none;
+  --background-color: hsl(0, 0%, 100%);
+  --background-color-contrast: hsl(0, 0%, 0%);
+  --background-color-contrast-more: hsl(0, 0%, 0%);
+  --background-color-graph: hsl(0, 0%, 100%);
+
+  --background-color-inputs: hsl(0, 0%, 100%);
+
+  --font-color-primary: hsl(0, 0%, 0%);
+  --font-color-secondary: hsl(0, 0%, 100%);
+  --font-color-inputs: hsl(0, 0%, 0%);
+
+  --font-primary: "Open Sans", sans-serif;
+  --font-secondary: monospace;
+
+  --scrollbar-color: 255, 255, 255;
+  --scrollbar-accent: 0, 0, 0;
+
+  --header-color: hsl(215, 20%, 10%);
+  --header-links-color: hsl(0, 0%, 100%);
+  --header-menu-icon-color: hsl(0, 0%, 100%);
+
+  --logo-filter: invert(1);
+  --svg-filter: none;
 }

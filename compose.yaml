@@ -1,0 +1,5 @@
+services:
+  lab:
+    build: .
+    volumes:
+      - .:/lab
