@@ -190,6 +190,12 @@ div.graphBox[data-animated="true"] g[mask="url(#graphFade)"] path:not(.target) {
 /*****
 Graph labels *****/
 
+/* Rig */
+
+svg text.rig-description {
+    filter: var(--svg-filter)
+}
+
 /* top-left */
 svg#fr-graph[data-labels-position="top-left"] > rect + g.lineLabel + g.lineLabel + g.lineLabel + g.lineLabel + g.lineLabel:nth-last-child(1),
 svg#fr-graph[data-labels-position="top-left"] > rect + g.lineLabel + g.lineLabel + g.lineLabel + g.lineLabel:nth-last-child(1),
