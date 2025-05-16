@@ -1,0 +1,14 @@
+name: CI
+
+on:
+  push:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: docker compose run lab pnpm install
+
+      - run: docker compose run lab pnpm prettier --check .

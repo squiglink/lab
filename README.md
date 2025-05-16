@@ -1,108 +1,54 @@
-# The In-Ear Graphing Library
+# Squiglink Lab
 
-If you're not weirdly obsessed with headphones you can leave at any time.
-
-Crinacle is a reviewer famous around the world (at least, I'm on the
-opposite side of it as he is) for his extensive reviews and measurements
-of in-ear monitors (IEMs). CrinGraph is the tool which allows readers to
-compare measurements against each other, and save easily readable images
-to share around the internet. Although it was designed for
-[Crin's site](https://crinacle.com/graphs/graphtool/),
-the code here can be used freely by anyone, with no restrictions.
-There are now many instances, including
-[Banbeucmas](https://banbeu.com/graph/tool/),
-[HypetheSonics](https://www.hypethesonics.com/iemdbc/),
-[Rohsa](https://rohsa.gitlab.io/graphtool/), and
-[Super\* Review](https://squig.link/), which has links to even more of
-them. If you're interested in using it for your own graphs, see
-[Configuring.md](Configuring.md) and ask me about any questions that
-come up.
-
-### What are the squiggles?
-
-If you want the whole story, there's no choice but to get it from
-[the man himself](https://crinacle.com/2020/04/08/graphs-101-how-to-read-headphone-measurements/).
-5,000 words and you'll still be disappointed when it's over.
-
-The most informative headphone measurement, and the only one handled by
-this tool, is the frequency response (FR) graph. An FR graph shows how
-loud the headphone will render sounds at different pitches. The higher
-the left portion of the graph, the more your brain will rattle; the
-higher the right portion of the graph, the more your ears will bleed.
-The current industry standard is a "V-shaped" response which applies
-both conditions at once. Using an FR graph you may easily see which
-headphones conform to this standard and which are insufficiently "fun".
-
-### Sample graphs
-
-This repository includes some sample data so that the tool can be shown
-through Github pages. Sometimes I use this to show people features
-before they're adopted on Crin's site.
-
-[View some sample graphs.](https://mlochbaum.github.io/CrinGraph/graph.html)
-
-Because Crinacle's frequency response measurements are not public, the
-sample response curves shown are synthesized. They are not real
-headphones and you can't listen to them. To reduce potential
-disappointment, steps have been taken to ensure that the curves are as
-uninviting as possible. Any resemblance to the exports of a large East
-Asian county is purely coincidental.
+The primary headphone measurement supported by this tool is the frequency response (FR) graph, which is generally considered one of the most informative metrics for evaluating headphones. An FR graph illustrates how headphones reproduce sound across a range of frequencies. In general terms, a higher level on the left side of the graph suggests more pronounced bass, while a higher level on the right side typically indicates greater treble.
 
 ## Features
 
-If you want one that's not here, just ask so I can explain why it's a
-bad idea.
-
-### Layout
-
-The graph tool displays:
-* A **graph window** at the top
-* The **toolbar** just below it
-* The **selector** at the bottom left, or below the toolbar for narrow windows
-* A **target selector**
-* The **manager** for active curves
-
 ### Graph window
 
-* Standard logarithmic frequency (Hz) and sound pressure level (dB) [axes](Documentation.md#axes)
-* [Colors](Documentation.md#colors) are persistent and algorithmically generated to ensure contrast
-* Use the slider at the left to rescale and adjust the y axis
-* [Hover](Documentation.md#highlight-on-mouseover) over or click a curve to see its name and highlight it in the manager
+- Standard logarithmic frequency (Hz) and sound pressure level (dB) [axes](Documentation.md#axes).
+- [Colors](Documentation.md#colors) are persistent and algorithmically generated to ensure contrast.
+- A slider at the left to rescale and adjust the y-axis.
+- [Hover](Documentation.md#highlight-on-mouseover) over or click on a curve to see its name and highlight it.
 
 ### Toolbar
 
-* Zoom into bass, mid, or treble frequencies
-* [Normalize](Documentation.md#normalization) with a target loudness or a normalization frequency
-* [Smooth](Documentation.md#smoothing) graphs with a configurable parameter
-* Toggle inspect mode to see the numeric response values when you mouse over the graph
-* [Label](Documentation.md#labelling) curves inside the graph window
-* Save a png [screenshot](Documentation.md#screenshot) of the graph (with labels)
-* Recolor the active curves in case there is a color conflict
-* Toolbar collapses and expands, along with the target selector, when the screen is small
+- Zoom in on bass, mid, or treble frequencies.
+- [Normalize](Documentation.md#normalization) with a target loudness or a normalization frequency.
+- [Smooth](Documentation.md#smoothing) graphs with a configurable parameter.
+- Enable inspect mode to view numeric values when hovering over the graph.
+- [Label](Documentation.md#labelling) curves directly within the graph window.
+- Save a PNG [screenshot](Documentation.md#screenshot) of the graph (with labels).
+- Recolor active curves to avoid color conflicts.
+- The toolbar and target selector will collapse or expand based on screen size.
 
-### Headphone and target selectors
+### Model and target selectors
 
-* Headphones are grouped by brand: select brands to narrow them down
-* Click to select one headphone or brand and unselect others; middle or ctrl-click for non-exclusive select
-* [Search](Documentation.md#searching) all brands or headphones by name
-* Targets are selected the same way but are independent from headphones
+- Models are organized by brand, select a brand to narrow the options.
+- Click to select a specific model or brand, and unselect others, use MMB or Ctrl + LMB for multi-selection.
+- [Search](Documentation.md#searching) all brands or models by name.
+- Targets are selected in the same way but are separate from the models.
 
-### Headphone manager
+### Model manager
 
-* Curve names and colors are displayed here
-* Choose and compare variant measurements of the same model with a dropdown
-* Use the wishbone-shaped selector to see left and/or right channels or [average](Documentation.md#averaging) them together
-* A red exclamation mark indicates that channels are [imbalanced](Documentation.md#channel-imbalance-marker)
-* Change the offset to move graphs up and down (after [normalization](Documentation.md#normalization))
-* Select [BASELINE](Documentation.md#baseline) to adjust all curves so the chosen one is flat
-* Temporarily hide or unhide a graph
-* PIN a headphone to avoid losing it while adding others
-* Click the little dots at the bottom left to change a single headphone's [color](Documentation.md#colors)
+- Curve names and colors are displayed here.
+- Select and compare different variants of the same model using the dropdown.
+- Use the wishbone-shaped selector to view left and/or right channels, or [average](Documentation.md#averaging) them together.
+- A red exclamation mark indicates that channels are [imbalanced](Documentation.md#channel-imbalance-marker).
+- Adjust the offset to move graphs up or down (after [normalization](Documentation.md#normalization)).
+- Select [BASELINE](Documentation.md#baseline) to flatten all curves to the chosen one.
+- Temporarily hide or unhide a graph.
+- Pin a model to avoid losing it while adding others.
+- Click on the small dots in the bottom left to change a model's color.
 
-## Contact
+## Tips
 
-File a Github issue here for topics related to the project. You can also
-reach me by the email in my Github profile and the [LICENSE](LICENSE).
-I can sometimes be found on
-[Crin's Discord server](https://discord.gg/CtTqcCb) where I am
-creatively named Marshall.
+```sh
+docker compose run lab pnpm prettier --check .
+docker compose run lab pnpm prettier --write .
+```
+
+## Contributing
+
+1. Install dependencies (`docker compose run lab pnpm install`).
+2. Ensure that formatters are passing.
