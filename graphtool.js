@@ -785,7 +785,7 @@ let getO = i => LR.length>1 ? -1+i*2/(LR.length-1) : 0;
 const sampnums = typeof num_samples !== "undefined" ? d3.range(1,num_samples+1)
                                                     : [""];
 function loadFiles(p, callback) {
-    let l = f => d3.text(DIR+f+".txt").catch(()=>null);
+    let l = f => d3.text(getFileAddress(f)).catch(()=>null);
     let f = p.isTarget ? [l(p.fileName)]
           : d3.merge(LR.map(s =>
                 sampnums.map(n => l(p.fileName+" "+s+n))));
@@ -1723,8 +1723,25 @@ function asPhoneObj(b, p, isInit, inits) {
     return r;
 }
 
+function getPhoneBookAddress() {
+//api.squig.link/legacy/data/phone_book.json?database_id=123
+    let apiHosted = typeof api_database_id !== "undefined" && api_database_id.length,
+        phoneBookAddress = apiHosted ? DIR + "legacy/data/phone_book.json?database_id=" + api_database_id + '&t=' + new Date().getTime() : DIR + "phone_book.json?t=" + new Date().getTime();
+    
+    return phoneBookAddress;
+        
+}
+
+function getFileAddress(f) {
+//api.squig.link/legacy/data/67e1a0b0-d2a9-4f71-bf21-76b2ace7657e L.txt
+    let apiHosted = typeof api_database_id !== "undefined" && api_database_id.length,
+        fileAddress = apiHosted ? DIR + "legacy/data/" + f + ".txt" : DIR + f + ".txt";
+    
+    return fileAddress;
+}
+
 d3.json(typeof PHONE_BOOK !== "undefined" ? PHONE_BOOK
-            : DIR+"phone_book.json?"+ new Date().getTime()).then(function (brands) {
+            : getPhoneBookAddress()).then(function (brands) {
     let brandMap = window.brandMap = {},
         inits = [],
         initReq = typeof init_phones !== "undefined" ? [init_phones].flat() : false;

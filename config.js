@@ -1,6 +1,7 @@
 // Configuration options
-const api_database_id = "abcde12345",             // Optional. ID of measurement database hosted via Squiglink API.
-    DIR = "api.squig.link",                       // Directory where graph files are stored
+const api_database_id = "",             // Optional. ID of measurement database hosted via Squiglink API.
+//    DIR = "https://api.squig.link/",               // Directory where graph files are stored
+      DIR = "data/",
     init_phones = ["BKF"],                        // Optional. Which graphs to display on initial load. Note: Share URLs will override this set
     default_channels = ["L","R"],                 // Which channels to display. Avoid javascript errors if loading just one channel per phone
     default_normalization = "dB",                 // Sets default graph normalization mode. Accepts "dB" or "Hz"
