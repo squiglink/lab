@@ -1724,7 +1724,6 @@ function asPhoneObj(b, p, isInit, inits) {
 }
 
 function getPhoneBookAddress() {
-//api.squig.link/legacy/data/phone_book.json?database_id=123
     let apiHosted = typeof api_database_id !== "undefined" && api_database_id.length,
         phoneBookAddress = apiHosted ? DIR + "legacy/data/phone_book.json?database_id=" + api_database_id + '&t=' + new Date().getTime() : DIR + "phone_book.json?t=" + new Date().getTime();
     
@@ -1733,7 +1732,6 @@ function getPhoneBookAddress() {
 }
 
 function getFileAddress(f) {
-//api.squig.link/legacy/data/67e1a0b0-d2a9-4f71-bf21-76b2ace7657e L.txt
     let apiHosted = typeof api_database_id !== "undefined" && api_database_id.length,
         fileAddress = apiHosted ? DIR + "legacy/data/" + f + ".txt" : DIR + f + ".txt";
     
