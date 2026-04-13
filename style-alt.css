@@ -5,7 +5,7 @@ Browser scrollbar styles *****/
 ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
-    
+
     background-color: rgba(var(--scrollbar-color), 0.1);
     border-radius: 10px;
 }
@@ -44,13 +44,13 @@ Icons *****/
     --icon-pin: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23000000;%7D%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M78.07,30.48A28.68,28.68,0,0,1,89.52,41.93l-2.33-.64L83.49,45,69.05,59.43l-4.78,4.78,3.27,5.93c2.61,4.74,2.9,7.76,2.79,8.93a3,3,0,0,1-.45,0c-2.64,0-7.89-1.7-14-6.48l-4.75-3.74-3.74-4.75c-5.55-7.09-6.65-12.6-6.48-14.45l.46,0c1,0,3.89.28,8.49,2.81l5.93,3.27L60.57,51,75,36.51l3.71-3.7-.64-2.33M74.41,20.27A6.34,6.34,0,0,0,69.77,22c-1.79,1.79-2.08,4.76-1.13,8.2L54.21,44.58C49.57,42,45.1,40.65,41.37,40.65a9.54,9.54,0,0,0-7,2.51c-5,5-2.27,16.09,5.9,26.51L23,95.58a1,1,0,0,0,.83,1.55,1,1,0,0,0,.55-.17L50.33,79.69c6.87,5.38,14,8.4,19.55,8.4a9.52,9.52,0,0,0,7-2.5c3.93-3.93,3.08-11.62-1.42-19.8L89.85,51.36a13.62,13.62,0,0,0,3.58.53,6.32,6.32,0,0,0,4.62-1.66C102,46.32,98.79,36.83,91,29c-5.54-5.54-11.93-8.75-16.57-8.75Z'/%3E%3C/svg%3E");
     --icon-plus: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23000000;%7D%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M110,60h0a5,5,0,0,0-5-5H65V15a5,5,0,0,0-5-5h0a5,5,0,0,0-5,5V55H15a5,5,0,0,0-5,5h0a5,5,0,0,0,5,5H55v40a5,5,0,0,0,5,5h0a5,5,0,0,0,5-5V65h40A5,5,0,0,0,110,60Z'/%3E%3C/svg%3E");
     --icon-new-tab: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cdefs%3E%3Cstyle%3E.cls-1,.cls-2%7Bfill:none;stroke:%23231f20;%7D.cls-2%7Bstroke-linecap:round;%7D%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M21,11v2c0,3.77,0,5.66-1.17,6.83S16.77,21,13,21H11c-3.77,0-5.66,0-6.83-1.17S3,16.77,3,13V11C3,7.23,3,5.34,4.17,4.17S7.23,3,11,3h1'/%3E%3Cpath class='cls-2' d='M21,3.15H16.76m4.24,0V7.39m0-4.24-8.49,8.48'/%3E%3C/svg%3E");
-    
+
     --icon-expand: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23252627;%7D%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M24.64,95.36l24.75-3.54-7.07-7.07,3.54-3.54a5,5,0,0,0,0-7.07h0a5,5,0,0,0-7.07,0l-3.54,3.54-7.07-7.07Z'/%3E%3Cpath class='cls-1' d='M95.36,24.64,70.61,28.18l7.07,7.07-3.54,3.54a5,5,0,0,0,0,7.07h0a5,5,0,0,0,7.07,0l3.54-3.54,7.07,7.07Z'/%3E%3Cpath class='cls-1' d='M42.32,35.25l7.07-7.07L24.64,24.64l3.54,24.75,7.07-7.07,3.54,3.54a5,5,0,0,0,7.07,0h0a5,5,0,0,0,0-7.07Z'/%3E%3Cpath class='cls-1' d='M95.36,95.36,91.82,70.61l-7.07,7.07-3.54-3.54a5,5,0,0,0-7.07,0h0a5,5,0,0,0,0,7.07l3.54,3.54-7.07,7.07Z'/%3E%3C/svg%3E");
     --icon-collapse: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23252627;%7D%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M52.93,67.07,28.18,70.61l7.07,7.07-3.53,3.53a5,5,0,0,0,0,7.07h0a5,5,0,0,0,7.07,0l3.53-3.53,7.07,7.07Z'/%3E%3Cpath class='cls-1' d='M67.07,52.93l24.75-3.54-7.07-7.07,3.53-3.53a5,5,0,0,0,0-7.07h0a5,5,0,0,0-7.07,0l-3.53,3.53-7.07-7.07Z'/%3E%3C/svg%3E");
-    
+
     --icon-expand: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23252627;%7D%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M45,105h0a5,5,0,0,1-5,5H10V80a5,5,0,0,1,5-5h0a5,5,0,0,1,5,5v20H40A5,5,0,0,1,45,105Z'/%3E%3Cpath class='cls-1' d='M110,80v30H80a5,5,0,0,1-5-5h0a5,5,0,0,1,5-5h20V80a5,5,0,0,1,5-5h0A5,5,0,0,1,110,80Z'/%3E%3Cpath class='cls-1' d='M110,10V40a5,5,0,0,1-5,5h0a5,5,0,0,1-5-5V20H80a5,5,0,0,1-5-5h0a5,5,0,0,1,5-5Z'/%3E%3Cpath class='cls-1' d='M45,15h0a5,5,0,0,1-5,5H20V40a5,5,0,0,1-5,5h0a5,5,0,0,1-5-5V10H40A5,5,0,0,1,45,15Z'/%3E%3C/svg%3E");
     --icon-collapse: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23252627;%7D%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M10,80h0a5,5,0,0,1,5-5H45v30a5,5,0,0,1-5,5h0a5,5,0,0,1-5-5V85H15A5,5,0,0,1,10,80Z'/%3E%3Cpath class='cls-1' d='M75,105V75h30a5,5,0,0,1,5,5h0a5,5,0,0,1-5,5H85v20a5,5,0,0,1-5,5h0A5,5,0,0,1,75,105Z'/%3E%3Cpath class='cls-1' d='M75,45V15a5,5,0,0,1,5-5h0a5,5,0,0,1,5,5V35h20a5,5,0,0,1,5,5h0a5,5,0,0,1-5,5Z'/%3E%3Cpath class='cls-1' d='M10,40h0a5,5,0,0,1,5-5H35V15a5,5,0,0,1,5-5h0a5,5,0,0,1,5,5V45H15A5,5,0,0,1,10,40Z'/%3E%3C/svg%3E");
-    
+
     --icon-hamburger: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 25.2.3, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 120 120' style='enable-background:new 0 0 120 120;' xml:space='preserve'%3E%3Cpath class='st0' d='M105,65H15c-2.76,0-5-2.24-5-5v0c0-2.76,2.24-5,5-5h90c2.76,0,5,2.24,5,5v0C110,62.76,107.76,65,105,65z'/%3E%3Cpath class='st0' d='M105,20H15c-2.76,0-5-2.24-5-5v0c0-2.76,2.24-5,5-5h90c2.76,0,5,2.24,5,5v0C110,17.76,107.76,20,105,20z'/%3E%3Cpath class='st0' d='M105,110H15c-2.76,0-5-2.24-5-5v0c0-2.76,2.24-5,5-5h90c2.76,0,5,2.24,5,5v0C110,107.76,107.76,110,105,110z'/%3E%3C/svg%3E%0A");
 }
 
@@ -62,12 +62,12 @@ html {
     height: 100vh;
     max-height: -webkit-fill-available;
     overflow: hidden;
-    
+
     font-family: var(--font-primary);
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: none;
-    
+
     user-select: none;
     scroll-behavior: smooth;
     overscroll-behavior-y: none;
@@ -79,15 +79,15 @@ body {
     height: 100vh;
     max-height: -webkit-fill-available;
     overflow: hidden;
-    
+
     background-color: var(--background-color);
-    
+
     color: var(--font-color-primary);
     font-family: var(--font-primary);
     font-weight: 400;
     font-size: 14px;
     line-height: 1em;
-    
+
     opacity: 1.0;
 }
 
@@ -108,7 +108,7 @@ svg text {
 
 svg text.graph-name {
     fill: var(--font-color-primary);
-    
+
     font-family: var(--font-primary);
     font-weight: 700;
 }
@@ -136,9 +136,9 @@ svg#fr-graph g.lineLabel * {
 
 svg#fr-graph {
     position: relative;
-    
+
     background-color: var(--background-color-graph);
-    
+
     pointer-events: none;
     overflow: visible;
 }
@@ -206,7 +206,7 @@ text.insp_dB {
 
 div.graphBox[data-animated="true"] g[mask="url(#graphFade)"] path:not(.target) {
     stroke-dasharray: 2000px;
-    
+
     animation-name: graph-draw;
     animation-duration: 1.0s;
     animation-iteration-count: 1;
@@ -218,7 +218,7 @@ div.graphBox[data-animated="true"] g[mask="url(#graphFade)"] path:not(.target) {
     0% {
         stroke-dashoffset: 2000px;
     }
-    
+
     100% {
         stroke-dashoffset: 0px;
     }
@@ -320,25 +320,25 @@ main.main {
 section.parts-primary {
     position: relative;
     z-index: 1;
-    
+
     flex: auto 1 1;
     order: 2;
-        
+
     box-sizing: border-box;
     height: 100%;
-    
+
     background-color: var(--background-color);
-    
+
     overflow-y: auto;
 }
 
 section.parts-secondary {
     flex: 350px 0 0;
     order: 1;
-    
+
     box-sizing: border-box;
     height: 100%;
-    
+
     border-right: 1px solid var(--background-color);
 }
 
@@ -348,9 +348,9 @@ Alt header *****/
 header.header {
     display: flex;
     align-items: flex-start;
-    
+
     box-sizing: border-box;
-    
+
     background-color: var(--header-color);
 }
 
@@ -362,13 +362,13 @@ div.logo {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     box-sizing: border-box;
     flex: 350px 0 0;
     height: 48px;
     padding: 12px 0;
     overflow: hidden;
-    
+
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center left;
@@ -385,7 +385,7 @@ div.logo img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    
+
     filter: var(--logo-filter);
 }
 
@@ -394,7 +394,7 @@ div.logo span {
     font-size: 18px;
     font-weight: bold;
     line-height: 24px;
-    
+
     color: var(--header-links-color);
 }
 
@@ -404,13 +404,13 @@ ul.header-links {
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 0 32px;
-    
+
     box-sizing: border-box;
     flex: 100% 0 1;
     height: 100%;
     margin: auto;
     padding: 0 16px;
-    
+
     overflow-x: hidden;
 }
 
@@ -422,12 +422,12 @@ ul.header-links::-webkit-scrollbar {
 ul.header-links li {
     display: flex;
     align-items: center;
-    
+
     box-sizing: border-box;
     height: 42px;
     padding: 6px 0 0 0;
     margin: 0;
-    
+
     list-style: none;
     white-space: nowrap;
 }
@@ -435,7 +435,7 @@ ul.header-links li {
 ul.header-links a {
     display: flex;
     align-items: center;
-    
+
     color: var(--header-links-color);
     font-family: var(--font-primary);
     font-weight: 500;
@@ -478,12 +478,12 @@ div.graphBox {
     position: relative;
     top: 0;
     z-index: 1;
-    
+
     display: flex;
     flex-direction: column;
     height: auto;
     padding-bottom: 16px;
-    
+
     background-color: var(--background-color-graph);
     border-bottom: 1px solid var(--background-color-contrast);
 }
@@ -494,9 +494,9 @@ div.graphBox[data-sticky-graph="true"] {
 
 div.graph-sizer {
     position: relative;
-    
+
     order: 2;
-    
+
     flex: auto 0;
     width: 100%;
     max-width: calc(50vh * 2.2);
@@ -511,17 +511,17 @@ Tools styles *****/
 
 div.tools {
     order: 1;
-    
+
     display: flex;
     align-items: flex-start;
-    
+
     box-sizing: border-box;
     flex: auto 0 0;
     max-height: 69px;
     padding: 16px 0;
-    
+
     overflow-x: auto;
-    
+
     background-color: var(--background-color);
     border-bottom: 1px solid var(--background-color-contrast);
 
@@ -534,12 +534,12 @@ div.expand-collapse {
     position: sticky;
     right: 0;
     order: 10;
-    
+
     display: none;
-    
+
     padding: 0 16px;
     margin-left: auto;
-    
+
     background-color: var(--background-color);
     border-left: 1px solid var(--background-color-contrast-more);
 }
@@ -551,17 +551,17 @@ body[data-expandable="only"] div.expand-collapse {
 
 button#expand-collapse {
     position: relative;
-    
+
     display: block;
     width: 36px;
     height: 36px;
     padding: 0;
-    
+
     background-color: var(--background-color);
     border: 1px solid var(--background-color-contrast);
     border-radius: 4px;
     outline: none;
-    
+
     cursor: pointer;
 }
 
@@ -569,15 +569,15 @@ button#expand-collapse:before {
     position: absolute;
     top: 0;
     left: 0;
-    
+
     content: '';
-    
+
     box-sizing: border-box;
     display: block;
     width: 34px;
     height: 34px;
     background-color: var(--background-color-contrast-more);
-    
+
     mask: var(--icon-expand);
     -webkit-mask: var(--icon-expand);
     mask-size: 20px;
@@ -586,7 +586,7 @@ button#expand-collapse:before {
     -webkit-mask-size: 20px;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
-    
+
     pointer-events: none;
 }
 
@@ -610,7 +610,7 @@ body[data-graph-frame="expanded"] button#expand-collapse:before {
 /* Copy URL */
 div.copy-url {
     display: flex;
-    
+
     padding: 0 0 0 16px;
     margin: 0 16px 0 0;
 }
@@ -618,23 +618,23 @@ div.copy-url {
 button#copy-url,
 button#download-faux {
     position: relative;
-    
+
     box-sizing: border-box;
     padding: 11px 16px;
     margin: 0;
     overflow: hidden;
-    
+
     background-color: var(--background-color);
     border: 1px solid var(--background-color-contrast-more) !important;
     border: none;
     border-radius: 6px;
-    
+
     color: var(--accent-color-contrast);
     font-family: var(--font-primary);
     font-weight: 400;
     font-size: 12px;
     line-height: 1em;
-    
+
     white-space: nowrap;
     cursor: pointer;
     outline: none;
@@ -645,7 +645,7 @@ button#download-faux:active {
     box-sizing: border-box;
     background-color: var(--accent-color) !important;
     border-color: var(--accent-color) !important;
-    
+
     color: var(--font-color-secondary);
 }
 
@@ -653,21 +653,21 @@ button#copy-url:before {
     position: absolute;
     top: 0;
     left: 0;
-    
+
     content: '👍';
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     width: 100%;
     height: 100%;
-    
+
     background-color: var(--accent-color);
-    
+
     color: var(--font-color-secondary);
-    
+
     opacity: 0;
-    
+
     transition: opacity 0.2s ease-out;
 }
 
@@ -683,10 +683,10 @@ button#download-faux {
 /* Zoom */
 div.zoom {
     order: 4;
-    
+
     display: flex;
     align-items: center;
-    
+
     padding: 0 16px;
     margin-left: 16px;
     border-left: 1px solid var(--background-color-contrast-more);
@@ -704,20 +704,20 @@ div.zoom > span {
 
 div.zoom button {
     order: 1;
-    
+
     padding: 11px 16px;
     margin: 0;
-    
+
     background-color: var(--background-color);
     border: 1px solid var(--background-color-contrast-more);
     outline: none;
-    
+
     color: var(--accent-color-contrast);
     font-family: var(--font-primary);
     font-weight: 400;
     font-size: 12px;
     line-height: 1em;
-    
+
     white-space: nowrap;
     cursor: pointer;
 }
@@ -725,7 +725,7 @@ div.zoom button {
 div.zoom button.selected {
     background-color: var(--accent-color);
     border-color: var(--accent-color);
-    
+
     color: var(--font-color-secondary);
 }
 
@@ -747,12 +747,12 @@ div.zoom button:nth-last-of-type(1) {
 /* Normalize */
 div.normalize {
     order: 2;
-    
+
     display: flex;
     align-items: center;
-    
+
     padding: 0 0 0 16px;
-    
+
     border-left: 1px solid var(--background-color-contrast-more);
 }
 
@@ -781,19 +781,19 @@ div.normalize > div + div {
 
 div.normalize > div > input {
     order: 2;
-    
+
     box-sizing: border-box;
     width: 70px;
     height: 36px;
     padding: 10px 0;
-    
+
     background-color: var(--background-color-inputs);
     border: 1px solid var(--background-color-contrast-more);
     border-right: none;
     border-left: none;
     border-radius: 0px;
     outline: none;
-    
+
     color: var(--font-color-inputs);
     font-family: var(--font-secondary);
     font-size: 11px;
@@ -805,12 +805,12 @@ div.normalize > div > input {
 div.normalize > div:after {
     order: 3;
     content: '';
-    
+
     box-sizing: border-box;
     display: block;
     width: 6px;
     height: 36px;
-    
+
     background-color: var(--background-color-inputs);
     border: 1px solid var(--background-color-contrast-more);
     border-left: none;
@@ -819,19 +819,19 @@ div.normalize > div:after {
 
 div.normalize > div > span {
     order: 1;
-    
+
     padding: 11px 16px;
-    
+
     background-color: var(--background-color) !important;
     border: 1px solid var(--background-color-contrast-more);
     border-right: none;
     border-radius: 6px 0 0 6px;
-    
+
     color: var(--accent-color-contrast);
     font-weight: 400;
     font-size: 12px;
     line-height: 1em;
-    
+
     white-space: nowrap;
     cursor: pointer;
 }
@@ -839,17 +839,17 @@ div.normalize > div > span {
 div.normalize > div.selected > span {
     background-color: var(--accent-color) !important;
     border-color: var(--accent-color);
-    
+
     color: var(--font-color-secondary);
 }
 
 /* Smooth */
 div.smooth {
     order: 3;
-    
+
     display: flex;
     align-items: center;
-    
+
     padding-left: 16px;
     margin-left: 16px;
     border-left: 1px solid var(--background-color-contrast-more);
@@ -870,13 +870,13 @@ div.smooth input {
     width: 70px;
     height: 36px;
     padding: 10px 0;
-    
+
     background-color: var(--background-color-inputs);
     border: 1px solid var(--background-color-contrast-more);
     border-right: none;
     border-radius: 6px 0 0 6px;
     outline: none;
-    
+
     color: var(--font-color-inputs);
     font-family: var(--font-secondary);
     font-size: 11px;
@@ -888,12 +888,12 @@ div.smooth input {
 div.smooth:after {
     order: 3;
     content: '';
-    
+
     box-sizing: border-box;
     display: block;
     width: 6px;
     height: 36px;
-    
+
     background-color: var(--background-color-inputs);
     border: 1px solid var(--background-color-contrast-more);
     border-left: none;
@@ -903,34 +903,34 @@ div.smooth:after {
 /* Download, Inspect, Label, Recolor */
 div.miscTools {
     order: 4;
-    
+
     display: flex;
-    
+
     background-color: var(--background-color);
     border-left: 1px solid var(--background-color-contrast-more);
-    
+
     padding: 0 16px;
 }
 
 div.miscTools button,
 div.extra-panel button {
     order: 1;
-    
+
     flex: auto 1 1;
     padding: 11px 8px;
     margin: 0;
-    
+
     background-color: var(--background-color) !important;
     border: 1px solid var(--background-color-contrast-more);
     border-radius: 6px;
-    
+
     color: var(--accent-color-contrast);
     font-family: var(--font-primary);
     font-weight: 400;
     font-size: 12px;
     line-height: 1em;
     text-transform: capitalize;
-    
+
     white-space: nowrap;
     cursor: pointer;
     outline: none;
@@ -951,7 +951,7 @@ div.extra-panel button.readme {
 div.extra-panel button.import-filters,
 div.extra-panel button.export-filters {
     position: relative;
-    
+
     flex: 100% 0 0;
 }
 
@@ -961,7 +961,7 @@ button.export-graphic-filters {
 
 button.export-filters:after {
     content: '';
-    
+
     position: absolute;
     top: 0;
     right: 0;
@@ -972,7 +972,7 @@ button.export-filters:after {
     height: 34px;
     background-color: var(--background-color-contrast-more);
     pointer-events: none;
-    
+
     mask: var(--icon-download);
     -webkit-mask: var(--icon-download);
     mask-size: 20px;
@@ -995,7 +995,7 @@ div.settings-row > span {
 
 div.settings-row > span:nth-child(1) {
     flex: auto 1 1;
-    
+
     font-size: 12px;
     line-height: 1em;
     text-align: left;
@@ -1012,14 +1012,14 @@ div.miscTools button + button {
 div.miscTools button.selected {
     background-color: var(--accent-color) !important;
     border-color: var(--accent-color);
-    
+
     color: var(--font-color-secondary);
 }
 
 div.miscTools button#recolor:active {
     background-color: var(--accent-color) !important;
     border-color: var(--accent-color);
-    
+
     color: var(--font-color-secondary);
 }
 
@@ -1029,14 +1029,14 @@ div.tools div.miscTools button:not(#download) {
 
 div.miscTools button#download {
     display: none;
-    
+
     order: 0;
     margin: 0 6px 0 0;
 }
 
 div.miscTools button#download:active {
     background-color: var(--accent-color) !important;
-    
+
     color: var(--font-color-secondary);
 }
 
@@ -1074,7 +1074,7 @@ div.extra-panel > div {
 
 div.extra-panel h5 {
     margin: 16px 0 8px 0;
-    
+
     font-size: 14px;
     line-height: 1em;
     color: var(--accent-color-contrast);
@@ -1116,18 +1116,18 @@ div.extra-panel span {
 
 div.extra-panel select {
     position: relative;
-    
+
     padding: 10px 0;
     margin: 0;
-    
+
     background-color: transparent;
     border: none;
-    
+
     color: var(--font-color-primary);
     font-family: var(--font-family-secondary);
     font-size: 11px;
     line-height: 1em;
-    
+
     cursor: pointer;
     outline: none;
 
@@ -1267,7 +1267,7 @@ div.extra-panel > div.extra-eq > div.select-eq-phone > select {
     box-sizing: border-box;
     width: 100%;
     padding: 10px;
-    
+
     border: 1px solid var(--background-color-contrast-more);
     border-radius: 6px;
 }
@@ -1284,9 +1284,9 @@ div.extra-panel > div.extra-eq > div.filters > div.filter > span > input[type='c
     margin: 0;
     -webkit-appearance: checkbox;
     appearance: checkbox;
-    
+
     accent-color: var(--background-color-contrast);
-    
+
     cursor: pointer;
 }
 
@@ -1308,16 +1308,16 @@ div.extra-panel .live-sound-range-pair > span > input {
     box-sizing: border-box;
     width: 100%;
     padding: 6px 10px;
-    
+
     background-color: var(--background-color-inputs);
     border: 1px solid var(--background-color-contrast);
     border-radius: 6px;
-    
+
     color: var(--font-color-inputs);
     font-family: var(--font-secondary);
     font-size: 11px;
     line-height: 12px;
-    
+
     outline: none;
 }
 
@@ -1331,34 +1331,44 @@ div.extra-panel > div.extra-eq > div.filters > div.filter > span > input[name="q
 span:has(input[name="freq"]),
 span:has(input[name="gain"]),
 span:has(input[name="autoeq-to"]),
-span:has(input[name="tone-generator-to"]) {
+span:has(input[name="tone-generator-to"]),
+span:has(input[name="autoeq-freq-min"]),
+span:has(input[name="autoeq-freq-max"]),
+span:has(input[name="autoeq-gain-min"]),
+span:has(input[name="autoeq-gain-max"]) {
     position: relative;
 }
 
 span:has(input[name="freq"]):after,
 span:has(input[name="gain"]):after,
 span:has(input[name="autoeq-to"]):after,
-span:has(input[name="tone-generator-to"]):after {
+span:has(input[name="tone-generator-to"]):after,
+span:has(input[name="autoeq-freq-min"]):after,
+span:has(input[name="autoeq-freq-max"]):after,
+span:has(input[name="autoeq-gain-min"]):after,
+span:has(input[name="autoeq-gain-max"]):after {
     position: absolute;
     top: 1px;
     right: 1px;
-    
+
     content: 'Hz';
-    
+
     box-sizing: border-box;
     padding: 6px 10px 6px 0;
-    
+
     border-left: none;
     border-radius: 0 6px 6px 0;
-    
+
     font-family: var(--font-secondary);
     font-size: 11px;
     line-height: 11px;
-    
+
     pointer-events: none;
 }
 
-span:has(input[name="gain"]):after {
+span:has(input[name="gain"]):after,
+span:has(input[name="autoeq-gain-min"]):after,
+span:has(input[name="autoeq-gain-max"]):after {
     content: 'dB';
 }
 
@@ -1366,7 +1376,7 @@ div.filters-header {
     display: flex;
     gap: 4px;
     margin: 8px 0;
-    
+
     font-size: 12px;
     line-height: 1em;
 }
@@ -1411,7 +1421,7 @@ div.extra-panel button {
 div.extra-panel div:has(> button.play) {
     display: flex;
     align-items: center;
-    
+
     margin: 8px 0 0 0;
 }
 
@@ -1423,7 +1433,7 @@ div.extra-panel button.play {
 div.extra-panel button.play + span {
     flex: auto 1 1;
     margin: 0 0 0 10px;
-    
+
     font-size: 12px;
     line-height: 1em;
 }
@@ -2075,12 +2085,12 @@ Targets styles *****/
 div.targets {
     display: flex;
     align-items: flex-start;
-    
+
     box-sizing: border-box;
     padding: 0 16px 16px 16px;
     padding: 16px;
     max-height: 68px;
-    
+
     overflow-x: auto;
     overflow-y: hidden;
 }
@@ -2126,16 +2136,16 @@ div.targetLabel {
 
 div.target {
     padding: 11px 16px;
-    
+
     background-color: var(--background-color) !important;
     border: 1px solid var(--background-color-contrast-more);
     border-radius: 6px;
-    
+
     color: var(--accent-color-contrast);
     font-weight: 400;
     font-size: 12px;
     line-height: 1em;
-    
+
     white-space: nowrap;
     cursor: pointer;
 }
@@ -2147,7 +2157,7 @@ div.target + .target {
 div.target[style*="background"] {
     background-color: var(--accent-color) !important;
     border-color: var(--accent-color) !important;
-    
+
     color: var(--font-color-secondary);
 }
 
@@ -2170,17 +2180,17 @@ tbody.curves:empty {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     min-height: 50px;
-    
+
     border-top: 1px solid var(--background-color-contrast);
 }
 
 tbody.curves:empty:before {
     content: 'Select a model from the list to the left to graph its frequency response';
-    
+
     padding: 14px 16px;
-    
+
     font-size: 14px;
     line-height: 1.6em;
     text-align: center;
@@ -2189,17 +2199,17 @@ tbody.curves:empty:before {
 tbody.curves > tr {
     display: flex;
     align-items: flex-start;
-    
+
     border-top: 1px solid var(--background-color-contrast);
 }
 
 tbody.curves > tr > td {
     position: relative;
-    
+
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     flex: 50px 0 0;
     box-sizing: border-box;
     min-height: 50px;
@@ -2211,7 +2221,7 @@ tbody.curves > tr > td.remove {
     box-sizing: border-box;
     flex: 36px 0 0;
     margin-left: 6px;
-    
+
     cursor: pointer;
 }
 
@@ -2220,20 +2230,20 @@ tbody.curves > tr > td.button:before,
 tbody.curves > tr > td.button-pin:before,
 tbody.curves > tr > td.remove:before {
     position: absolute;
-    
+
     top: 6px;
     left: 0;
-    
+
     content: '';
     box-sizing: border-box;
     display: block;
     width: 36px;
     height: 36px;
-    
+
     background-color: var(--background-color);
     border: 1px solid var(--background-color-contrast);
     border-radius: 6px;
-    
+
     pointer-events: none;
 }
 
@@ -2241,34 +2251,34 @@ tbody.curves > tr > td.button:after,
 tbody.curves > tr > td.button-pin:after,
 tbody.curves > tr > td.remove:after {
     position: absolute;
-    
+
     top: 6px;
     left: 0px;
-    
+
     content: '';
     box-sizing: border-box;
     display: block;
     width: 36px;
     height: 36px;
-    
+
     background-color: var(--background-color-contrast-more);
-    
+
     pointer-events: none;
 }
 
 /* Remove item */
 tbody.curves > tr > td.remove {
     order: 7;
-    
+
     margin: 0 16px 0 6px;
-    
+
     background: none !important;
 }
 
 tbody.curves > tr > td.remove:after {
     mask: var(--icon-remove);
     -webkit-mask: var(--icon-remove);
-    
+
     mask-size: 20px;
     mask-repeat: no-repeat;
     mask-position: center;
@@ -2284,7 +2294,7 @@ tbody.curves > tr > td.remove svg {
 tbody.curves > tr > td.button-pin:after {
     mask: var(--icon-pin);
     -webkit-mask: var(--icon-pin);
-    
+
     mask-size: 20px;
     mask-repeat: no-repeat;
     mask-position: center;
@@ -2296,7 +2306,7 @@ tbody.curves > tr > td.button-pin:after {
 tbody.curves > tr > td.button.hideIcon:after {
     mask: var(--icon-hide);
     -webkit-mask: var(--icon-hide);
-    
+
     mask-size: 20px;
     mask-repeat: no-repeat;
     mask-position: center;
@@ -2308,7 +2318,7 @@ tbody.curves > tr > td.button.hideIcon:after {
 tbody.curves > tr > td.button.button-export:after {
     mask: var(--icon-download);
     -webkit-mask: var(--icon-download);
-    
+
     mask-size: 20px;
     mask-repeat: no-repeat;
     mask-position: center;
@@ -2320,7 +2330,7 @@ tbody.curves > tr > td.button.button-export:after {
 tbody.curves > tr > td.button.button-baseline:after {
     mask: var(--icon-squiggle);
     -webkit-mask: var(--icon-squiggle);
-    
+
     mask-size: 20px;
     mask-repeat: no-repeat;
     mask-position: center;
@@ -2332,7 +2342,7 @@ tbody.curves > tr > td.button.button-baseline:after {
 tbody.curves > tr > td.button.button-baseline.selected:after {
     mask: var(--icon-baseline);
     -webkit-mask: var(--icon-baseline);
-    
+
     mask-size: 20px;
     mask-repeat: no-repeat;
     mask-position: center;
@@ -2344,7 +2354,7 @@ tbody.curves > tr > td.button.button-baseline.selected:after {
 /* Baseline */
 tbody.curves > tr > td.button-baseline {
     position: relative;
-    
+
     order: 3;
 }
 
@@ -2360,9 +2370,9 @@ tbody.curves > tr > td.button-baseline:after {
 /* Download */
 tbody.curves > tr > td.button-export {
     position: relative;
-    
+
     background-color: transparent;
-    
+
     order: 6;
 }
 
@@ -2377,7 +2387,7 @@ tbody.curves > tr > td.button-export:after {
 /* Hide */
 tbody.curves > tr > td.hideIcon {
     position: relative;
-    
+
     order: 4;
 }
 
@@ -2405,7 +2415,7 @@ tbody.curves > tr > td.hideIcon.selected:after {
 /* Pin */
 tbody.curves > tr > td.button-pin {
     position: relative;
-    
+
     order: 5;
 }
 
@@ -2426,14 +2436,14 @@ tbody.curves > tr > td.button-pin svg {
 tbody.curves > tr > td.curve-color {
     order: 0;
     align-self: flex-start;
-    
+
     display: flex;
     box-sizing: border-box;
     justify-content: flex-end;
     align-items: center;
     flex: 38px 0 0;
     min-height: 50px;
-    
+
     cursor: pointer;
 }
 
@@ -2443,28 +2453,28 @@ tbody.curves > tr > td.curve-color button {
     height: 16px;
     padding: 0;
     margin: 0 6px 0 0;
-    
+
     border: none;
     border-radius: 8px;
     outline: none;
-    
+
     color: inherit;
     background-color: currentColor;
-    
+
     cursor: pointer;
 }
 
 /* Model name item */
 tbody.curves > tr > td.item-line {
     order: 1;
-    
+
     box-sizing: border-box;
     flex: auto 1 1;
     justify-content: flex-start;
     align-items: center;
-    
+
     display: flex;
-    
+
     color: var(--background-color-contrast-more);
     font-weight: 700;
     cursor: inherit;
@@ -2481,11 +2491,11 @@ tbody.curves > tr > td.item-line.item-target > span:after {
 tbody.curves > tr > td.item-line > span:nth-child(1),
 tbody.curves > tr > td.item-line > span + div {
     align-self: flex-start;
-    
+
     display: flex;
     align-items: center;
     min-height: 50px;
-    
+
     color: var(--font-color-primary);
 }
 
@@ -2505,11 +2515,11 @@ tbody.curves > tr > td.item-line div.phonename {
 tbody.curves > tr > td.item-line div.variantName {
     position: relative;
     top: auto !important;
-    
+
     width: auto !important;
     flex: calc(100% - 52px) 0 0;
     height: 50px;
-    
+
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -2517,7 +2527,7 @@ tbody.curves > tr > td.item-line div.variantName {
 
     color: var(--font-color-primary) !important;
     font-weight: 400;
-    
+
     cursor: pointer !important;
 }
 
@@ -2533,21 +2543,21 @@ tbody.curves > tr > td.item-line span.variantPopout {
     position: relative;
     top: 7px !important;
     left: auto !important;
-    
+
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
     flex: 36px 0 0;
     height: 36px;
-    
+
     background-color: var(--background-color);
     border-radius: 6px;
-    
+
     font-size: 0px;
     font-weight: 400;
     line-height: 1em;
-    
+
     cursor: pointer;
 }
 
@@ -2557,27 +2567,27 @@ tbody.curves > tr > td.item-line span.variantPopout[style*="display"] {
 
 tbody.curves > tr > td.item-line span.variantPopout:after {
     position: absolute;
-    
+
     top: 0;
     left: 0;
-    
+
     content: '';
     box-sizing: border-box;
     display: block;
     width: 36px;
     height: 36px;
-    
+
     background-color: var(--background-color-contrast-more);
     mask: var(--icon-plus);
     -webkit-mask: var(--icon-plus);
-    
+
     mask-size: 16px;
     mask-repeat: no-repeat;
     mask-position: center;
     -webkit-mask-size: 16px;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
-    
+
     pointer-events: none;
 }
 
@@ -2610,35 +2620,35 @@ span.variantPopout[style*="display: none;"] {
 /* -- */
 tbody.curves > tr > td.item-line div.variants {
     position: relative;
-    
+
     order: 2;
     align-self: flex-start;
-    
+
     display: flex;
     align-items: center;
     flex: 20px 0 0;
     height: 50px;
     margin: 0 0 0 6px;
-    
+
     border-radius: 50%;
-    
+
     cursor: pointer;
     outline: none;
 }
 
 tbody.curves > tr > td.item-line div.variants:before {
     content: '';
-    
+
     box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
     flex: 20px 0 0;
     height: 20px;
-    
+
     border: 1px solid currentColor;
     border-radius: 50%;
-    
+
     color: currentColor;
     font-family: var(--font-secondary);
     font-weight: 400;
@@ -2651,16 +2661,16 @@ tbody.curves > tr > td.item-line div.variants:after {
 position: absolute;
     top: 6px;
     left: 3px;
-    
+
     content: '';
-    
+
     box-sizing: border-box;
     display: block;
     width: calc(100% - 6px);
     height: calc(100% - 12px);
-    
+
     background-color: currentColor;
-    
+
     mask: var(--icon-plus);
     -webkit-mask: var(--icon-plus);
     mask-size: 16px;
@@ -2669,7 +2679,7 @@ position: absolute;
     -webkit-mask-size: 16px;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
-    
+
     pointer-events: none;
 }
 
@@ -2680,7 +2690,7 @@ tbody.curves > tr > td.item-line div.variants path {
 /* L+R line w/ svg */
 tbody.curves > tr > td.channels {
     order: 2;
-    
+
     flex: 100px 0 0;
 }
 
@@ -2701,7 +2711,7 @@ tbody.curves > tr > td.channels text {
 /* Shift graph input / Levels */
 tbody.curves > tr > td.levels {
     order: 2;
-    
+
     padding: 0 0 0 16px;
 }
 
@@ -2710,12 +2720,12 @@ tbody.curves > tr > td.levels input {
     width: 70px;
     height: 36px;
     padding: 11px 6px 11px 0;
-    
+
     background-color: var(--background-color-inputs);
     border: 1px solid var(--background-color-contrast-more);
     border-radius: 6px;
     outline: none;
-    
+
     color: var(--font-color-inputs);
     font-family: var(--font-secondary);
     font-size: 11px;
@@ -2739,7 +2749,7 @@ div.select {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    
+
     background-color: var(--background-color);
     border-right: 1px solid var(--background-color-contrast-more);
 }
@@ -2760,19 +2770,19 @@ div.select > div.selector-panel {
 input.search {
     position: sticky;
     top: 0;
-    
+
     flex: auto 0 0;
-    
+
     box-sizing: border-box;
     height: 36px;
     padding: 10px 16px;
     margin: 16px 16px 0 16px;
-    
+
     background-color: var(--background-color-inputs);
     border: 1px solid var(--background-color-contrast-more);
     border-radius: 6px;
     outline: none;
-    
+
     color: var(--font-color-inputs);
     font-family: var(--font-secondary);
     font-size: 11px;
@@ -2782,9 +2792,9 @@ input.search {
 
 div.select > div.selector-tabs {
     position: relative;
-    
+
     flex: auto 0 0;
-    
+
     display: flex;
     padding: 16px;
     border-bottom: 1px solid var(--background-color-contrast);
@@ -2795,16 +2805,16 @@ div.select > div.selector-tabs button {
     flex: 100% 1 1;
     padding: 11px 0;
     margin: 0;
-    
+
     background-color: var(--background-color);
     border: 1px solid var(--background-color-contrast-more);
-    
+
     color: var(--accent-color-contrast);
     font-family: var(--font-primary);
     font-weight: 400;
     font-size: 12px;
     line-height: 1em;
-    
+
     cursor: pointer;
     outline: none;
 }
@@ -2834,23 +2844,23 @@ div.select > div.extra-panel {
 }
 
 div.scrollOuter {
-    
+
 }
 
 div.scrollOuter {
     position: absolute;
     top: 0;
     z-index: 1;
-    
+
     box-sizing: border-box;
     width: calc(100% - 60px);
     height: 100%;
-    
+
     background-color: var(--background-color);
     border-width: 0px;
     border-style: solid;
     border-color: var(--background-color-contrast-more);
-    
+
     overflow-y: hidden;
     overflow-x: hidden;
     transform: none;
@@ -2861,34 +2871,34 @@ div.scrollOuter:before {
     position: absolute;
     top: 0;
     z-index: 1;
-    
+
     content: '';
-    
+
     box-sizing: border-box;
     display: block;
     width: 100%;
     height: 100%;
-    
+
     background-color: var(--background-color);
-    
+
     opacity: 0.0;
     transition: opacity 0.1s ease-out;
-    
+
     pointer-events: none;
 }
 
 div.scrollOuter[data-list="brands"] {
     left: 0;
     padding: 0 16px;
-    
+
     border-right: 1px solid inherit;
 }
 
 div.scrollOuter[data-list="models"] {
     right: 0;
-    
+
     padding: 0 10px 0 16px;
-    
+
     border-left-width: 1px;
 }
 
@@ -2897,10 +2907,10 @@ div.scroll {
     width: 100%;
     height: 100%;
     padding: 16px 0;
-    
+
     overflow-y: auto;
     overflow-x: hidden;
-    
+
     scroll-behavior: smooth;
 }
 
@@ -2909,7 +2919,7 @@ div.scroll {
 div.select[data-selected="brands"] > div.selector-tabs button.brands {
     background-color: var(--accent-color);
     border-color: var(--accent-color);
-    
+
     color: var(--font-color-secondary);
 }
 
@@ -2927,7 +2937,7 @@ div.select[data-selected="brands"] div.scrollOuter[data-list="models"]:before {
 div.select[data-selected="models"] > div.selector-tabs button.models {
     background-color: var(--accent-color);
     border-color: var(--accent-color);
-    
+
     color: var(--font-color-secondary);
 }
 
@@ -2940,28 +2950,28 @@ div.select[data-selected="models"] div.scrollOuter[data-list="brands"]:before {
 div.select[data-selected="extra"] > div.selector-tabs button.extra {
     background-color: var(--accent-color);
     border-color: var(--accent-color);
-    
+
     color: var(--font-color-secondary);
 }
 
 /* List item */
 div.scroll > div {
     position: relative;
-    
+
     box-sizing: border-box;
     min-height: 36px;
     padding: 11px 12px;
     overflow: hidden;
-    
+
     background-color: var(--background-color) !important;
     border: none;
     border-radius: 6px;
-    
+
     color: var(--font-color-primary);
     font-weight: 400;
     font-size: 12px;
     line-height: 1.5em;
-    
+
     cursor: pointer;
 }
 
@@ -2976,48 +2986,48 @@ div.scroll > div:hover {
 div.scroll div.active,
 div.scroll div[style*="border"] {
     background-color: var(--accent-color) !important;
-    
+
     color: var(--font-color-secondary);
 }
 
 div.scroll div.active:before {
     position: absolute;
-    
+
     top: 0;
     right: 0;
-    
+
     content: '';
     box-sizing: border-box;
     display: block;
     width: 36px;
     height: 36px;
-    
+
     border-radius: 6px;
-    
+
     pointer-events: none;
 }
 
 div.scroll div.active:after {
     position: absolute;
-    
+
     top: 0;
     right: 0;
-    
+
     content: '';
     box-sizing: border-box;
     display: block;
     width: 36px;
     height: 36px;
-    
+
     background-color: var(--font-color-secondary);
-    
+
     pointer-events: none;
 }
 
 div.scroll div.active:after {
     mask: var(--icon-remove);
     -webkit-mask: var(--icon-remove);
-    
+
     mask-size: 16px;
     mask-repeat: no-repeat;
     mask-position: center;
@@ -3030,10 +3040,10 @@ div.scroll > div.phone-item {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    
+
     width: calc(350px - 94px);
     padding: 0;
-    
+
     border-right: none;
 }
 
@@ -3044,13 +3054,13 @@ div.scroll > div.phone-item span {
 /* Plus button */
 div.scroll > div.phone-item div.phone-item-add {
     position: relative;
-    
+
     box-sizing: border-box;
     flex: 36px 0 0;
     height: 36px;
     margin: 0 0px 0 auto;
     overflow: hidden;
-    
+
     background-color: var(--background-color) !important;
     border-radius: 6px;
 }
@@ -3059,15 +3069,15 @@ div.scroll > div.phone-item div.phone-item-add:before {
     position: absolute;
     top: 0;
     left: 0;
-    
+
     content: '';
-    
+
     box-sizing: border-box;
     display: block;
     width: 36px;
     height: 36px;
     background-color: var(--background-color-contrast-more);
-    
+
     mask: var(--icon-plus);
     -webkit-mask: var(--icon-plus);
     mask-size: 16px;
@@ -3076,7 +3086,7 @@ div.scroll > div.phone-item div.phone-item-add:before {
     -webkit-mask-size: 16px;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
-    
+
     pointer-events: none;
     transition: transform 0.15s ease;
 }
@@ -3097,16 +3107,16 @@ div.scroll div[style*="border"] div.phone-item-add {
 /* Currently hidden because of a bug that adds multiple remove buttons; want to unhide when fixed */
 div.scroll > div.phone-item > span.remove {
     position: relative;
-    
+
     display: none;
     box-sizing: border-box;
     flex: 44px 0 0;
     height: 38px;
     margin: 0 3px 0 auto;
-    
+
     background-color: var(--background-color-contrast) !important;
     border-radius: 4px;
-    
+
     font-size: 0px;
 }
 
@@ -3114,15 +3124,15 @@ div.scroll > div.phone-item > span.remove:before {
     position: absolute;
     top: 6px;
     left: 3px;
-    
+
     content: '';
-    
+
     box-sizing: border-box;
     display: block;
     width: calc(100% - 6px);
     height: calc(100% - 12px);
     background-color: var(--background-color-contrast-more);
-    
+
     mask: var(--icon-remove);
     -webkit-mask: var(--icon-remove);
     mask-size: 16px;
@@ -3131,14 +3141,14 @@ div.scroll > div.phone-item > span.remove:before {
     -webkit-mask-size: 16px;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
-    
+
     pointer-events: none;
 }
 
 /* Hack to display remove button that appears inside the add button */
 div.scroll > div.phone-item[style*="border"] div.phone-item-add {
     display: inherit;
-    
+
     background-color: transparent !important;
     pointer-events: none;
 }
@@ -3156,9 +3166,9 @@ div.scroll div[style*="border"] div.phone-item-add span.remove {
     box-sizing: border-box;
     flex: 36px 0 0;
     height: 36px;
-    
+
     border-radius: 6px;
-    
+
     font-size: 0px;
     pointer-events: all;
 }
@@ -3167,16 +3177,16 @@ div.scroll div[style*="border"] div.phone-item-add span.remove:before {
     position: absolute;
     top: 0px;
     left: 0px;
-    
+
     content: '';
-    
+
     box-sizing: border-box;
     display: block;
     width: 100%;
     height: 100%;
     background-color: var(--background-color-contrast-more);
     background-color: var(--font-color-secondary);
-    
+
     mask: var(--icon-remove);
     -webkit-mask: var(--icon-remove);
     mask-size: 16px;
@@ -3185,9 +3195,9 @@ div.scroll div[style*="border"] div.phone-item-add span.remove:before {
     -webkit-mask-size: 16px;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
-    
+
     pointer-events: none;
-    
+
     animation-name: remove-spin;
     animation-duration: 0.2s;
     animation-timing-function: ease-in-out;
@@ -3213,17 +3223,17 @@ div.tutorial-overlay {
     top: 0;
     left: 0;
     z-index: 1;
-    
+
     display: flex;
     justify-content: flex-start;
     align-items: center;
     overflow: hidden;
-    
+
     box-sizing: border-box;
     width: 100%;
     height: 100%;
     padding: 1% 1.8% 3.2% 1.9%;
-    
+
     pointer-events: none;
 }
 
@@ -3232,27 +3242,27 @@ div.overlay-segment {
     flex-grow: 0;
     flex-shrink: 0;
     height: 100%;
-    
+
     background-color: var(--accent-color);
-    
+
     opacity: 0.0;
-    
+
     transition: opacity 0.1s ease;
 }
 
 div.tutorial-buttons {
     position: relative;
-    
+
     display: flex;
     align-items: flex-start;
-    
+
     box-sizing: border-box;
     width: 100%;
     height: 45px;
     padding: 6px 0 0 16px;
-    
+
     background-color: var(--background-color-graph);
-    
+
     overflow-x: auto;
 }
 
@@ -3266,22 +3276,22 @@ div.tutorial-buttons:after {
 
 button.button-segment {
     position: relative;
-    
+
     flex: auto 1 0;
     padding: 10px 16px;
     margin: 0;
-    
+
     background-color: var(--background-color);
     background-color: transparent;
     border: 0;
     outline: none;
-    
+
     color: var(--font-color-primary);
     font-family: var(--font-primary);
     font-weight: 400;
     font-size: 12px;
     line-height: 1em;
-    
+
     cursor: pointer;
 }
 
@@ -3291,13 +3301,13 @@ button.button-segment:last-child {
 
 div.tutorial-description {
     display: flex;
-    
+
     max-height: 0px;
     overflow: hidden;
-    
+
     background-color: var(--background-color-graph);
     border-bottom: 1px solid var(--background-color-contrast-more);
-    
+
     transition: max-height 0.2s ease-in-out;
 }
 
@@ -3309,7 +3319,7 @@ article.description-segment {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     order: 1;
     flex: auto 0 0;
     width: 100%;
@@ -3318,10 +3328,10 @@ article.description-segment {
 article.description-segment p {
     padding: 16px;
     margin: 0 16px 16px 16px;
-    
+
     flex: auto 1 1;
     max-width: 800px;
-    
+
     color: var(--font-color-primary);
     font-family: var(--font-primary);
     font-weight: 400;
@@ -3349,15 +3359,15 @@ button.button-segment[tutorial-on="true"]:before {
     position: absolute;
     top: 0;
     left: 0;
-    
+
     content: '';
     display: block;
     width: 100%;
     height: 100%;
-    
+
     background-color: var(--accent-color);
     border-radius: 100px;
-    
+
     opacity: 0.1;
 }
 
@@ -3373,14 +3383,14 @@ External links *****/
 div.external-links {
     display: flex;
     align-items: flex-start;
-    
+
     box-sizing: border-box;
     width: 100%;
     max-height: 69px;
     padding: 16px;
     overflow-x: auto;
     overflow-y: hidden;
-    
+
     border-top: 1px solid var(--background-color-contrast-more);
 }
 
@@ -3398,14 +3408,14 @@ div.external-links:after {
 div.external-links span {
     flex: auto 0 0;
     margin: 0 10px 0 0;
-    
+
     color: var(--background-color-contrast-more);
     font-family: var(--font-secondary);
     font-size: 11px;
     line-height: 1em;
     text-transform: uppercase;
     line-height: 36px;
-    
+
     white-space: nowrap;
 }
 
@@ -3417,28 +3427,28 @@ div.external-links a + span {
 
 div.external-links a {
     flex: auto 0 0;
-    
+
     box-sizing: border-box;
     min-width: 100px;
     padding: 11px 16px;
-    
+
     background-color: var(--background-color);
     border: 1px solid var(--background-color-contrast);
     border-radius: 6px;
-    
+
     color: var(--background-color-contrast-more);
     font-weight: 400;
     font-size: 12px;
     line-height: 1em;
     text-align: center;
     text-decoration: none;
-    
+
     white-space: nowrap;
     cursor: pointer;
     outline: none;
 }
 
-div.external-links a.active {    
+div.external-links a.active {
     color: var(--background-color-contrast);
     background-color: var(--background-color-contrast-more);
     border-color: var(--background-color-contrast-more);
@@ -3456,7 +3466,7 @@ Accessories *****/
 div.accessories {
     box-sizing: border-box;
     padding: 16px 0;
-    
+
     border-top: 1px solid var(--background-color-contrast-more);
     background-color: var(--background-color);
 }
@@ -3469,9 +3479,9 @@ div.accessories h2 {
     width: calc(100% - 32px);
     max-width: 660px;
     margin: 32px auto 16px auto;
-    
+
     border-radius: 4px;
-    
+
     color: var(--background-color-contrast-more);
     font-family: var(--font-secondary);
     font-weight: 400;
@@ -3484,9 +3494,9 @@ div.accessories p {
     width: calc(100% - 32px);
     max-width: 660px;
     margin: 16px auto;
-    
+
     border-radius: 4px;
-    
+
     color: var(--font-color-primary);
     font-size: 14px;
     line-height: 1.6em;
@@ -3494,7 +3504,7 @@ div.accessories p {
 
 div.accessories p.center {
     max-width: 800px;
-    
+
     color: var(--background-color-contrast-more);
     text-align: center;
 }
@@ -3510,13 +3520,13 @@ div.accessories-widgets {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    
+
     padding: 0 16px 16px 0;
 }
 
 div.accessories-widgets .widget {
     flex: auto 0 0;
-    
+
     margin: 16px 0 0 16px;
 }
 
@@ -3530,48 +3540,48 @@ div.cashMessage {
     top: 0;
     left: 0;
     z-index: 3;
-    
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+
     width: 100%;
     height: 100%;
-    
+
     pointer-events: none;
-    
+
 }
 
 div.cashMessage h2 {
     flex: auto 0 1;
-    
+
     box-sizing: border-box;
     max-width: 600px;
     margin: 32px 32px 16px 32px;;
-    
+
     font-weight: 700;
     font-size: 18px;
     line-height: 1em;
-    
+
     text-align: center;
-    
+
     pointer-events: all;
 }
 
 div.cashMessage p {
     flex: auto 0 1;
-    
+
     box-sizing: border-box;
     max-width: 600px;
     margin: 16px 32px;
-    
+
     font-weight: 400;
     font-size: 16px;
     line-height: 1.5em;
-    
+
     text-align: center;
-    
+
     pointer-events: all;
 }
 
@@ -3586,7 +3596,7 @@ div.cashMessage p a {
 
 div.cashMessage button {
     flex: auto 0 1;
-    
+
     box-sizing: border-box;
     width: 200px;
     padding: 12px 16px;
@@ -3596,25 +3606,25 @@ div.cashMessage button {
     border-radius: 50px;
     border: none;
     outline: none;
-    
+
     color: var(--accent-color);
     font-weight: 700;
     font-size: 12px;
     line-height: 1em;
     text-align: center;
 
-    
+
     white-space: nowrap;
     cursor: pointer;
     pointer-events: all;
-    
+
     animation-name: cash-fine;
     animation-duration: 0.3s;
     animation-delay: 1.0s;
     animation-iteration-count: 1;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
-    
+
     opacity: 0.0;
 }
 
@@ -3623,7 +3633,7 @@ div.cashMessage button {
         opacity: 0.0;
         transform: translateY(10px);
     }
-    
+
     100% {
         opacity: 1.0;
         transform: translateY(0px);
@@ -3632,7 +3642,7 @@ div.cashMessage button {
 
 div.cashMessage button:active {
     background-color: var(--accent-color);
-    color: var(--font-color-secondary);    
+    color: var(--font-color-secondary);
 }
 
 div.fadeAll {
@@ -3640,16 +3650,16 @@ div.fadeAll {
     top: 0;
     left: 0;
     z-index: 2;
-    
+
     width: 100%;
     height: 100%;
-    
+
     background-color: var(--background-color);
-    
+
     opacity: 0.9;
-    
+
     cursor: pointer;
-    
+
     animation-name: cash-in;
     animation-duration: 0.1s;
     animation-iteration-count: 1;
@@ -3661,7 +3671,7 @@ div.fadeAll {
     0% {
         opacity: 0.0;
     }
-    
+
     100% {
         opacity: 0.97;
     }
@@ -3671,17 +3681,17 @@ div.fadeAll:before {
     position: absolute;
     top: 12px;
     right: 22px;
-    
+
     content: '';
-    
+
     box-sizing: border-box;
     display: block;
     width: 44px;
     height: 38px;
-    
+
     background-color: var(--background-color-contrast);
     border-radius: 4px;
-    
+
     pointer-events: none;
 }
 
@@ -3689,16 +3699,16 @@ div.fadeAll:after {
     position: absolute;
     top: 12px;
     right: 22px;
-    
+
     content: '';
-    
+
     box-sizing: border-box;
     display: block;
     width: 44px;
     height: 38px;
-    
+
     background-color: var(--background-color-contrast-more);
-    
+
     mask: var(--icon-remove);
     -webkit-mask: var(--icon-remove);
     mask-size: 20px;
@@ -3707,7 +3717,7 @@ div.fadeAll:after {
     -webkit-mask-size: 20px;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
-    
+
     pointer-events: none;
 }
 
@@ -3716,19 +3726,19 @@ div.cash {
     top: 0;
     left: 0;
     z-index: 1;
-    
+
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
     width: 100%;
     height: 100%;
-    
+
     font-family: var(--font-secondary);
     font-size: 30vh;
     font-weight: 700;
     line-height: 1em;
-    
+
     cursor: pointer;
 }
 
@@ -3741,80 +3751,80 @@ Responsive styles *****/
     ::-webkit-scrollbar {
         width: 0px;
     }
-    
+
     body {
         overflow: hidden;
     }
-    
-    
+
+
     main.main {
         position: relative;
-        
+
         display: block;
         overflow: hidden;
     }
-    
+
     section.parts-primary {
         position: relative;
-        
+
         order: 1;
         height: 100%;
         overflow-y: auto;
     }
-    
+
     section.parts-primary:after {
         content: '';
-        
+
         display: block;
         height: 84px;
     }
-    
+
     div.graphBox {
         top: 0;
         z-index: 2;
         padding-bottom: 8px;
     }
-    
+
     div.graph-sizer {
         margin: 8px auto 0 auto;
     }
-    
+
     div.targets {
-        
+
     }
-    
+
     div.manage {
         position: relative;
         background-color: var(--background-color-contrast);
     }
-    
+
     div.manage:before {
         position: absolute;
         top: 0;
         left: 0;
         z-index: 1;
-        
+
         content: '';
         display: block;
         width: 100%;
         height: 100%;
-        
+
         background-color: var(--background-color-contrast-more);
         pointer-events: none;
-        
+
         opacity: 0.0;
         transition: opacity 0.2s ease-in 0.2s;
     }
-    
+
     table.manageTable {
         min-height: calc( 100vh - ((100vw * 0.44) + 92px) );
     }
-    
+
     tbody.curves > tr {
         border-top: 1px solid var(--background-color);
     }
 /*
-    
+
     tbody.curves > tr > td.button-baseline:before,
     tbody.curves > tr > td.hideIcon:before,
     tbody.curves > tr > td.button-pin[data-pinned="true"]:before,
@@ -3826,7 +3836,7 @@ Responsive styles *****/
         background-color: var(--background-color-contrast);
     }
 */
-    
+
     tbody.curves > tr > td.hideIcon.selected:before,
     tbody.curves > tr > td.button-pin:before,
     tbody.curves > tr > td.button-export:before,
@@ -3834,107 +3844,107 @@ Responsive styles *****/
         border: 1px solid var(--background-color);
         background-color: var(--background-color-contrast);
     }
-    
+
     tbody.curves > tr > td.button-baseline:before,
     tbody.curves > tr > td.hideIcon:before,
     tbody.curves > tr > td.button-pin[data-pinned="true"]:before {
         background-color: var(--background-color-contrast);
     }
-    
+
     section.parts-secondary {
         position: absolute;
         top: 0;
         z-index: 1;
-        
+
         order: 2;
         width: 100%;
         height: calc(100% - ((100vw * 0.44) + 92px));
         min-height: 200px;
         margin-top: 0px;
-        
+
         border-right: none;
         border-top: 1px solid var(--background-color-contrast-more);
         border-radius: 16px 16px 0 0;
-        
+
         transition: all 200ms ease-in;
         transform: translateY(calc( (100vw * 0.44) + 92px ));
     }
-    
+
     div.controls {
         border-radius: 16px 16px 0 0;
     }
-    
+
     div.controls:before {
         position: absolute;
         top: 6px;
         left: 0;
         right: 0;
-        
+
         content: '';
         display: block;
         margin: auto;
-        
+
         width: 60px;
         height: 4px;
-        
+
         background-color: var(--background-color-contrast-more);
         border-radius: 6px;
-        
+
         pointer-events: none;
     }
-    
+
     div.scroll > div.phone-item {
         width: calc(100vw - 94px);
     }
-    
+
     tbody.curves:empty:before {
         content: 'Select a model from the list below to graph its frequency response';
     }
-    
+
     tr.mobile-helper {
         position: relative;
-        
+
         display: block;
         padding: 16px;
     }
-    
+
     tr.mobile-helper:before {
         z-index: 1;
-        
+
         content: 'Browse all graphs';
         display: block;
-        
+
         box-sizing: border-box;
         width: 100%;
         height: 36px;
         padding: 11px 16px;
-        
+
         background-color: var(--background-color);
         border: 1px solid var(--background-color-contrast-more);
         border-radius: 6px;
-        
+
         color: var(--font-color-primary);
         font-size: 12px;
         line-height: 1em;
         text-align: center;
-        
+
         cursor: pointer;
     }
-    
+
     tr.mobile-helper:after {
         position: absolute;
         top: 0;
         left: 0;
         z-index: 1;
-        
+
         content: '';
         display: block;
-        
+
         box-sizing: border-box;
         width: 100%;
         height: 36px;
         margin-top: 16px;
-        
+
         background-color: var(--background-color-contrast-more);
 
         mask: var(--icon-plus);
@@ -3945,25 +3955,25 @@ Responsive styles *****/
         -webkit-mask-size: 16px;
         -webkit-mask-repeat: no-repeat;
         -webkit-mask-position: right 26px center;
-        
+
         cursor: pointer;
     }
-    
+
     /* Primary panel focused */
     main.main[data-focused-panel="primary"] div.manage:before {
         opacity: 0.0;
     }
-    
+
     main.main[data-focused-panel="primary"] section.parts-secondary {
         transform: translateY(calc( ((100vw * 0.44) + 92px) + 100% - 84px ));
-        
+
         animation-name: graph-drawer-hide;
         animation-duration: 0.4s;
         animation-timing-function: ease-in;
         animation-iteration-count: 1;
         animation-fill-mode: forwards;
     }
-    
+
     @keyframes graph-drawer-hide {
         0% {
             transform: translateY(calc( (100vw * 0.44) + 92px ));
@@ -3978,7 +3988,7 @@ Responsive styles *****/
             transform: translateY(calc( ((100vw * 0.44) + 92px) + 100% - 84px ));
         }
     }
-    
+
     main.main[data-focused-panel="primary"] section.parts-secondary div.select:before {
         animation-name: all-graphs-bounce;
         animation-duration: 0.3s;
@@ -3987,7 +3997,7 @@ Responsive styles *****/
         animation-timing-function: ease-out;
         animation-fill-mode: forwards;
     }
-    
+
     @keyframes all-graphs-bounce {
         0% {
             margin: -36px 16px 0 16px;
@@ -3996,17 +4006,17 @@ Responsive styles *****/
             margin: 16px 16px 32px 16px;
         }
     }
-    
+
     /* Secondary panel focused */
     main.main[data-focused-panel="secondary"] section.parts-primary {
         overflow: hidden;
     }
-    
+
     main.main[data-focused-panel="secondary"] div.manage:before {
         opacity: 0.8;
         transition: opacity 0.2s ease-in 0.0s;
     }
-    
+
     main.main[data-focused-panel="secondary"] section.parts-secondary {
         animation-name: graph-drawer-show;
         animation-duration: 0.4s;
@@ -4014,7 +4024,7 @@ Responsive styles *****/
         animation-iteration-count: 1;
         animation-fill-mode: forwards;
     }
-    
+
     @keyframes graph-drawer-show {
         0% {
             transform: translateY(calc( ((100vw * 0.44) + 92px) + 100% - 84px ));
@@ -4059,7 +4069,7 @@ Responsive styles *****/
         flex: auto;
         margin: 0 42px 0 0;
     }
-    
+
     div.logo a {
         width: 80%;
     }
@@ -4083,7 +4093,7 @@ Responsive styles *****/
         background-color: var(--background-color);
 
         transform: translateX(-100vw);
-        
+
         overflow-x: hidden;
         overflow-y: auto;
     }
@@ -4119,33 +4129,33 @@ Responsive styles *****/
     tbody.curves > tr {
         flex-wrap: wrap;
     }
-    
+
     tbody.curves > tr > td.curve-color {
         order: 2 !important;
     }
-    
+
     tbody.curves > tr > td.item-line {
         flex: 100% 0 0 !important;
         padding: 0 16px !important;
-        
+
 /*        border-bottom: 1px solid var(--background-color-contrast);*/
     }
-    
+
     tbody.curves > tr > td.item-line div.phonename {
         padding-right: 0px !important;
     }
-    
+
     tbody.curves > tr > td.channels {
         margin-right: auto;
     }
-    
+
     tbody.curves > tr > td.levels {
         margin-left: auto;
     }
-    
+
     tbody.curves > tr > td.button-baseline {
     }
-    
+
     tbody.curves > tr > td.remove {
     }
 }
@@ -4155,32 +4165,32 @@ Responsive styles *****/
     section.parts-secondary {
         flex: 600px 0 0;
     }
-    
+
     div.select > div.selector-panel > div.scroll-container {
         display: flex;
         max-height: 100%;
     }
-    
+
     div.scrollOuter {
         position: relative;
-        
+
         display: flex;
-        
+
         flex: 50% 1 1;
         height: calc(100% - 52px);
     }
-    
+
     div.scroll {
         position: relative;
-        
+
         flex: 50% 1 1;
     }
-    
+
     div.scrollOuter[data-list="brands"]:before,
     div.scrollOuter[data-list="models"]:before {
         display: none;
     }
-    
+
     div[data-selected="brands"] div.scroll#phones {
         transform: none;
         transition: none;
@@ -4189,37 +4199,37 @@ Responsive styles *****/
 
 /* Yeet table items for narrow screens */
 @media ( max-width: 500px) {
-    
+
     tbody.curves > tr:before {
         order: 5;
-        
+
         content:'';
         display: block;
         flex: 100% 1 1;
-        
+
         height: 0px;
     }
 
     tbody.curves > tr > td.item-line {
     }
-    
+
     tbody.curves > tr > td.curve-color {
     }
-    
+
     tbody.curves > tr > td.channels {
         order: 3;
     }
-    
+
     tbody.curves > tr > td.levels {
         order: 4;
-        
+
         margin-right: 16px;
     }
-    
+
     tbody.curves > tr > td.button-baseline {
         margin-left: auto;
     }
-    
+
     tbody.curves > tr > td.button-baseline,
     tbody.curves > tr > td.hideIcon,
     tbody.curves > tr > td.button-pin {
@@ -4232,41 +4242,41 @@ Responsive styles *****/
     header.header {
         display: none;
     }
-    
+
     body:not([data-input-state="focus"]) section.parts-primary {
         z-index: 3;
-        
+
         flex: 100vh 1 1 !important;
         max-height: -webkit-fill-available;
     }
-    
+
     body:not([data-input-state="focus"]) section.parts-secondary {
         display: none;
     }
-    
+
     body:not([data-input-state="focus"]) div.graph-sizer {
         position: fixed;
         z-index: 5;
         top: 0;
         left: 0;
-        
+
         display: flex;
         justify-content: center;
         align-items: center;
-        
+
         box-sizing: border-box;
         width: 100vw;
         height: 100vh;
         max-width: none;
         max-height: -webkit-fill-available;
         margin: 0;
-        
+
         background-color: var(--background-color);
     }
-    
+
     body:not([data-input-state="focus"]) svg#fr-graph {
         width: 100%;
-        
+
         pointer-events: none;
     }
 }

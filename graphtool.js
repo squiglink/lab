@@ -251,12 +251,12 @@ doc.html(`
               </div>
               <h5 class="ranges-label">Ranges (AutoEQ)</h5>
               <div class="settings-row">
-                <span>Frequency (Hz)</span>
+                <span>Frequency</span>
                 <span><input name="autoeq-freq-min" inputmode="decimal" type="number" min="20" max="20000" step="1" value="20"></input></span>
                 <span><input name="autoeq-freq-max" inputmode="decimal" type="number" min="20" max="20000" step="1" value="15000"></input></span>
               </div>
               <div class="settings-row">
-                <span>Gain (dB)</span>
+                <span>Gain</span>
                 <span><input name="autoeq-gain-min" inputmode="decimal" type="number" min="-40" max="0" step="0.1" value="-16"></input></span>
                 <span><input name="autoeq-gain-max" inputmode="decimal" type="number" min="0" max="40" step="0.1" value="16"></input></span>
               </div>
@@ -677,7 +677,7 @@ function saveGraph(ext) {
     showControls(false);
     fn(gr.node(), "graph."+ext, {scale:3})
         .then(()=>showControls(true));
-    
+
     // Analytics event
     if (analyticsEnabled) { pushEventTag("clicked_download", targetWindow); }
 }
@@ -1421,7 +1421,7 @@ function setBaseline(b, no_transition) {
         .on("end", () => updateEqFilterMarkers());
     table.selectAll("tr").select(".button-baseline")
         .classed("selected", d => d.p === baseline.p);
-    
+
     // Analytics event
     if (analyticsEnabled && b.p) { pushPhoneTag("baseline_set", b.p); }
 }
@@ -1444,7 +1444,7 @@ function setHover(elt, h) {
 // See if iframe gets CORS error when interacting with window.top
 try {
     let emb = window.location.href.includes('embed');
-    
+
     accessWindowTop = (window.top.location.href) ? true:false;
     targetWindow = emb ? window : window.top;
 } catch {
@@ -1468,7 +1468,7 @@ function addPhonesToUrl() {
         url = baseURL,
         names = activePhones.filter(p => !p.isDynamic).map(p => p.fileName),
         namesCombined = names.join(", ");
-    
+
     if (names.length) {
         url += "?share=" + encodeURI(names.join().replace(/ /g,"_"));
         title = namesCombined + " - " + title;
@@ -1990,7 +1990,7 @@ function setNorm(_, i, change) {
     activePhones.forEach(normalizePhone);
     if (baseline.p) { baseline = getBaseline(baseline.p); }
     updateYCenter();
-    
+
     if (!userConfigApplicationActive) {
         setUserConfig();
         updatePaths();
@@ -2062,10 +2062,10 @@ function showPhone(p, exclusive, suppressVariant, trigger) {
             item.select(".phone-item-add").classed("loading", false);
             p.rawChannels = ch;
             showPhone(p, exclusive, suppressVariant, trigger);
-            
+
             // Scroll to selected
             if (trigger) { scrollToActive(); }
-            
+
             // Analytics event
             if (analyticsEnabled) { pushPhoneTag("phone_displayed", p, trigger); }
         });
@@ -2109,7 +2109,7 @@ function showPhone(p, exclusive, suppressVariant, trigger) {
         updateEQPhoneSelect();
     }
     if (!p.isTarget && alt_augment ) { augmentList(p); }
-    
+
     // Apply user config view settings
     if (typeof trigger !== "undefined") {
         userConfigApplyViewSettings(p.fileName);
@@ -2234,17 +2234,17 @@ d3.json(typeof PHONE_BOOK !== "undefined" ? PHONE_BOOK
         inits = [],
         initReq = typeof init_phones !== "undefined" ? [init_phones].flat() : false;
     loadFromShare = 0;
-    
+
     if (ifURL) {
         let url = targetWindow.location.href,
             par = "share=";
             emb = "embed";
         baseURL = url.split("?").shift();
-        
+
         if (url.includes(par) && url.includes(emb)) {
             initReq = decodeURIComponent(url.replace(/_/g," ").split(par).pop()).split(",");
             loadFromShare = 2;
-            
+
             setModeEmbed();
         } else if (url.includes(par)) {
             initReq = decodeURIComponent(url.replace(/_/g," ").split(par).pop()).split(",");
@@ -2253,13 +2253,13 @@ d3.json(typeof PHONE_BOOK !== "undefined" ? PHONE_BOOK
             setModeEmbed();
         }
     }
-    
+
     // Apply user config to inits
     userConfigAppendInits(initReq);
-    
+
     let isInit = initReq ? f => initReq.indexOf(f) !== -1
                          : _ => false;
-    
+
     if (loadFromShare === 1) {
         initMode = "share";
     } else if (loadFromShare === 2) {
@@ -2425,11 +2425,11 @@ d3.json(typeof PHONE_BOOK !== "undefined" ? PHONE_BOOK
         activePhones.forEach(p => { if (!p.isTarget) { p.id = getPhoneNumber(); } });
         colorPhones();
     });
-    
+
     doc.select("#theme").on("click", function () {
         themeChooser("change");
     });
-    
+
     userConfigApplyNormalization();
 });
 
@@ -2681,7 +2681,7 @@ function copyUrlInit() {
         setTimeout(function() {
             copyUrlButton.classList.remove("clicked");
         }, 600);
-        
+
         // Analytics event
         if (analyticsEnabled) { pushEventTag("clicked_copyUrl", targetWindow); }
     });
@@ -2693,7 +2693,7 @@ function themeChooser(command) {
     let docBody = document.querySelector("body"),
         themeButton = document.querySelector("button#theme"),
         themeCurrent = themeButton.getAttribute("current-theme");
-    
+
     // If a change event, make changes to state
     if (command === "change") {
         if (themeCurrent === "theme-dark") {
@@ -2704,37 +2704,37 @@ function themeChooser(command) {
             localStorage.setItem("theme-pref", "theme-dark");
         }
     }
-    
+
     let themePref = localStorage.getItem("theme-pref");
-    
+
     // Apply state
     if (themePref === "theme-dark") {
         docBody.classList.remove("theme-default", "theme-contrast");
         docBody.classList.add("theme-dark");
         themeButton.textContent = "contrast mode";
-        
+
     } else if (themePref === "theme-contrast") {
         docBody.classList.remove("theme-default", "theme-dark");
         docBody.classList.add("theme-contrast");
         themeButton.textContent = "default mode";
-        
+
     } else {
         docBody.classList.remove("theme-dark", "theme-contrast");
         docBody.classList.add("theme-default");
         themeButton.textContent = "dark mode";
     }
-    
+
     themeButton.setAttribute("current-theme", themePref);
 }
 if ( themingEnabled ) {
     let themeButton = document.createElement("button"),
         miscTools = document.querySelector("div.miscTools");
-        
+
     themeButton.setAttribute("id", "theme");
     themeButton.textContent = "dark mode";
     themeButton.setAttribute("current-theme", "theme-default");
     miscTools.append(themeButton);
-    
+
     themeChooser();
 }
 
@@ -2742,7 +2742,7 @@ if ( themingEnabled ) {
 function mapDownloadFaux() {
     let downloadButton = document.querySelector("button#download"),
         downloadFaux = document.querySelector("button#download-faux");
-    
+
     downloadFaux.addEventListener("click", function() {
         downloadButton.click();
     });
@@ -2768,11 +2768,11 @@ function focusedListClicks() {
     });
 
     let brandsList = document.querySelector("div.scroll#brands");
-    
+
     brandsList.addEventListener("click", function(e) {
         let clickedElem = e.target,
             clickedElemIsBrand = clickedElem.matches("div.scroll#brands div");
-        
+
         if (clickedElemIsBrand) {
             setFocusedList("models");
             e.stopPropagation();
@@ -2787,7 +2787,7 @@ function focusedListSwipes() {
         listsContainer = document.querySelector("div.select"),
         swipableList = document.querySelector("div.scrollOuter[data-list=\"models\"]");
     touchDelta = 0;
-    
+
     horizontalSwipeTarget.addEventListener("touchstart", function(e) {
         selectedList = listsContainer.getAttribute("data-selected");
         touchStart = e.targetTouches[0].screenX;
@@ -2796,11 +2796,11 @@ function focusedListSwipes() {
             touchNow = e.targetTouches[0].screenX;
             touchDelta = touchNow - touchStart,
             touchDeltaNegative = 0 - touchDelta;
-            
+
             if ( selectedList === "models" && touchDelta > 0 && touchDelta < 100 ) {
                 swipableList.setAttribute("style","right: "+ touchDeltaNegative +"px;")
             }
-            
+
             if ( selectedList === "brands" && touchDelta < 0 && touchDelta > -100 ) {
                 swipableList.setAttribute("style","right: "+ touchDeltaNegative +"px;")
             }
@@ -2815,12 +2815,12 @@ function focusedListSwipes() {
         if ( touchDelta < -50 ) {
             listsContainer.setAttribute("data-selected","models");
         }
-        
+
         swipableList.setAttribute("style","")
         touchStart = 0;
         touchNow = 0;
         touchDelta = 0;
-        
+
         //horizontalSwipeTarget.removeEventListener("touchmove");
     });
 }
@@ -2846,9 +2846,9 @@ function setFocusedPanel() {
         phonesList = document.querySelector("div#phones"),
         graphBox = document.querySelector("div.graph-sizer"),
         mobileHelper = document.querySelector("tr.mobile-helper");
-    
+
     panelsContainer.setAttribute("data-focused-panel","secondary");
-    
+
     mobileHelper.addEventListener("click", function() {
         panelsContainer.setAttribute("data-focused-panel","secondary");
     });
@@ -2856,20 +2856,20 @@ function setFocusedPanel() {
     secondaryPanel.addEventListener("click", function() {
         panelsContainer.setAttribute("data-focused-panel","secondary");
     });
-    
+
     graphBox.addEventListener("click", function() {
         let previousState = panelsContainer.getAttribute("data-focused-panel");
-        
+
         if ( previousState === "primary") {
             panelsContainer.setAttribute("data-focused-panel","secondary");
         } else if ( previousState === "secondary" ) {
             panelsContainer.setAttribute("data-focused-panel","primary");
         }
     });
-    
+
     // Touch events
     let verticalSwipeTargets = document.querySelectorAll("div.selector-tabs, input.search");
-    
+
     verticalSwipeTargets.forEach(function(target) {
         target.addEventListener("touchstart", function(e) {
             focusedPanel = document.querySelector("main.main").getAttribute("data-focused-panel");
@@ -2902,7 +2902,7 @@ function setFocusedPanel() {
             touchNow = 0;
             touchDelta = 0;
         });
-    
+
         target.addEventListener("wheel", function(e) {
             let wheelDelta = e.deltaY;
 
@@ -2922,18 +2922,18 @@ setFocusedPanel();
 function blurFocus() {
     let inputFields = document.querySelectorAll("input"),
         body = document.querySelector("body");
-    
+
     inputFields.forEach(function(field) {
         field.addEventListener("keyup", function(e) {
             if (e.keyCode === 13) {
                 field.blur();
             }
         });
-        
+
         field.addEventListener("focus", function() {
             body.setAttribute("data-input-state","focus");
         });
-        
+
         field.addEventListener("blur", function() {
             body.setAttribute("data-input-state","blur");
         });
@@ -3801,7 +3801,7 @@ function addExtra() {
                 // Remove empty tail filters
                 let lastFilter = filters[filters.length-1];
                 if (!lastFilter.freq && !lastFilter.q && !lastFilter.gain) {
-                    filters.pop(); 
+                    filters.pop();
                 } else {
                     break;
                 }
@@ -3832,7 +3832,7 @@ function addExtra() {
         let settings = "Preamp: " + preamp.toFixed(1) + " dB\r\n";
         filters.forEach((f, i) => {
             let filterValid = f.freq != 0 && f.q != 0 && f.gain != 0 ? true : false;
-            
+
             if (filterValid) {
                 let on = (!f.disabled && f.type && f.freq && f.gain && f.q) ? "ON" : "OFF";
                 let type = f.type;
@@ -6163,7 +6163,7 @@ addExtra();
 function addAccessories() {
     let accessoriesBar = document.querySelector("div.accessories"),
         accessoriesContainer = document.createElement("aside");
-    
+
     accessoriesContainer.innerHTML = whichAccessoriesToUse;
     accessoriesBar.append(accessoriesContainer);
 }
@@ -6179,7 +6179,7 @@ function addHeader() {
         headerLogoImg = document.createElement("img"),
         headerLogoSpan = document.createElement("span"),
         linksList = document.createElement("ul");
-    
+
     headerButton.className = "header-button";
     headerLogoElem.className = "logo";
     headerLogoLink.setAttribute('href', site_url);
@@ -6190,7 +6190,7 @@ function addHeader() {
         headerLogoImg.setAttribute("src", headerLogoImgUrl);
         headerLogoLink.append(headerLogoImg);
     }
-    
+
     altHeaderElem.append(headerButton);
     headerLogoElem.append(headerLogoLink);
     altHeaderElem.setAttribute("data-links", "");
@@ -6198,14 +6198,14 @@ function addHeader() {
 
     altHeaderElem.className = "header";
     graphToolContainer.prepend(altHeaderElem);
-    
+
     linksList.className = "header-links";
     altHeaderElem.append(linksList);
-    
+
     headerLinks.forEach(function(link) {
         let linkContainerElem = document.createElement("li"),
             linkElem = document.createElement("a");
-        
+
         linkElem.setAttribute("href", link.url);
         if ( alt_header_new_tab ) { linkElem.setAttribute("target", "_blank"); }
         if ( link.external ) { linkElem.setAttribute("target", "_blank"); linkElem.classList.add('external'); }
@@ -6213,10 +6213,10 @@ function addHeader() {
         linkContainerElem.append(linkElem);
         linksList.append(linkContainerElem);
     })
-    
+
     headerButton.addEventListener("click", function() {
         let headerLinksState = altHeaderElem.getAttribute("data-links");
-        
+
         if (headerLinksState === "expanded") {
             altHeaderElem.setAttribute("data-links", "collapsed");
         } else {
@@ -6234,15 +6234,15 @@ function addExternalLinks() {
         let setLabelHtml = document.createElement("span"),
             setLabelText = set.label,
             links = set.links;
-        
+
         setLabelHtml.textContent = setLabelText;
         externalLinksBar.append(setLabelHtml);
-        
+
         links.forEach(function(link) {
             let linkHtml = document.createElement("a"),
                 linkName = link.name,
                 linkUrl = link.url;
-            
+
             linkHtml.textContent = linkName;
             linkHtml.setAttribute("href", linkUrl);
             externalLinksBar.append(linkHtml);
@@ -6260,98 +6260,98 @@ function addTutorial() {
         buttonContainer = document.createElement("div"),
         descriptionContainer = document.createElement("div"),
         zoomButtons = document.querySelectorAll("div.zoom button");
-    
+
     overlayContainer.className = "tutorial-overlay";
     graphContainer.prepend(overlayContainer);
-    
+
     buttonContainer.className = "tutorial-buttons";
     descriptionContainer.className = "tutorial-description";
-    
+
     manageContainer.prepend(descriptionContainer);
     manageContainer.prepend(buttonContainer);
-    
+
     tutorialDefinitions.forEach(function(def) {
         let defOverlay = document.createElement("div"),
             defButton = document.createElement("button"),
             defDescription = document.createElement("article"),
             defDescriptionCopy = document.createElement("p");
-        
+
         defOverlay.setAttribute("tutorial-def", def.name);
         defOverlay.setAttribute("tutorial-on", "false");
         defOverlay.className = "overlay-segment";
         defOverlay.setAttribute("style", "flex-basis: "+ def.width +";")
         overlayContainer.append(defOverlay);
-        
+
         defButton.setAttribute("tutorial-def", def.name);
         defButton.setAttribute("tutorial-on", "false");
         defButton.className = "button-segment";
         defButton.textContent = def.name;
         buttonContainer.append(defButton);
-        
+
         defDescription.setAttribute("tutorial-def", def.name);
         defDescription.setAttribute("tutorial-on", "false");
         defDescription.className = "description-segment";
         defDescriptionCopy.innerHTML = def.description;
         defDescription.append(defDescriptionCopy);
         descriptionContainer.append(defDescription);
-        
+
         defButton.addEventListener("click", function() {
             let activeStatus = defButton.getAttribute("tutorial-on"),
                 activeTutorialElements = document.querySelectorAll("[tutorial-on='true']"),
                 activeOverlay = document.querySelector("div.overlay-segment[tutorial-on='true']"),
                 activeButton = document.querySelector("button.button-segment[tutorial-on='true']"),
                 activeDescription = document.querySelector("article.description-segment[tutorial-on='true']");
-            
+
             if (activeOverlay) { activeOverlay.setAttribute("tutorial-on", "false"); }
             if (activeButton) { activeButton.setAttribute("tutorial-on", "false"); }
-            
+
             if (activeStatus === "false") {
                 if (activeDescription) { activeDescription.setAttribute("tutorial-on", "false"); }
-                
+
                 defOverlay.setAttribute("tutorial-on", "true");
                 defButton.setAttribute("tutorial-on", "true");
                 defDescription.setAttribute("tutorial-on", "true");
-                
+
                 partsPrimary.setAttribute("tutorial-active", "true");
                 disableZoom();
-                
+
                 // Analytics event
                 if (analyticsEnabled) { pushEventTag("tutorial_activated", targetWindow, def.name); }
             } else {
                 partsPrimary.setAttribute("tutorial-active", "false");
             }
         });
-        
+
         defButton.addEventListener("mouseover", function() {
             defOverlay.setAttribute("tutorial-hover", "true");
         });
-        
+
         defButton.addEventListener("mouseout", function() {
             defOverlay.setAttribute("tutorial-hover", "false");
         });
-        
+
         defButton.addEventListener("touchend", function() {
             defOverlay.setAttribute("tutorial-hover", "false");
         });
     });
-    
+
     // Disable zoom if tutorial is engaged
     function disableZoom() {
         let activeZoomButton = document.querySelector("div.zoom button.selected");
-        
+
         if (activeZoomButton) { activeZoomButton.click(); }
     }
-    
+
     // Disable tutorial if zoom is engaged
     zoomButtons.forEach(function(button) {
         button.addEventListener("click", function() {
             let tutorialState = document.querySelector("section.parts-primary").getAttribute("tutorial-active");
-            
+
             if (button.classList.contains("selected") && tutorialState === "true") {
                 let activeOverlay = document.querySelector("div.overlay-segment[tutorial-on='true']"),
                     activeButton = document.querySelector("button.button-segment[tutorial-on='true']"),
                     activeDescription = document.querySelector("article.description-segment[tutorial-on='true']");
-                
+
                 document.querySelector("section.parts-primary").setAttribute("tutorial-active","false");
                 activeOverlay.setAttribute("tutorial-on", "false");
                 activeButton.setAttribute("tutorial-on", "false");
@@ -6382,11 +6382,11 @@ function toggleExpandCollapse() {
         graphBody = document.querySelector("body"),
         parentBody = window.top.document.querySelector("body"),
         expandCollapseButton = document.querySelector("button#expand-collapse");
-    
-    
+
+
     if ( graphIsIframe) { graphBody.setAttribute("data-graph-frame", "collapsed"); }
-    
-    
+
+
     if ( graphIsIframe && expandableOnly ) {
         const expandOnlyMax = ( expandableOnly === true ) ? 1000000:expandableOnly,
             expandOnlyStyle = document.createElement("style"),
@@ -6472,38 +6472,38 @@ function toggleExpandCollapse() {
                 }
             }
         `;
-        
+
         expandOnlyStyle.textContent = expandOnlyCss;
         expandOnlyStyle.setAttribute("type", "text/css");
         document.querySelector("body").append(expandOnlyStyle);
-        
+
         graphBody.setAttribute("data-expandable", "only");
     } else if ( graphIsIframe && expandable ) {
         graphBody.setAttribute("data-expandable", "true");
     }
-    
+
     const parentStyle = window.top.document.createElement("style"),
           parentCss = `
             :root {
                 --header-height: `+ headerHeight +`;
             }
-            
+
             body[data-graph-frame="expanded"] {
                 width: 100%;
                 height: 100%;
                 max-height: -webkit-fill-available;
                 overflow: hidden;
             }
-            
+
             body[data-graph-frame="expanded"] button.graph-frame-collapse {
                 display: inherit;
             }
-            
+
             body[data-graph-frame="expanded"] iframe#GraphTool {
                 position: fixed;
                 top: var(--header-height);
                 left: 0;
-                
+
                 width: 100% !important;
                 height: calc(100% - var(--header-height)) !important;
 
@@ -6541,14 +6541,14 @@ function toggleExpandCollapse() {
                     transform: scale(1.0);
                 }
             }`;
-    
+
     parentStyle.textContent = parentCss;
     parentStyle.setAttribute("type", "text/css");
     parentBody.append(parentStyle);
-    
+
     expandCollapseButton.addEventListener("click", function(e) {
         let frameState = document.querySelector("body").getAttribute("data-graph-frame");
-        
+
         if ( frameState === "expanded" ) {
             graphBody.setAttribute("data-graph-frame", "collapsed");
             parentBody.setAttribute("data-graph-frame", "collapsed");
@@ -6556,10 +6556,10 @@ function toggleExpandCollapse() {
             graphBody.setAttribute("data-graph-frame", "expanded");
             parentBody.setAttribute("data-graph-frame", "expanded");
         }
-        
+
         e.stopPropagation();
     });
-        
+
 }
 
 if ( expandable && accessDocumentTop ) { toggleExpandCollapse(); }
@@ -6575,7 +6575,7 @@ function setUserConfig() {
             "normalValue": (norm_sel === 1) ? norm_fr : norm_phon
         },
         activeBaseline = baseline.p ? baseline.p.fileName : 0;
-    
+
     activePhones.forEach(function(phone) {
         let phoneJson = {},
             fullName = phone.fullName,
@@ -6584,7 +6584,7 @@ function setUserConfig() {
             isHidden = phone.hide ? phone.hide : false,
             isBaseline = fileName === activeBaseline ? true : false,
             isPinned = phone.pin ? phone.pin : false;
-        
+
         if (isTarget || isBaseline) {
             phoneJson.fullName = fullName;
             phoneJson.fileName = fileName;
@@ -6592,11 +6592,11 @@ function setUserConfig() {
             phoneJson.isHidden = isHidden;
             phoneJson.isBaseline = isBaseline;
             phoneJson.isPinned = isPinned;
-            
+
             configJson.phones.push(phoneJson);
         }
     });
-    
+
     localStorage.setItem("userConfig" + configName, JSON.stringify(configJson));
 }
 
@@ -6668,12 +6668,12 @@ function userConfigApplyViewSettings(phoneInTable) {
 // Apply normalization config
 function userConfigApplyNormalization() {
     userConfigApplicationActive = 1;
-    
+
     let urlObj = new URL(document.URL),
         pathClean = urlObj.pathname.replace(/\W/g, ""),
         configName = pathClean.length > 0 ? "_" + pathClean + "_a" : "_a",
         configJson = JSON.parse(localStorage.getItem("userConfig" + configName));
-    
+
     if ( configJson && configJson.normalMode === "Hz" ) {
         document.querySelector("input#norm-fr").value = configJson.normalValue;
         document.querySelector("input#norm-fr").dispatchEvent(new Event("change"));
@@ -6681,6 +6681,6 @@ function userConfigApplyNormalization() {
         document.querySelector("input#norm-phon").value = configJson.normalValue;
         document.querySelector("input#norm-phon").dispatchEvent(new Event("change"));
     }
-    
+
     userConfigApplicationActive = 0;
 }
