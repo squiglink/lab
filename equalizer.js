@@ -197,7 +197,7 @@ Equalizer = (function() {
         return resultFR;
     };
 
-    let autoeq = async function (fr, frTarget, maxFilters, mode) {
+    let autoeq = async function (fr, frTarget, maxFilters, mode, freqLim, gainLim, qLim) {
         if (!inst)
             inst = await AutoEq.make();
 
@@ -208,12 +208,12 @@ Equalizer = (function() {
 
         const c = AutoEq.CONFIGS.STANDARD(
             maxFilters,
-            config.AutoEQRange[0],
-            config.AutoEQRange[1],
-            config.OptimizeGainRange[0],
-            config.OptimizeGainRange[1],
-            config.OptimizeQRange[0],
-            config.OptimizeQRange[1]
+            freqLim[0],
+            freqLim[1],
+            gainLim[0],
+            gainLim[1],
+            qLim[0],
+            qLim[1]
         );
 
         const res = AutoEq.run(inst, dst, src, c,

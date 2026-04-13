@@ -249,10 +249,21 @@ doc.html(`
                 <button class="remove-filter">－</button>
                 <button class="sort-filters">Sort</button>
               </div>
+              <h5 class="ranges-label">Ranges (AutoEQ)</h5>
               <div class="settings-row">
-                <span>Range (AutoEQ)</span>
-                <span><input name="autoeq-from" inputmode="decimal" type="number" min="20" max="20000" step="1" value="20"></input></span>
-                <span><input name="autoeq-to" inputmode="decimal" type="number" min="20" max="20000" step="1" value="20000"></input></span>
+                <span>Frequency (Hz)</span>
+                <span><input name="autoeq-freq-min" inputmode="decimal" type="number" min="20" max="20000" step="1" value="20"></input></span>
+                <span><input name="autoeq-freq-max" inputmode="decimal" type="number" min="20" max="20000" step="1" value="15000"></input></span>
+              </div>
+              <div class="settings-row">
+                <span>Gain (dB)</span>
+                <span><input name="autoeq-gain-min" inputmode="decimal" type="number" min="-40" max="0" step="0.1" value="-16"></input></span>
+                <span><input name="autoeq-gain-max" inputmode="decimal" type="number" min="0" max="40" step="0.1" value="16"></input></span>
+              </div>
+              <div class="settings-row">
+                <span>Q</span>
+                <span><input name="autoeq-q-min" inputmode="decimal" type="number" min="0.1" max="10" step="0.01" value="0.3"></input></span>
+                <span><input name="autoeq-q-max" inputmode="decimal" type="number" min="0.1" max="10" step="0.01" value="3"></input></span>
               </div>
               <div class="filters-button">
                 <button class="autoeq">AutoEQ</button>
@@ -3869,10 +3880,18 @@ function addExtra() {
             "WebAssembly-based AutoEQ algorithm provided by PEQdB (https://github.com/peqdb/autoeq-c)\n");
     });
     // AutoEQ
-    let autoEQFromInput = document.querySelector("div.extra-eq input[name='autoeq-from']");
-    let autoEQToInput = document.querySelector("div.extra-eq input[name='autoeq-to']");
-    autoEQFromInput.value = Equalizer.config.AutoEQRange[0].toFixed(0);
-    autoEQToInput.value = Equalizer.config.AutoEQRange[1].toFixed(0);
+    let autoEQFreqMinInput = document.querySelector("div.extra-eq input[name='autoeq-freq-min']");
+    let autoEQFreqMaxInput = document.querySelector("div.extra-eq input[name='autoeq-freq-max']");
+    let autoEQGainMinInput = document.querySelector("div.extra-eq input[name='autoeq-gain-min']");
+    let autoEQGainMaxInput = document.querySelector("div.extra-eq input[name='autoeq-gain-max']");
+    let autoEQQMinInput = document.querySelector("div.extra-eq input[name='autoeq-q-min']");
+    let autoEQQMaxInput = document.querySelector("div.extra-eq input[name='autoeq-q-max']");
+    autoEQFreqMinInput.value = Equalizer.config.AutoEQRange[0].toFixed(0);
+    autoEQFreqMaxInput.value = Equalizer.config.AutoEQRange[1].toFixed(0);
+    autoEQGainMinInput.value = Equalizer.config.OptimizeGainRange[0].toFixed(1);
+    autoEQGainMaxInput.value = Equalizer.config.OptimizeGainRange[1].toFixed(1);
+    autoEQQMinInput.value = Equalizer.config.OptimizeQRange[0].toFixed(2);
+    autoEQQMaxInput.value = Equalizer.config.OptimizeQRange[1].toFixed(2);
     document.querySelector("div.extra-eq button.autoeq").addEventListener("click", () => {
         // Generate filters automatically
         let phoneSelected = eqPhoneSelect.value;
@@ -3893,16 +3912,21 @@ function addExtra() {
         let autoEQOverlay = document.querySelector(".extra-eq-overlay");
         autoEQOverlay.style.display = "block";
         setTimeout(async () => {
-            let autoEQFrom = Math.min(Math.max(parseInt(autoEQFromInput.value) || 0, 20), 20000);
-            let autoEQTo = Math.min(Math.max(parseInt(autoEQToInput.value) || 0, autoEQFrom), 20000);
-            Equalizer.config.AutoEQRange = [autoEQFrom, autoEQTo];
+            let minFreq = Math.min(Math.max(parseInt(autoEQFreqMinInput.value) || 0, 20), 20000);
+            let maxFreq = Math.min(Math.max(parseInt(autoEQFreqMaxInput.value) || 0, minFreq), 20000);
+            let minGain = Math.min(Math.max(parseFloat(autoEQGainMinInput.value) || -16, -40), 0);
+            let maxGain = Math.min(Math.max(parseFloat(autoEQGainMaxInput.value) || 16, 0), 40);
+            let minQ = Math.min(Math.max(parseFloat(autoEQQMinInput.value) || 0.3, 0.1), 10);
+            let maxQ = Math.min(Math.max(parseFloat(autoEQQMaxInput.value) || 3, minQ), 10);
+
             let phoneCHs = (phoneObj.rawChannels.filter(c => c)
                 .map(ch => ch.map(([f, v]) => [f, v + phoneObj.norm])));
             let phoneCH = (phoneCHs.length > 1) ? avgCurves(phoneCHs) : phoneCHs[0];
             let targetCH = targetObj.rawChannels.filter(c => c)[0].map(([f, v]) => [f, v + targetObj.norm]);
 
             let [filters, offset] = await Equalizer.autoeq(
-                phoneCH, targetCH, eqBands, typeof autoEqMode === 'undefined' ? 'IE' : autoEqMode);
+                phoneCH, targetCH, eqBands, typeof autoEqMode === 'undefined' ? 'IE' : autoEqMode,
+                [minFreq, maxFreq], [minGain, maxGain], [minQ, maxQ]);
 
             filtersToElem(filters);
             applyEQ();

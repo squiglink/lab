@@ -1252,6 +1252,17 @@ div.extra-panel div.settings-row {
     margin: 0 0 0.5em 0;
 }
 
+div.extra-panel h5.ranges-label {
+    margin: 0.5em 0 0.5em 0;
+    padding: 0;
+    font-family: var(--font-primary);
+    font-size: 12px;
+    line-height: 1.2;
+    font-weight: 600;
+    color: var(--background-color-contrast-more);
+}
+
+
 div.extra-panel > div.extra-eq > div.select-eq-phone > select {
     box-sizing: border-box;
     width: 100%;
