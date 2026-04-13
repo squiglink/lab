@@ -17,6 +17,7 @@ const default_channels = ["R"];
 const num_samples = 5;
 
 const scale_smoothing = 0.2;
+const autoEqMode = 'OE'; // AutoEQ smoothing mode, accepts 'IE' or 'OE'.
 
 const targets = [
     { type:"Neutral"   , files:["IEF Neutral"] },

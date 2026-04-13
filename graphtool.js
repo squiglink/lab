@@ -276,7 +276,7 @@ doc.html(`
         </div>
       </div>
     </section>
-    <div style="display: none" class="extra-eq-overlay">AutoEQ is running, it could take 5~20 seconds or more.</div>
+    <div style="display: none;" class="extra-eq-overlay">AutoEQ is running, it could take 5~20 seconds or more.</div>
   </main>
 `);
 
@@ -2981,6 +2981,7 @@ function addExtra() {
         if (oldPhoneObj) {
             oldPhoneObj.active && removePhone(oldPhoneObj);
             phoneObj.id = oldPhoneObj.id;
+            phoneObj.offset = oldPhoneObj.offset;
             phoneObjs[phoneObjs.indexOf(oldPhoneObj)] = phoneObj;
             allPhones[allPhones.indexOf(oldPhoneObj)] = phoneObj;
         } else {
@@ -3862,9 +3863,10 @@ function addExtra() {
     document.querySelector("div.extra-eq button.readme").addEventListener("click", () => {
         alert("1. If you want to AutoEQ model A to B, display A B and remove target\n" +
             "2. Add/Remove bands before AutoEQ may give you a better result\n" +
-            "3. Curve of PK filter close to 20K is implementation dependent, avoid such filter if you're not sure how your DSP software works\n" +
+            "3. The behavior of filters close to 20K is implementation dependent, avoid such filter if you're not sure how your DSP software works\n" +
             "4. EQ treble require resonant peak matching and fine tune by ear, keep treble untouched if you're not sure how to do that\n" +
-            "5. Tone generator is useful to find actual location of peaks and dips, notice the web version may not work on some platform\n");
+            "5. Tone generator is useful to find actual location of peaks and dips, notice the web version may not work on some platform\n\n" +
+            "WebAssembly-based AutoEQ algorithm provided by PEQdB (https://github.com/peqdb/autoeq-c)\n");
     });
     // AutoEQ
     let autoEQFromInput = document.querySelector("div.extra-eq input[name='autoeq-from']");
@@ -3890,7 +3892,7 @@ function addExtra() {
         }
         let autoEQOverlay = document.querySelector(".extra-eq-overlay");
         autoEQOverlay.style.display = "block";
-        setTimeout(() => {
+        setTimeout(async () => {
             let autoEQFrom = Math.min(Math.max(parseInt(autoEQFromInput.value) || 0, 20), 20000);
             let autoEQTo = Math.min(Math.max(parseInt(autoEQToInput.value) || 0, autoEQFrom), 20000);
             Equalizer.config.AutoEQRange = [autoEQFrom, autoEQTo];
@@ -3898,12 +3900,16 @@ function addExtra() {
                 .map(ch => ch.map(([f, v]) => [f, v + phoneObj.norm])));
             let phoneCH = (phoneCHs.length > 1) ? avgCurves(phoneCHs) : phoneCHs[0];
             let targetCH = targetObj.rawChannels.filter(c => c)[0].map(([f, v]) => [f, v + targetObj.norm]);
-            let filters = Equalizer.autoeq(phoneCH, targetCH, eqBands);
+
+            let [filters, offset] = await Equalizer.autoeq(
+                phoneCH, targetCH, eqBands, typeof autoEqMode === 'undefined' ? 'IE' : autoEqMode);
+
             filtersToElem(filters);
             applyEQ();
+
             scheduleLiveEqSync();
             autoEQOverlay.style.display = "none";
-        }, 100);
+        }, 1);
     });
     // Live playback output trim after EQ (linear gain; tune per source)
     let livePinkNoisePlaybackGain = 0.5;
