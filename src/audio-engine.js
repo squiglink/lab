@@ -1124,7 +1124,23 @@ let syncToneGeneratorToEqFrequencyHz = (hz) => {
         toneGeneratorOsc.frequency.setTargetAtTime(hz, t, 0.2);
     }
 };
+/** Shift+Space: advance active slot in the cycle, stop every live source, then play the newly active one. */
+let shiftSpaceAdvanceLiveSoundAndPlay = () => {
+    cycleActiveLiveSoundPlayerShiftSpace();
+    pauseMusicForLiveSoundSwitch();
+    stopPinkNoisePlayback();
+    fadeStopToneGeneratorPlayback();
+    if (activeLiveSoundPlayer === "music" && musicFileLoaded && musicAudio && musicContext && musicPlayButton) {
+        startMusicPlayback().catch(() => {});
+    } else if (activeLiveSoundPlayer === "tone" && toneGeneratorPlayButton) {
+        void startToneGeneratorOscillatorIfStopped();
+    } else if (pinkNoisePlayButton) {
+        pinkNoisePlayButton.click();
+    }
+};
+
 // Expose let-scoped functions onto window so graphtool.js can call them as bare names
+window.shiftSpaceAdvanceLiveSoundAndPlay = shiftSpaceAdvanceLiveSoundAndPlay;
 window.fadeStopToneGeneratorPlayback = fadeStopToneGeneratorPlayback;
 window.startToneGeneratorOscillatorIfStopped = startToneGeneratorOscillatorIfStopped;
 window.startToneGeneratorSweep = startToneGeneratorSweep;

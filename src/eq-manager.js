@@ -4179,6 +4179,7 @@ function initExtraUpload(options) {
         };
         reader.readAsText(file);
     });
+}
 
 // ============================================================
 // === src/extra/eq/live.js ===
@@ -4317,5 +4318,4 @@ function initEqLive() {
             }
         }
     };
-}
 }

@@ -75,7 +75,11 @@ function initLiveSoundExtra() {
         return !!(typeof extraEnabled !== "undefined" && extraEnabled && tab
             && tab.getAttribute("data-selected") === "extra");
     };
-    let suppressEqExtraGlobalShortcutsForAppleSearch = () => isExtraTabSelectedForShortcuts();
+    let suppressEqExtraGlobalShortcutsForAppleSearch = () =>
+        (typeof GraphToolPlugin !== "undefined"
+            && typeof GraphToolPlugin.isAppleMusicSearchModeOpen === "function"
+            && GraphToolPlugin.isAppleMusicSearchModeOpen())
+        && isExtraTabSelectedForShortcuts();
     let musicSeekDragging = false;
     let musicSegStartU = 0;
     let musicSegEndU = 1;
@@ -218,6 +222,7 @@ function initLiveSoundExtra() {
         return idbDeleteCringraphMusicRecord();
     };
     window.clearPersistedMusic = clearPersistedMusic;
+    window.persistMusicSegmentToLocalStorage = persistMusicSegmentToLocalStorage;
     let liveEqSyncRafId = null;
     let livePlaybackEqToggle = document.querySelector("input.live-sound-eq-toggle");
     let isLivePlaybackEqEnabled = () =>

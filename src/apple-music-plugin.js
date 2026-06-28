@@ -9,6 +9,9 @@
     // Plugin-owned mutable state (moved out of graphtool.js closure)
     let musicAppleSearchModeOpen = false;
     let appleMusicSearchDebounceTimer = null;
+    /* Exposed so live-sound.js can gate Extra-tab keyboard shortcuts: shortcuts are suppressed
+       only while the Apple-Music search box is open, not whenever the Extra tab is selected. */
+    GraphToolPlugin.isAppleMusicSearchModeOpen = () => musicAppleSearchModeOpen;
 
     // ── iTunes network utilities (moved from graphtool.js) ──────────────────────
     let itunesStorefrontForSearch = () => {
