@@ -327,6 +327,9 @@
                 musicPlaybackPanel.setAttribute("aria-hidden", "true");
             }
         };
+        /* Exposed so audio-engine.js (wireMusicLoadedFromSource) can collapse search mode
+           when a track loads — it lives in a different module from this plugin closure. */
+        GraphToolPlugin.resetAppleMusicSearchUi = resetAppleMusicSearchUi;
         let openAppleMusicSearchMode = () => {
             if (GraphToolPlugin.isMusicFileLoaded() || musicAppleSearchModeOpen) return;
             if (!musicCard || !musicPlaybackPanel || !musicPlayButton || !appleMusicInlineWrap

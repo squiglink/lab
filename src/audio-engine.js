@@ -558,8 +558,9 @@ let wireMusicLoadedFromSource = (src, segOpt, loadOpts) => {
             musicAppleShareSongId = sid;
         }
     }
-    if (typeof resetAppleMusicSearchUi === "function") {
-        resetAppleMusicSearchUi({ collapseEmptyPlaybackPanel: false });
+    if (typeof GraphToolPlugin !== "undefined"
+            && typeof GraphToolPlugin.resetAppleMusicSearchUi === "function") {
+        GraphToolPlugin.resetAppleMusicSearchUi({ collapseEmptyPlaybackPanel: false });
     }
     if (musicObjectUrl) {
         URL.revokeObjectURL(musicObjectUrl);

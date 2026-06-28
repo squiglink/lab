@@ -2367,7 +2367,6 @@ function eqHistoryRenderLog() {
                 pinCol.innerHTML = "<span class=\"extra-eq-change-history-pin-ab extra-eq-change-history-pin-ab--filled\" aria-hidden=\"true\"><span class=\"extra-eq-change-history-pin-ab-letter\">A</span></span>";
                 pinCol.title = "Unpin";
             } else {
-                pinCol.classList.add("extra-eq-change-history-col-pin--outline");
                 pinCol.innerHTML = "<span class=\"extra-eq-change-history-pin-ab extra-eq-change-history-pin-ab--outline\" aria-hidden=\"true\"><span class=\"extra-eq-change-history-pin-ab-letter\">A</span></span>";
                 pinCol.title = "Pin this state (unequalized trace shows this EQ)";
             }
