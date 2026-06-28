@@ -2,6 +2,7 @@
 
 let doc = d3.select(".graphtool");
 renderGraphToolShell(doc);
+if (typeof initLayoutChrome === "function") { initLayoutChrome(); }
 if (typeof setupLabelUi === "function") { setupLabelUi(); }
 if (typeof setupSmoothingUi === "function") { setupSmoothingUi(); }
 if (typeof setupAddPhoneUi === "function") { setupAddPhoneUi(); }

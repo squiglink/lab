@@ -16,24 +16,19 @@
 
     function loadPrefBounds(boundsName, ctx, callback) {
         let dir = typeof preference_bounds_dir !== "undefined" ? preference_bounds_dir : "data/pref_bounds/";
-        console.log("[tilt] loadPrefBounds: name=", boundsName, "dir=", dir, "LR=", ctx.LR);
         let lpf = pf => d3.text(dir + pf + ".txt").catch(() => null);
         let f = ctx.LR.map(s => lpf(boundsName + " " + s));
         Promise.all(f).then(function (frs) {
-            console.log("[tilt] loadPrefBounds fetch results:", frs.map(f => f ? "ok("+f.length+"chars)" : "null"));
             if (!frs.some(f => f !== null)) {
-                console.warn("[tilt] Preference bounds not found: " + boundsName);
                 return;
             }
             let ch = frs.map(f => f && ctx.Equalizer.interp(ctx.f_values, ctx.tsvParse(f)));
             ch = ch.filter(c => c !== null);
-            console.log("[tilt] loadPrefBounds parsed channels:", ch.length, "first pts:", ch[0] && ch[0].slice(0,3));
             callback(ch);
         });
     }
 
     function setPrefBounds(ch, ctx) {
-        console.log("[tilt] setPrefBounds: ch.length=", ch.length);
         prefBoundsObj = {
             isPrefBounds: true, phone: "Preference Bounds",
             fullName: "Preference Bounds", dispName: "Preference Bounds",
@@ -42,7 +37,6 @@
         ctx.smoothPhone(prefBoundsObj);
         ctx.normalizePhone(prefBoundsObj);
         prefBoundsObj.offset = prefBoundsObj.offset || 0;
-        console.log("[tilt] setPrefBounds done, prefBoundsObj set");
 
         if (typeof preference_bounds_startup !== "undefined" && preference_bounds_startup) {
             let existing = ctx.activePhones().find(p => p.phone === "Preference Bounds");
@@ -57,7 +51,6 @@
     }
 
     function prepPrefBounds(ctx) {
-        console.log("[tilt] prepPrefBounds: prefBoundsObj=", !!prefBoundsObj, "df=", !!df, "df.rawChannels=", !!(df && df.rawChannels));
         if (!prefBoundsObj || !df || !df.rawChannels) return;
         let ch = [...prefBoundsObj.preComp];
         let base = df.rawChannels[0].map(d => d[1]);
@@ -68,18 +61,13 @@
         ctx.normalizePhone(prefBoundsObj);
         prefBoundsObj.smooth = null;
         ctx.smoothPhone(prefBoundsObj);
-        console.log("[tilt] prepPrefBounds done");
     }
 
     // ── Tilt calculation ─────────────────────────────────────────────────────────
 
     function updateDF(newBoost, newTilt, newEar, newTreble, change, ctx) {
         let activeTarget = ctx.activePhones().find(p => p.isTarget);
-        console.log("[tilt] updateDF: boost=", newBoost, "tilt=", newTilt, "ear=", newEar, "treble=", newTreble,
-            "activeTarget=", activeTarget && activeTarget.dispName,
-            "df=", df && df.dispName, "df.rawChannels=", !!(df && df.rawChannels));
         if (activeTarget && !tiltableTargets.includes(activeTarget.dispName) && activeTarget.phone !== "Custom Tilt") {
-            console.warn("[tilt] updateDF: activeTarget not tiltable:", activeTarget.dispName);
             alert("This target is not supported for Custom Tilt");
             return;
         }
@@ -89,7 +77,7 @@
             { disabled: false, type: "PK",  freq: 2750, q: 1,     gain: newEar   },
             { disabled: false, type: "HSQ", freq: 2500, q: 0.42,  gain: newTreble }
         ];
-        if (!df || !df.rawChannels) { console.warn("[tilt] updateDF: df or df.rawChannels missing, aborting"); return; }
+        if (!df || !df.rawChannels) { return; }
         let bass = df.rawChannels.map(c => c ? ctx.Equalizer.apply(c, filters) : null);
 
         let tiltOct = new Array(bass.length).fill(null);
@@ -158,11 +146,9 @@
     // ── UI init ──────────────────────────────────────────────────────────────────
 
     function initTiltPlugin(ctx) {
-        console.log("[tilt] initTiltPlugin fired. tiltableTargets=", tiltableTargets);
         // Find df — the first tiltable target
         let brand = window.brandTarget;
-        console.log("[tilt] brandTarget=", brand, "phoneObjs count=", brand && brand.phoneObjs && brand.phoneObjs.length);
-        if (!brand || !brand.phoneObjs) { console.warn("[tilt] no brandTarget or phoneObjs"); return; }
+        if (!brand || !brand.phoneObjs) { return; }
         for (let t of brand.phoneObjs) {
             if (tiltableTargets.includes(t.dispName)) { df = t; break; }
         }
@@ -170,8 +156,7 @@
             let customName = typeof customTiltName !== "undefined" ? customTiltName : null;
             if (customName) df = brand.phoneObjs.find(p => p.dispName === customName);
         }
-        console.log("[tilt] df found=", df && df.dispName, "phoneObjs dispNames=", brand.phoneObjs.map(p => p.dispName));
-        if (!df) { console.warn("[tilt] no tiltable df found, exiting"); return; }
+        if (!df) { return; }
 
         // Insert customDF panel into the DOM before the manageTable
         let manageEl = document.querySelector("div.manage");
@@ -208,25 +193,19 @@
         }
 
         // Load df raw channels (needed for tilt calculation)
-        console.log("[tilt] calling loadFiles for df:", df.dispName, "fileName:", df.fileName);
         ctx.loadFiles(df, function (ch) {
-            console.log("[tilt] loadFiles callback: ch=", ch && ch.length, "ch[0] pts=", ch && ch[0] && ch[0].length);
             df.rawChannels = ch;
             ctx.smoothPhone(df);
             ctx.normalizePhone(df);
             df.offset = df.offset || 0;
             dfBase = ctx.getBaseline(df);
-            console.log("[tilt] dfBase=", dfBase);
 
             // Show the initial tilt curve so the panel is immediately useful
             updateDF(boost, tilt, ear, treble, undefined, ctx);
 
             // Load preference bounds if configured
             if (typeof preference_bounds_name !== "undefined" && preference_bounds_name) {
-                console.log("[tilt] loading preference bounds:", preference_bounds_name);
                 loadPrefBounds(preference_bounds_name, ctx, function (ch) { setPrefBounds(ch, ctx); });
-            } else {
-                console.log("[tilt] preference_bounds_name not defined, skipping bounds load");
             }
         });
 
@@ -287,16 +266,12 @@
         }
 
         // Preference Bounds toggle
-        console.log("[tilt] preference_bounds_name=", preference_bounds_name);
         if (preference_bounds_name) {
             let boundsBtn = document.getElementById("cusdf-bounds");
-            console.log("[tilt] cusdf-bounds button=", boundsBtn);
             if (boundsBtn) {
                 boundsBtn.addEventListener("click", function () {
-                    console.log("[tilt] bounds btn clicked: prefBoundsObj=", !!prefBoundsObj, "dfBase=", !!dfBase);
-                    if (!prefBoundsObj) { console.warn("[tilt] bounds click: prefBoundsObj is null (still loading?)"); return; }
+                    if (!prefBoundsObj) { return; }
                     let sel = boundsBtn.classList.contains("selected");
-                    console.log("[tilt] bounds btn: sel=", sel, "activePhones=", ctx.activePhones().map(p => p.dispName));
                     if (sel) {
                         boundsBtn.classList.remove("selected");
                         ctx.removePhone(prefBoundsObj);
@@ -311,7 +286,6 @@
                         ctx.setCurves(prefBoundsObj, undefined, prefBoundsObj.lr);
                         ctx.updatePaths();
                         targetsHiddenByBounds = ctx.activePhones().filter(p => p.isTarget && !p.hide);
-                        console.log("[tilt] bounds on: hiding targets=", targetsHiddenByBounds.map(p => p.dispName));
                         targetsHiddenByBounds.forEach(p => ctx.toggleHide(p));
                     }
                 });

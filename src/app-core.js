@@ -1484,11 +1484,17 @@ function toggleExpandCollapse() {
     });
 }
 
-if (typeof accessories !== "undefined" && accessories) { addAccessories(); }
-if (typeof alt_header !== "undefined" && alt_header) { addHeader(); }
-if (typeof externalLinksBar !== "undefined" && externalLinksBar) { addExternalLinks(); }
-if (typeof alt_tutorial !== "undefined" && alt_tutorial) { addTutorial(); }
-setActiveDatabase();
+// These build chrome (header, external links, tutorial, accessories) into the
+// graphtool shell, so they must run AFTER renderGraphToolShell() has populated
+// div.graphtool. graphtool.js invokes this right after rendering the shell.
+function initLayoutChrome() {
+    if (typeof accessories !== "undefined" && accessories) { addAccessories(); }
+    if (typeof alt_header !== "undefined" && alt_header) { addHeader(); }
+    if (typeof externalLinksBar !== "undefined" && externalLinksBar) { addExternalLinks(); }
+    if (typeof alt_tutorial !== "undefined" && alt_tutorial) { addTutorial(); }
+    setActiveDatabase();
+}
+window.initLayoutChrome = initLayoutChrome;
 
 // ============================================================
 // === src/extra/panel.js ===

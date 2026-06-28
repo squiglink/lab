@@ -857,7 +857,6 @@ let graphInteract = imm => function () {
        Safari/trackpad with coordinates that can disagree with the pointer stream, which fights
        syncEqHoverPreview and pathHL (strobe on nearest-curve highlight). Ignore synthetic mouse path
        for the whole gesture. */
-    if (imm) console.log('[EQ-click] graphInteract click: eqGraphPointerState=', eqGraphPointerState, 'eqGraphSkipNextClick=', eqGraphSkipNextClick);
     if (eqGraphPointerState) {
         return;
     }
@@ -868,12 +867,10 @@ let graphInteract = imm => function () {
     let cs = curvesPhonesFirstForPointer(d3.merge(activePhones.map(p=>p.hide?[]:(p.activeCurves||[]))));
     let m = d3.mouse(this);
     if (!cs.length) {
-        if (imm) console.log('[EQ-click] graphInteract click: no curves, returning');
         syncEqHoverPreview(null);
         return;
     }
     if (imm && eqGraphSkipNextClick) {
-        console.log('[EQ-click] graphInteract click: skip-next-click set, clearing and returning');
         eqGraphSkipNextClick = false;
         if (eqGraphSkipClickClearTimer) {
             clearTimeout(eqGraphSkipClickClearTimer);
@@ -888,11 +885,8 @@ let graphInteract = imm => function () {
             eqGraphTouchSuppressClearTimer = null;
         }
     } else if (imm && !interactInspect && tryEqGraphClickAddFilter(m)) {
-        console.log('[EQ-click] graphInteract click: tryEqGraphClickAddFilter succeeded');
         syncEqHoverPreview(m);
         return;
-    } else if (imm) {
-        console.log('[EQ-click] graphInteract click: tryEqGraphClickAddFilter returned false');
     }
     syncEqHoverPreview(m);
     if (interactInspect) {

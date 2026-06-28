@@ -1344,7 +1344,6 @@ function initLiveSoundExtra() {
     };
     let eqGraphTypeCycleOrder = { PK: "LSQ", LSQ: "HSQ", HSQ: "PK" };
     let eqGraphPerformDragCleanup = (st, endEvent) => {
-        console.log('[EQ-click] dragCleanup: mode=', st.mode, 'dragging=', st.dragging, 'filterIndex=', st.filterIndex);
         if (st.mode === "soundRange") {
             if (st.soundRangeActive) {
                 applyLiveSoundRangeFromHzPair(st.soundRangeAnchorHz, st.soundRangeLastHz,
@@ -1396,7 +1395,6 @@ function initLiveSoundExtra() {
             return;
         }
         let didTapAddNewBand = !st.dragging && st.filterIndex === null;
-        console.log('[EQ-click] dragCleanup eq mode: dragging=', st.dragging, 'filterIndex=', st.filterIndex, 'fHz=', st.fHz, 'didTapAddNewBand=', didTapAddNewBand);
         if (endEvent && typeof endEvent.clientX === "number"
                 && typeof endEvent.clientY === "number") {
             lastGraphPlotPointerClient = { x: endEvent.clientX, y: endEvent.clientY };
@@ -1422,9 +1420,7 @@ function initLiveSoundExtra() {
         }, 800);
         if (didTapAddNewBand) {
             /* Same as graph click-add: immediate markers, no gain focus / refocus steal */
-            console.log('[EQ-click] calling addPeakingFilterFromHz at fHz=', st.fHz);
             let newIx = addPeakingFilterFromHz(st.fHz, EQ_GRAPH_BASE_GAIN, { skipFocus: true });
-            console.log('[EQ-click] addPeakingFilterFromHz returned newIx=', newIx);
             if (newIx >= 0) {
                 setEqFilterSelectedRow(newIx, true);
                 eqHistoryCommitTransaction();
@@ -1670,9 +1666,7 @@ function initLiveSoundExtra() {
         eqGraphPerformDragCleanup(eqGraphPointerState, e);
     }
     function eqGraphPointerDown(e) {
-        console.log('[EQ-click] pointerDown fired, type=', e.pointerType, 'button=', e.button);
         if (interactInspect) {
-            console.log('[EQ-click] blocked: interactInspect=true');
             return;
         }
         /* Real touch devices: skip graph pointer path + suppress follow-up synthetic click (EQ add).
@@ -1680,7 +1674,6 @@ function initLiveSoundExtra() {
            branch for phones/tablets only so Sound Tools / range drag still work on Mac Safari. */
         if (e.pointerType === "touch" && typeof window.matchMedia === "function"
                 && window.matchMedia("(pointer: coarse)").matches) {
-            console.log('[EQ-click] blocked: touch+coarse');
             eqGraphSuppressClickAddFromTouch = true;
             if (eqGraphTouchSuppressClearTimer) {
                 clearTimeout(eqGraphTouchSuppressClearTimer);
@@ -1692,23 +1685,18 @@ function initLiveSoundExtra() {
             return;
         }
         if (e.pointerType === "mouse" && e.button !== 0) {
-            console.log('[EQ-click] blocked: non-left mouse button');
             return;
         }
         let node = graphPlotHitRect && graphPlotHitRect.node();
         if (!node) {
-            console.log('[EQ-click] blocked: no graphPlotHitRect node');
             return;
         }
         let m = clientToGraphPlotXY(e.clientX, e.clientY);
         if (!m) {
-            console.log('[EQ-click] blocked: clientToGraphPlotXY returned null for', e.clientX, e.clientY);
             return;
         }
-        console.log('[EQ-click] m=', m);
         lastGraphPlotPointerClient = { x: e.clientX, y: e.clientY };
         let hit = findEqGraphMarkerHit(m);
-        console.log('[EQ-click] hit=', hit);
         let stPreview;
         let soundRangeSelect = false;
         let initialAccumMovementY = 0;
@@ -1726,28 +1714,19 @@ function initLiveSoundExtra() {
             setEqFilterSelectedRow(hit.rowIndex, true);
         } else {
             let tabEq = document.querySelector("div.select");
-            console.log('[EQ-click] no hit — extraEnabled=', extraEnabled, 'extraEQEnabled=', extraEQEnabled,
-                'tabEq=', tabEq && tabEq.getAttribute("data-selected"));
             if (!extraEnabled || !extraEQEnabled || !tabEq
                     || tabEq.getAttribute("data-selected") !== "extra") {
-                console.log('[EQ-click] blocked: EQ tab not active or extra disabled');
                 return;
             }
             stPreview = computeEqNodePreviewAtMouse(m);
-            console.log('[EQ-click] stPreview=', stPreview);
             let nearTrace = false;
             if (stPreview) {
-                let _tp = stPreview.tracePhone;
-                console.log('[EQ-click] tracePhone.offset=', _tp && _tp.offset, 'tracePhone.norm=', _tp && _tp.norm,
-                    'db=', stPreview.db, 'typeof getOffset=', typeof getOffset);
                 let yOff = y(getOffset(stPreview.tracePhone)) - y(0);
                 let cx = x(stPreview.fHz);
                 let cy = y(stPreview.db) + yOff;
                 let dist = eqGraphPlotDistPx(m, cx, cy);
-                console.log('[EQ-click] trace cx=', cx, 'cy=', cy, 'yOff=', yOff, 'dist=', dist, 'threshold=', EQ_GRAPH_MARKER_HIT_PX);
                 nearTrace = dist <= EQ_GRAPH_MARKER_HIT_PX;
             }
-            console.log('[EQ-click] nearTrace=', nearTrace, 'soundRangeSelect will be=', !nearTrace);
             if (nearTrace) {
                 setEqFilterSelectedRow(null);
             } else {
