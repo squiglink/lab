@@ -446,8 +446,9 @@
             if (GraphToolPlugin.isMusicFileLoaded()) { fallback && fallback(); return; }
             GraphToolPlugin.incrementMusicRestoreCancelToken();
             if (!initMusicAudioGraph()) { fallback && fallback(); return; }
+            /* Restore-from-URL only loads/arms the preview; playback waits for a user gesture
+               (browsers block autoplay without one, and it shouldn't auto-play on load anyway). */
             wireMusicLoadedFromSource(meta.previewUrl, segment || null, {
-                autoPlay: true,
                 appleCatalogSongId: songId
             });
         }).catch((err) => {
