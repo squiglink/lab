@@ -3838,7 +3838,9 @@ function initExtraBootstrap() {
         }
     }
 
-    let config = { showNetwork: false };
+    let config = (typeof devicePEQConfig !== "undefined")
+        ? devicePEQConfig
+        : { showNetwork: false };
 
     if (typeof extraEQplugins !== "undefined") {
         loadPlugins(extraEQplugins, {

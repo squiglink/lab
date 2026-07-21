@@ -333,5 +333,5 @@ let devicePEQConfig = {
     connectButtonLabel: "Link Device",  // Override default "Connect to device" label
     showTitle: false,             // Hide the "Device PEQ" heading in this context
     showInfoButton: false,        // Hide the ℹ️ info button for a cleaner look
-    showSuccessToasts: false,     // Hide "pulled/pushed successfully" toasts (spinner communicates state)
+    showSuccessToasts: true,     // Hide "pulled/pushed successfully" toasts (spinner communicates state)
 }
