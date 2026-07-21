@@ -1,8 +1,8 @@
 // Configuration options
 const init_phones = ["BKF"],            // Optional. Which graphs to display on initial load. Note: Share URLs will override this set
 //      DIR = "/data/",                                // Directory where graph files are stored
-      DIR = "https://squig.link/headphones/data/",                                // Directory where graph files are stored
-      num_samples = 3,
+      DIR = "https://squig.link/data/",                                // Directory where graph files are stored
+//      num_samples = 3,
       default_channels = ["L","R"],                 // Which channels to display. Avoid javascript errors if loading just one channel per phone
       default_normalization = "dB",                 // Sets default graph normalization mode. Accepts "dB" or "Hz"
       default_norm_db = 60,                         // Sets default dB normalization point
@@ -323,5 +323,15 @@ let tutorialDefinitions = [
 ]
 // Configure paths to extraEQ plugins here
 let extraEQplugins = [
-    //'./devicePEQ/plugin.js' // Path to one or more "extraEQ" plugins
+    '/plugins/devicePEQ/devicePEQ/plugin.js' // Path to one or more "extraEQ" plugins
 ];
+
+let devicePEQConfig = {
+    advanced: true,               // Shows connection-type dropdown instead of the old modal
+    showLogs: false,
+    pullValuesOnConnect: true,
+    connectButtonLabel: "Link Device",  // Override default "Connect to device" label
+    showTitle: false,             // Hide the "Device PEQ" heading in this context
+    showInfoButton: false,        // Hide the ℹ️ info button for a cleaner look
+    showSuccessToasts: false,     // Hide "pulled/pushed successfully" toasts (spinner communicates state)
+}
