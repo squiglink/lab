@@ -4,8 +4,13 @@ html { background:#e5e5e5; }
 .graphBackground { fill:white; }
 .main { min-height:100vh; display:flex; flex-direction:column; }
 .graphBox { margin:0.25em auto 0.75em; }
-#fr-graph { width:calc((100vh - 13.5em) * 800 / 346); max-width:100%; }
+#fr-graph { width:calc((100vh - 13.5em) * 800 / 360); max-width:100%; }
 svg text { cursor:default; user-select:none; }
+.graph-plot-hit {
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+}
 .controls { flex:auto; display:flex; flex-flow:row-reverse wrap; }
 .manage,.select { flex:1; margin:0 0.8em; font-size:large; }
 .select { border-bottom:2px solid #1c2126; }
@@ -38,8 +43,9 @@ svg text { cursor:default; user-select:none; }
     .manage,.select { margin:0; }
 }
 
-path.sample { stroke-width:1.9px; opacity:0.8; }
-path.highlight { stroke-width:3.3px; }
+/* Graph FR paths: stroke-width is set in graphtool.js; a global path.sample rule would override SVG attrs. */
+svg#fr-graph g.curves-g path.sample { opacity:0.8; }
+svg#fr-graph g.curves-g path.highlight { stroke-width:3.3px; }
 tr.highlight { box-shadow:inset 0 0 1.5em 0.2em; }
 td { color:initial; vertical-align:middle; }
 
@@ -178,6 +184,13 @@ input[type=number] { width:2.3em; border:1px solid #899174; height:1.5em; }
 .lineLabel { pointer-events:none; }
 .lineLabel rect { fill:rgba(255,255,255,0.6); }
 
+svg#fr-graph g.lineLabel,
+svg#fr-graph g.lineLabel * {
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
 .inspector { pointer-events:none; }
 .inspector line { stroke-width:0.8px; stroke:#266149; }
 
@@ -268,7 +281,7 @@ input[type=number] { width:2.3em; border:1px solid #899174; height:1.5em; }
 
 /*****
 Restoring original layout after DOM changes *****/
-/* Note to self: Graph aspect ratio is 800:346 */
+/* Note to self: Graph aspect ratio is 800:360 (viewBox height matches H0) */
 
 body {
     opacity: 1.0;
@@ -310,7 +323,41 @@ div.graphBox {
 
 svg#fr-graph {
     width: 100%;
+    overflow: visible;
 }
+
+svg#fr-graph g.music-spectrum-viz path.music-spectrum-fill {
+    fill: var(--background-color-contrast-more);
+    opacity: 0.2;
+    stroke: none;
+}
+
+svg#fr-graph g.eq-filter-markers {
+    pointer-events: none;
+}
+
+svg#fr-graph g.eq-filter-markers circle.eq-filter-marker {
+    fill: var(--background-color-graph);
+    --eq-filter-marker-cy-nudge: 0.5px;
+    transform: translateY(var(--eq-filter-marker-cy-nudge, 0px));
+    vector-effect: non-scaling-stroke;
+    paint-order: stroke fill;
+    transition: opacity 0.15s ease;
+}
+
+/* EQ panel (classic layout): selected band highlights type/checkbox column only */
+div.extra-eq div.filters > div.filter {
+    border-radius: 6px;
+    transition: opacity 0.15s ease, filter 0.15s ease;
+}
+
+div.extra-eq div.filters > div.filter.eq-filter-row-selected > span:first-child {
+    background-color: var(--background-color-contrast, #d8d4c8);
+    border-radius: 6px;
+    transition: background-color 0.15s ease;
+}
+
+/* Hover fill is set in JS to match stroke (trace color). */
 
 div.manage {
     grid-column-start: 2;
@@ -374,7 +421,7 @@ div.phone-item-add {
     }
     
     div.graphBox {
-        max-width: calc((100vh - 10.625em - 3em) *  (800/346));
+        max-width: calc((100vh - 10.625em - 3em) *  (800/360));
     }
 }
 

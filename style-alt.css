@@ -37,13 +37,21 @@ Icons *****/
 
 :root {
     --icon-remove: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23000000;%7D%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M95.36,24.64h0a5,5,0,0,0-7.08,0L60,52.93,31.72,24.64a5,5,0,0,0-7.08,0h0a5,5,0,0,0,0,7.08L52.93,60,24.64,88.28a5,5,0,0,0,0,7.08h0a5,5,0,0,0,7.08,0L60,67.07,88.28,95.36a5,5,0,0,0,7.08,0h0a5,5,0,0,0,0-7.08L67.07,60,95.36,31.72A5,5,0,0,0,95.36,24.64Z'/%3E%3C/svg%3E");
-    --icon-baseline: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect x='10' y='55' width='100' height='10' rx='5'/%3E%3C/svg%3E");
-    --icon-squiggle: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23000000;%7D%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M80.37,85c-12.63,0-18.92-6.89-22-12.67A30.8,30.8,0,0,1,55,60.18V60a20.12,20.12,0,0,0-2.1-8c-2.46-4.7-6.68-7-12.9-7s-10.44,2.28-12.9,7A20.1,20.1,0,0,0,25,60a5,5,0,0,1-5,5h0a5,5,0,0,1-5-5c0-8.65,5.22-25,25-25S65,51.2,65,59.87C65.1,61.67,66.3,75,80.37,75c6,0,10.16-2.27,12.56-7A20.49,20.49,0,0,0,95,60a5,5,0,0,1,5-5h0a5,5,0,0,1,5,5,30,30,0,0,1-3,12.2C98,80.46,90.29,85,80.37,85Z'/%3E%3C/svg%3E");
-    --icon-download: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 14L11.2929 14.7071L12 15.4142L12.7071 14.7071L12 14ZM13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44771 11 5L13 5ZM6.29289 9.70711L11.2929 14.7071L12.7071 13.2929L7.70711 8.29289L6.29289 9.70711ZM12.7071 14.7071L17.7071 9.70711L16.2929 8.29289L11.2929 13.2929L12.7071 14.7071ZM13 14L13 5L11 5L11 14L13 14Z' fill='%23CCD2E3'/%3E%3Cpath d='M5 16L5 17C5 18.1046 5.89543 19 7 19L17 19C18.1046 19 19 18.1046 19 17V16' stroke='%23CCD2E3' stroke-width='2'/%3E%3C/svg%3E%0A");
-    --icon-hide: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23000000;%7D%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M60,30C32.39,30,10,43.43,10,60S32.39,90,60,90s50-13.43,50-30S87.61,30,60,30ZM90.21,72.64C82.41,77.32,71.4,80,60,80,37.11,80,20,69.44,20,60c0-4.3,3.57-8.91,9.79-12.64C37.59,42.68,48.6,40,60,40c22.89,0,40,10.56,40,20C100,64.3,96.43,68.91,90.21,72.64Z'/%3E%3Ccircle class='cls-1' cx='60' cy='60' r='10'/%3E%3C/svg%3E");
-    --icon-pin: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23000000;%7D%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M78.07,30.48A28.68,28.68,0,0,1,89.52,41.93l-2.33-.64L83.49,45,69.05,59.43l-4.78,4.78,3.27,5.93c2.61,4.74,2.9,7.76,2.79,8.93a3,3,0,0,1-.45,0c-2.64,0-7.89-1.7-14-6.48l-4.75-3.74-3.74-4.75c-5.55-7.09-6.65-12.6-6.48-14.45l.46,0c1,0,3.89.28,8.49,2.81l5.93,3.27L60.57,51,75,36.51l3.71-3.7-.64-2.33M74.41,20.27A6.34,6.34,0,0,0,69.77,22c-1.79,1.79-2.08,4.76-1.13,8.2L54.21,44.58C49.57,42,45.1,40.65,41.37,40.65a9.54,9.54,0,0,0-7,2.51c-5,5-2.27,16.09,5.9,26.51L23,95.58a1,1,0,0,0,.83,1.55,1,1,0,0,0,.55-.17L50.33,79.69c6.87,5.38,14,8.4,19.55,8.4a9.52,9.52,0,0,0,7-2.5c3.93-3.93,3.08-11.62-1.42-19.8L89.85,51.36a13.62,13.62,0,0,0,3.58.53,6.32,6.32,0,0,0,4.62-1.66C102,46.32,98.79,36.83,91,29c-5.54-5.54-11.93-8.75-16.57-8.75Z'/%3E%3C/svg%3E");
+    /* Tabler outline 24×24 @ #000 for mask; use at 16×16 via mask-size */
+    --icon-baseline: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%2F%3E%3Cpath%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M4%2012h16%22%2F%3E%3C%2Fsvg%3E");
+    --icon-squiggle: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%2F%3E%3Cpath%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M21%2012h-2c-.894%200%20-1.662%20-.857%20-1.761%20-2c-.296%20-3.45%20-.749%20-6%20-2.749%20-6s-2.5%203.582%20-2.5%208s-.5%208%20-2.5%208s-2.452%20-2.547%20-2.749%20-6c-.1%20-1.147%20-.867%20-2%20-1.763%20-2h-2%22%2F%3E%3C%2Fsvg%3E");
+    --icon-download: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%2F%3E%3Cpath%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M4%2017v2a2%202%200%200%200%202%202h12a2%202%200%200%200%202%20-2v-2%22%2F%3E%3Cpath%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M7%2011l5%205l5%20-5%22%2F%3E%3Cpath%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M12%204l0%2012%22%2F%3E%3C%2Fsvg%3E");
+    --icon-hide: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%2F%3E%3Cpath%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M10%2012a2%202%200%201%200%204%200a2%202%200%200%200%20-4%200%22%2F%3E%3Cpath%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M21%2012c-2.4%204%20-5.4%206%20-9%206c-3.6%200%20-6.6%20-2%20-9%20-6c2.4%20-4%205.4%20-6%209%20-6c3.6%200%206.6%202%209%206%22%2F%3E%3C%2Fsvg%3E");
+    --icon-hidden: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%2F%3E%3Cpath%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M10.585%2010.587a2%202%200%200%200%202.829%202.828%22%2F%3E%3Cpath%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M16.681%2016.673a8.717%208.717%200%200%201%20-4.681%201.327c-3.6%200%20-6.6%20-2%20-9%20-6c1.272%20-2.12%202.712%20-3.678%204.32%20-4.674m2.86%20-1.146a9.055%209.055%200%200%201%201.82%20-.18c3.6%200%206.6%202%209%206c-.666%201.11%20-1.379%202.067%20-2.138%202.87%22%2F%3E%3Cpath%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M3%203l18%2018%22%2F%3E%3C%2Fsvg%3E");
+    --icon-pin: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%2F%3E%3Cpath%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M15%204.5l-4%204l-4%201.5l-1.5%201.5l7%207l1.5%20-1.5l1.5%20-4l4%20-4%22%2F%3E%3Cpath%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M9%2015l-4.5%204.5%22%2F%3E%3Cpath%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M14.5%204l5.5%205.5%22%2F%3E%3C%2Fsvg%3E");
     --icon-plus: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23000000;%7D%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M110,60h0a5,5,0,0,0-5-5H65V15a5,5,0,0,0-5-5h0a5,5,0,0,0-5,5V55H15a5,5,0,0,0-5,5h0a5,5,0,0,0,5,5H55v40a5,5,0,0,0,5,5h0a5,5,0,0,0,5-5V65h40A5,5,0,0,0,110,60Z'/%3E%3C/svg%3E");
     --icon-new-tab: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cdefs%3E%3Cstyle%3E.cls-1,.cls-2%7Bfill:none;stroke:%23231f20;%7D.cls-2%7Bstroke-linecap:round;%7D%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M21,11v2c0,3.77,0,5.66-1.17,6.83S16.77,21,13,21H11c-3.77,0-5.66,0-6.83-1.17S3,16.77,3,13V11C3,7.23,3,5.34,4.17,4.17S7.23,3,11,3h1'/%3E%3Cpath class='cls-2' d='M21,3.15H16.76m4.24,0V7.39m0-4.24-8.49,8.48'/%3E%3C/svg%3E");
+
+    /* Tabler-derived (viewBox 0 0 24 24); use at 16×16 via mask-size — Sound Tools play/stop, EQ settings / reset */
+    --icon-player-play: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22none%22%20d%3D%22M0%200h24v24H0z%22%2F%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M6%204v16a1%201%200%200%200%201.524%20.852l13%20-8a1%201%200%200%200%200%20-1.704l-13%20-8a1%201%200%200%200%20-1.524%20.852z%22%2F%3E%3C%2Fsvg%3E");
+    --icon-player-stop: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22none%22%20d%3D%22M0%200h24v24H0z%22%2F%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M17%204h-10a3%203%200%200%200%20-3%203v10a3%203%200%200%200%203%203h10a3%203%200%200%200%203%20-3v-10a3%203%200%200%200%20-3%20-3z%22%2F%3E%3C%2Fsvg%3E");
+    --icon-eq-settings: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%3Cpath%20stroke%3D%22none%22%20d%3D%22M0%200h24v24H0z%22%2F%3E%3Cpath%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M10.325%204.317c.426%20-1.756%202.924%20-1.756%203.35%200a1.724%201.724%200%200%200%202.573%201.066c1.543%20-.94%203.31%20.826%202.37%202.37a1.724%201.724%200%200%200%201.065%202.572c1.756%20.426%201.756%202.924%200%203.35a1.724%201.724%200%200%200%20-1.066%202.573c.94%201.543%20-.826%203.31%20-2.37%202.37a1.724%201.724%200%200%200%20-2.572%201.065c-.426%201.756%20-2.924%201.756%20-3.35%200a1.724%201.724%200%200%200%20-2.573%20-1.066c-1.543%20.94%20-3.31%20-.826%20-2.37%20-2.37a1.724%201.724%200%200%200%20-1.065%20-2.572c-1.756%20-.426%20-1.756%20-2.924%200%20-3.35a1.724%201.724%200%200%200%201.066%20-2.573c-.94%20-1.543%20.826%20-3.31%202.37%20-2.37c1%20.608%202.296%20.07%202.572%20-1.065%22%2F%3E%3Cpath%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M9%2012a3%203%200%201%200%206%200a3%203%200%200%200%20-6%200%22%2F%3E%3C%2Fsvg%3E");
+    --icon-eq-reset: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%3Cpath%20stroke%3D%22none%22%20d%3D%22M0%200h24v24H0z%22%2F%3E%3Cpath%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M9%2014l-4%20-4l4%20-4%22%2F%3E%3Cpath%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M5%2010h11a4%204%200%201%201%200%208h-1%22%2F%3E%3C%2Fsvg%3E");
     
     --icon-expand: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23252627;%7D%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M24.64,95.36l24.75-3.54-7.07-7.07,3.54-3.54a5,5,0,0,0,0-7.07h0a5,5,0,0,0-7.07,0l-3.54,3.54-7.07-7.07Z'/%3E%3Cpath class='cls-1' d='M95.36,24.64,70.61,28.18l7.07,7.07-3.54,3.54a5,5,0,0,0,0,7.07h0a5,5,0,0,0,7.07,0l3.54-3.54,7.07,7.07Z'/%3E%3Cpath class='cls-1' d='M42.32,35.25l7.07-7.07L24.64,24.64l3.54,24.75,7.07-7.07,3.54,3.54a5,5,0,0,0,7.07,0h0a5,5,0,0,0,0-7.07Z'/%3E%3Cpath class='cls-1' d='M95.36,95.36,91.82,70.61l-7.07,7.07-3.54-3.54a5,5,0,0,0-7.07,0h0a5,5,0,0,0,0,7.07l3.54,3.54-7.07,7.07Z'/%3E%3C/svg%3E");
     --icon-collapse: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23252627;%7D%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M52.93,67.07,28.18,70.61l7.07,7.07-3.53,3.53a5,5,0,0,0,0,7.07h0a5,5,0,0,0,7.07,0l3.53-3.53,7.07,7.07Z'/%3E%3Cpath class='cls-1' d='M67.07,52.93l24.75-3.54-7.07-7.07,3.53-3.53a5,5,0,0,0,0-7.07h0a5,5,0,0,0-7.07,0l-3.53,3.53-7.07-7.07Z'/%3E%3C/svg%3E");
@@ -51,7 +59,7 @@ Icons *****/
     --icon-expand: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23252627;%7D%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M45,105h0a5,5,0,0,1-5,5H10V80a5,5,0,0,1,5-5h0a5,5,0,0,1,5,5v20H40A5,5,0,0,1,45,105Z'/%3E%3Cpath class='cls-1' d='M110,80v30H80a5,5,0,0,1-5-5h0a5,5,0,0,1,5-5h20V80a5,5,0,0,1,5-5h0A5,5,0,0,1,110,80Z'/%3E%3Cpath class='cls-1' d='M110,10V40a5,5,0,0,1-5,5h0a5,5,0,0,1-5-5V20H80a5,5,0,0,1-5-5h0a5,5,0,0,1,5-5Z'/%3E%3Cpath class='cls-1' d='M45,15h0a5,5,0,0,1-5,5H20V40a5,5,0,0,1-5,5h0a5,5,0,0,1-5-5V10H40A5,5,0,0,1,45,15Z'/%3E%3C/svg%3E");
     --icon-collapse: url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23252627;%7D%3C/style%3E%3C/defs%3E%3Cpath class='cls-1' d='M10,80h0a5,5,0,0,1,5-5H45v30a5,5,0,0,1-5,5h0a5,5,0,0,1-5-5V85H15A5,5,0,0,1,10,80Z'/%3E%3Cpath class='cls-1' d='M75,105V75h30a5,5,0,0,1,5,5h0a5,5,0,0,1-5,5H85v20a5,5,0,0,1-5,5h0A5,5,0,0,1,75,105Z'/%3E%3Cpath class='cls-1' d='M75,45V15a5,5,0,0,1,5-5h0a5,5,0,0,1,5,5V35h20a5,5,0,0,1,5,5h0a5,5,0,0,1-5,5Z'/%3E%3Cpath class='cls-1' d='M10,40h0a5,5,0,0,1,5-5H35V15a5,5,0,0,1,5-5h0a5,5,0,0,1,5,5V45H15A5,5,0,0,1,10,40Z'/%3E%3C/svg%3E");
     
-    --icon-hamburger: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 25.2.3, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 120 120' style='enable-background:new 0 0 120 120;' xml:space='preserve'%3E%3Cpath class='st0' d='M105,65H15c-2.76,0-5-2.24-5-5v0c0-2.76,2.24-5,5-5h90c2.76,0,5,2.24,5,5v0C110,62.76,107.76,65,105,65z'/%3E%3Cpath class='st0' d='M105,20H15c-2.76,0-5-2.24-5-5v0c0-2.76,2.24-5,5-5h90c2.76,0,5,2.24,5,5v0C110,17.76,107.76,20,105,20z'/%3E%3Cpath class='st0' d='M105,110H15c-2.76,0-5-2.24-5-5v0c0-2.76,2.24-5,5-5h90c2.76,0,5,2.24,5,5v0C110,107.76,107.76,110,105,110z'/%3E%3C/svg%3E%0A");
+    --icon-hamburger: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%2F%3E%3Cpath%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M4%2020h16%22%2F%3E%3Cpath%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M4%2012h16%22%2F%3E%3Cpath%20stroke%3D%22%23000%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M4%204h16%22%2F%3E%3C%2Fsvg%3E");
 }
 
 /*****
@@ -128,17 +136,110 @@ g.lineLabel text {
     font-weight: 700;
 }
 
+/* Below, svg#fr-graph rect { pointer-events: all } would re-enable hits on label rects; keep labels inert */
+svg#fr-graph g.lineLabel,
+svg#fr-graph g.lineLabel * {
+    pointer-events: none;
+}
+
 svg#fr-graph {
     position: relative;
     
     background-color: var(--background-color-graph);
     
     pointer-events: none;
+    overflow: visible;
+    margin-bottom: -1.75%;
+}
+
+svg#fr-graph g.curves-g path {
+    transition: stroke-width 0.1s cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 0.2s ease;
 }
 
 rect.graphBackground {
     opacity: 0.0;
 }
+
+svg#fr-graph g.music-spectrum-viz path.music-spectrum-fill {
+    fill: var(--background-color-contrast-more);
+    opacity: 0.2;
+    stroke: none;
+}
+
+/* EQ band markers: graph fill, stroke set in JS per curve. Nudge Y to align with curveNatural path vs linear interp. */
+svg#fr-graph g.eq-filter-markers {
+    pointer-events: none;
+}
+
+svg#fr-graph g.eq-filter-markers circle.eq-filter-marker {
+    fill: var(--background-color-graph);
+    /* Optical vertical tweak (e.g. 0.35px–0.8px); sign flips if dots sit high vs low */
+    --eq-filter-marker-cy-nudge: 0.5px;
+    transform: translateY(var(--eq-filter-marker-cy-nudge, 0px));
+    /* Omit non-scaling-stroke so marker stroke scales with SVG like curves-g traces (classic layout uses it). */
+    paint-order: stroke fill;
+    transition: opacity 0.15s ease,
+                r 0.1s cubic-bezier(0.22, 1, 0.36, 1),
+                stroke-width 0.1s cubic-bezier(0.22, 1, 0.36, 1),
+                fill 0.1s ease;
+}
+
+/* EQ tab: horizontal drag off nodes / traces highlights Sound Tools band (same vibe as tutorial overlays). */
+svg#fr-graph g.eq-sound-range-brush {
+    pointer-events: none;
+}
+
+svg#fr-graph g.eq-sound-range-brush-inner > rect.eq-sound-range-brush-rect {
+    fill: var(--accent-color);
+    opacity: 0.12;
+    pointer-events: none;
+}
+
+/* Fixed overlay (not in SVG user space): icon and padding stay constant in CSS pixels. */
+.eq-sound-range-brush-dismiss-overlay {
+    position: fixed;
+    z-index: 50;
+    pointer-events: none;
+    box-sizing: border-box;
+}
+
+.eq-sound-range-brush-dismiss-overlay button.eq-sound-range-brush-dismiss {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 10px;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    background-color: transparent;
+    pointer-events: auto;
+}
+
+.eq-sound-range-brush-dismiss-overlay span.eq-sound-range-brush-dismiss-icon {
+    display: block;
+    box-sizing: border-box;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    opacity: 0.4;
+    background-color: var(--font-color-primary);
+    mask: var(--icon-remove);
+    -webkit-mask: var(--icon-remove);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    pointer-events: none;
+}
+
+/* EQ marker fill/stroke set in JS (graphtool.js); default fill from theme when cleared. */
 
 g.dBScaler {
     fill: var(--background-color-contrast-more);
@@ -196,96 +297,70 @@ svg text.rig-description {
     filter: var(--svg-filter)
 }
 
+/* Sticky label corners: use :nth-last-child(K of .lineLabel) so only g.lineLabel direct children
+   of #fr-graph are counted — order of defs, rect, watermark, axes, curves-g, EQ layers, etc. does not matter.
+   (Selectors Level 4; Chromium 111+, Firefox 113+, Safari 15.4+.) Up to five labels stacked. */
+
 /* top-left */
-svg#fr-graph[data-labels-position="top-left"] > rect + g.lineLabel + g.lineLabel + g.lineLabel + g.lineLabel + g.lineLabel:nth-last-child(1),
-svg#fr-graph[data-labels-position="top-left"] > rect + g.lineLabel + g.lineLabel + g.lineLabel + g.lineLabel:nth-last-child(1),
-svg#fr-graph[data-labels-position="top-left"] > rect + g.lineLabel + g.lineLabel + g.lineLabel:nth-last-child(1),
-svg#fr-graph[data-labels-position="top-left"] > rect + g.lineLabel + g.lineLabel:nth-last-child(1),
-svg#fr-graph[data-labels-position="top-left"] > rect + g.lineLabel:nth-last-child(1) {
+svg#fr-graph[data-labels-position="top-left"] > g.lineLabel:nth-last-child(1 of .lineLabel) {
     transform: translate(40px, 8px);
 }
 
-svg#fr-graph[data-labels-position="top-left"] > rect + g.lineLabel + g.lineLabel + g.lineLabel + g.lineLabel:nth-last-child(2),
-svg#fr-graph[data-labels-position="top-left"] > rect + g.lineLabel + g.lineLabel + g.lineLabel:nth-last-child(2),
-svg#fr-graph[data-labels-position="top-left"] > rect + g.lineLabel + g.lineLabel:nth-last-child(2),
-svg#fr-graph[data-labels-position="top-left"] rect + g.lineLabel:nth-last-child(2) {
+svg#fr-graph[data-labels-position="top-left"] > g.lineLabel:nth-last-child(2 of .lineLabel) {
     transform: translate(40px, 30px);
 }
 
-svg#fr-graph[data-labels-position="top-left"] rect + g.lineLabel + g.lineLabel + g.lineLabel:nth-last-child(3),
-svg#fr-graph[data-labels-position="top-left"] rect + g.lineLabel + g.lineLabel:nth-last-child(3),
-svg#fr-graph[data-labels-position="top-left"] rect + g.lineLabel:nth-last-child(3) {
+svg#fr-graph[data-labels-position="top-left"] > g.lineLabel:nth-last-child(3 of .lineLabel) {
     transform: translate(40px, 52px);
 }
 
-svg#fr-graph[data-labels-position="top-left"] > rect + g.lineLabel + g.lineLabel:nth-last-child(4),
-svg#fr-graph[data-labels-position="top-left"] > rect + g.lineLabel:nth-last-child(4) {
+svg#fr-graph[data-labels-position="top-left"] > g.lineLabel:nth-last-child(4 of .lineLabel) {
     transform: translate(40px, 74px);
 }
 
-svg#fr-graph[data-labels-position="top-left"] > rect + g.lineLabel:nth-last-child(5) {
+svg#fr-graph[data-labels-position="top-left"] > g.lineLabel:nth-last-child(5 of .lineLabel) {
     transform: translate(40px, 96px);
 }
 
 /* bottom-left */
-svg#fr-graph[data-labels-position="bottom-left"] > rect + g.lineLabel + g.lineLabel + g.lineLabel + g.lineLabel + g.lineLabel:nth-last-child(1),
-svg#fr-graph[data-labels-position="bottom-left"] > rect + g.lineLabel + g.lineLabel + g.lineLabel + g.lineLabel:nth-last-child(1),
-svg#fr-graph[data-labels-position="bottom-left"] > rect + g.lineLabel + g.lineLabel + g.lineLabel:nth-last-child(1),
-svg#fr-graph[data-labels-position="bottom-left"] > rect + g.lineLabel + g.lineLabel:nth-last-child(1),
-svg#fr-graph[data-labels-position="bottom-left"] > rect + g.lineLabel:nth-last-child(1) {
+svg#fr-graph[data-labels-position="bottom-left"] > g.lineLabel:nth-last-child(1 of .lineLabel) {
     transform: translate(40px, 296px);
 }
 
-svg#fr-graph[data-labels-position="bottom-left"] > rect + g.lineLabel + g.lineLabel + g.lineLabel + g.lineLabel:nth-last-child(2),
-svg#fr-graph[data-labels-position="bottom-left"] > rect + g.lineLabel + g.lineLabel + g.lineLabel:nth-last-child(2),
-svg#fr-graph[data-labels-position="bottom-left"] > rect + g.lineLabel + g.lineLabel:nth-last-child(2),
-svg#fr-graph[data-labels-position="bottom-left"] rect + g.lineLabel:nth-last-child(2) {
+svg#fr-graph[data-labels-position="bottom-left"] > g.lineLabel:nth-last-child(2 of .lineLabel) {
     transform: translate(40px, 274px);
 }
 
-svg#fr-graph[data-labels-position="bottom-left"] rect + g.lineLabel + g.lineLabel + g.lineLabel:nth-last-child(3),
-svg#fr-graph[data-labels-position="bottom-left"] rect + g.lineLabel + g.lineLabel:nth-last-child(3),
-svg#fr-graph[data-labels-position="bottom-left"] rect + g.lineLabel:nth-last-child(3) {
+svg#fr-graph[data-labels-position="bottom-left"] > g.lineLabel:nth-last-child(3 of .lineLabel) {
     transform: translate(40px, 252px);
 }
 
-svg#fr-graph[data-labels-position="bottom-left"] > rect + g.lineLabel + g.lineLabel:nth-last-child(4),
-svg#fr-graph[data-labels-position="bottom-left"] > rect + g.lineLabel:nth-last-child(4) {
+svg#fr-graph[data-labels-position="bottom-left"] > g.lineLabel:nth-last-child(4 of .lineLabel) {
     transform: translate(40px, 230px);
 }
 
-svg#fr-graph[data-labels-position="bottom-left"] > rect + g.lineLabel:nth-last-child(5) {
+svg#fr-graph[data-labels-position="bottom-left"] > g.lineLabel:nth-last-child(5 of .lineLabel) {
     transform: translate(40px, 208px);
 }
 
 /* bottom-right */
-svg#fr-graph[data-labels-position="bottom-right"] > rect + g.lineLabel + g.lineLabel + g.lineLabel + g.lineLabel + g.lineLabel:nth-last-child(1),
-svg#fr-graph[data-labels-position="bottom-right"] > rect + g.lineLabel + g.lineLabel + g.lineLabel + g.lineLabel:nth-last-child(1),
-svg#fr-graph[data-labels-position="bottom-right"] > rect + g.lineLabel + g.lineLabel + g.lineLabel:nth-last-child(1),
-svg#fr-graph[data-labels-position="bottom-right"] > rect + g.lineLabel + g.lineLabel:nth-last-child(1),
-svg#fr-graph[data-labels-position="bottom-right"] > rect + g.lineLabel:nth-last-child(1) {
+svg#fr-graph[data-labels-position="bottom-right"] > g.lineLabel:nth-last-child(1 of .lineLabel) {
     transform: translate(500px, 296px);
 }
 
-svg#fr-graph[data-labels-position="bottom-right"] > rect + g.lineLabel + g.lineLabel + g.lineLabel + g.lineLabel:nth-last-child(2),
-svg#fr-graph[data-labels-position="bottom-right"] > rect + g.lineLabel + g.lineLabel + g.lineLabel:nth-last-child(2),
-svg#fr-graph[data-labels-position="bottom-right"] > rect + g.lineLabel + g.lineLabel:nth-last-child(2),
-svg#fr-graph[data-labels-position="bottom-right"] rect + g.lineLabel:nth-last-child(2) {
+svg#fr-graph[data-labels-position="bottom-right"] > g.lineLabel:nth-last-child(2 of .lineLabel) {
     transform: translate(500px, 274px);
 }
 
-svg#fr-graph[data-labels-position="bottom-right"] rect + g.lineLabel + g.lineLabel + g.lineLabel:nth-last-child(3),
-svg#fr-graph[data-labels-position="bottom-right"] rect + g.lineLabel + g.lineLabel:nth-last-child(3),
-svg#fr-graph[data-labels-position="bottom-right"] rect + g.lineLabel:nth-last-child(3) {
+svg#fr-graph[data-labels-position="bottom-right"] > g.lineLabel:nth-last-child(3 of .lineLabel) {
     transform: translate(500px, 252px);
 }
 
-svg#fr-graph[data-labels-position="bottom-right"] > rect + g.lineLabel + g.lineLabel:nth-last-child(4),
-svg#fr-graph[data-labels-position="bottom-right"] > rect + g.lineLabel:nth-last-child(4) {
+svg#fr-graph[data-labels-position="bottom-right"] > g.lineLabel:nth-last-child(4 of .lineLabel) {
     transform: translate(500px, 230px);
 }
 
-svg#fr-graph[data-labels-position="bottom-right"] > rect + g.lineLabel:nth-last-child(5) {
+svg#fr-graph[data-labels-position="bottom-right"] > g.lineLabel:nth-last-child(5 of .lineLabel) {
     transform: translate(500px, 208px);
 }
 
@@ -569,10 +644,10 @@ button#expand-collapse:before {
     
     mask: var(--icon-expand);
     -webkit-mask: var(--icon-expand);
-    mask-size: 20px;
+    mask-size: 16px;
     mask-repeat: no-repeat;
     mask-position: center;
-    -webkit-mask-size: 20px;
+    -webkit-mask-size: 16px;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
     
@@ -588,10 +663,10 @@ body[data-graph-frame="expanded"] button#expand-collapse:before {
 
     mask: var(--icon-collapse);
     -webkit-mask: var(--icon-collapse);
-    mask-size: 20px;
+    mask-size: 16px;
     mask-repeat: no-repeat;
     mask-position: center;
-    -webkit-mask-size: 20px;
+    -webkit-mask-size: 16px;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
 }
@@ -906,7 +981,8 @@ div.extra-panel button {
     order: 1;
     
     flex: auto 1 1;
-    padding: 11px 8px;
+    /* 10 + 14 + 10 + 2px borders = 36px; 14px line clears descenders vs 12px at 1em */
+    padding: 10px 8px;
     margin: 0;
     
     background-color: var(--background-color) !important;
@@ -917,7 +993,7 @@ div.extra-panel button {
     font-family: var(--font-primary);
     font-weight: 400;
     font-size: 12px;
-    line-height: 1em;
+    line-height: 14px;
     text-transform: capitalize;
     
     white-space: nowrap;
@@ -931,21 +1007,31 @@ div.filters-button {
     gap: 0 4px;
 }
 
-div.extra-panel button.sort-filters,
-div.extra-panel button.readme {
+div.extra-panel button.sort-filters {
     flex: calc(50% - 2px) 0 0;
     border-color: var(--background-color-contrast) !important;
 }
 
-div.extra-panel button.import-filters,
-div.extra-panel button.export-filters {
-    position: relative;
-    
-    flex: 100% 0 0;
+div.extra-panel > div.extra-eq > div.filters-button > button.add-filter,
+div.extra-panel > div.extra-eq > div.filters-button > button.remove-filter {
+    border-color: var(--background-color-contrast) !important;
 }
 
-button.export-graphic-filters {
-    border-color: var(--background-color-contrast) !important;
+/* Import | Export: 50/50 on one row; Wavelet: full width on next row */
+div.extra-eq div.filters-button.extra-eq-filter-actions > button {
+    flex: 1 1 0;
+    min-width: 0;
+}
+
+div.extra-panel > div.extra-eq > div.filters-button.extra-eq-filter-actions > button.export-graphic-filters.extra-eq-secondary-btn {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+    border-color: var(--background-color) !important;
+}
+
+div.extra-panel button.export-filters {
+    position: relative;
 }
 
 button.export-filters:after {
@@ -964,10 +1050,10 @@ button.export-filters:after {
     
     mask: var(--icon-download);
     -webkit-mask: var(--icon-download);
-    mask-size: 20px;
+    mask-size: 16px;
     mask-repeat: no-repeat;
     mask-position: center;
-    -webkit-mask-size: 20px;
+    -webkit-mask-size: 16px;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
 }
@@ -1055,10 +1141,25 @@ div.miscTools button#theme:active {
 div.extra-panel {
     flex-direction: column;
     overflow: auto;
+    /* Compare (live EQ) + constraint type toggles (shared track / thumb) */
+    --eq-switch-track-w: 54px;
+    --eq-switch-track-h: 24px;
+    --eq-switch-thumb: 14px;
+    --eq-switch-border: 1px;
+    /* Inset so thumb–edge gaps match top/bottom (thumb is vertically centered in the track) */
+    --eq-switch-gap: calc((var(--eq-switch-track-h) - 2 * var(--eq-switch-border) - var(--eq-switch-thumb)) / 2);
+    --eq-switch-travel: calc(var(--eq-switch-track-w) - 2 * var(--eq-switch-border) - 2 * var(--eq-switch-gap) - var(--eq-switch-thumb));
+    /* Out-of-range constraint / filter field emphasis */
+    --eq-invalid-fg: #c53030;
 }
 
 div.extra-panel > div {
     margin: 0 0 1em 0;
+}
+
+/* Match Sound Tools → Upload Data: that gap includes the Upload h5 top margin (see div.extra-panel h5). */
+div.extra-panel > div.extra-eq {
+    margin-bottom: calc(1em + 16px);
 }
 
 div.extra-panel h5 {
@@ -1069,30 +1170,302 @@ div.extra-panel h5 {
     color: var(--accent-color-contrast);
 }
 
-div.extra-upload {
+/* Same panel-section shell as extra-eq / live-sound-tools: direct child of div.extra-panel gets margin from div.extra-panel > div */
+div.extra-upload,
+div.extra-eq-change-history {
     display: flex;
     flex-wrap: wrap;
 }
 
-div.extra-upload h5 {
-    flex: 100% 0 0;
+div.extra-upload-head,
+div.extra-eq-change-history-head {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
 }
 
-div.extra-upload button {
-    flex: calc(50% - 2px) 1 1;
+/* Full-width titles; vertical margin from div.extra-panel h5 (do not zero — Change History must match Upload Data) */
+h5.extra-upload-data-title,
+div.extra-eq-change-history-head h5.extra-eq-change-history-title {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
 }
 
-div.extra-upload button + button {
-    margin-left: 4px;
+div.extra-upload-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-div.extra-upload span {
-    order: 2;
-    flex: 100% 0 0;
+div.extra-panel div.extra-upload-actions button {
+    flex: calc(50% - 2px) 1 1 !important;
+    min-width: 0;
+}
+
+div.extra-panel div.extra-upload-actions button + button {
+    margin-left: 0;
+}
+
+div.extra-upload-head .extra-upload-note,
+div.extra-eq-change-history-head .extra-eq-change-history-hint {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 8px 0;
+    padding: 0;
+    font-family: var(--font-primary);
+    font-size: 12px;
+    line-height: 1.35;
+    font-weight: 400;
+    color: var(--background-color-contrast-more);
+}
+
+div.extra-eq-change-history-list {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.extra-eq-change-history-empty {
+    font-family: var(--font-primary);
+    font-size: 12px;
+    line-height: 1.35;
+    font-weight: 400;
+    color: var(--background-color-contrast-more);
+    padding: 12px;
+}
+
+/* EQ history rows: override div.extra-panel button (flex, padding, bg !important, border, capitalize). */
+div.extra-panel div.extra-eq-change-history-list button.extra-eq-change-history-row {
+    display: grid !important;
+    /* Fixed tracks: "20000Hz" (no commas), time compact (e.g. 9999h); middle flexes */
+    grid-template-columns: 16px 9ch 14px minmax(0, 1fr) 4.2ch;
+    align-items: center;
+    column-gap: 8px;
+    flex: none !important;
+    order: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 12px !important;
+    text-align: left;
+    font-family: var(--font-primary);
+    line-height: 1.2 !important;
+    font-size: 13px;
+    font-weight: 400 !important;
+    text-transform: none !important;
+    white-space: normal !important;
+    border-radius: 0;
+    cursor: pointer;
+    box-sizing: border-box;
+    outline: none;
+}
+
+div.extra-panel div.extra-eq-change-history-list button.extra-eq-change-history-row--past {
+    background-color: var(--background-color-inputs) !important;
+    border: none !important;
+    color: var(--font-color-primary) !important;
+}
+
+div.extra-panel div.extra-eq-change-history-list button.extra-eq-change-history-row--current {
+    background-color: var(--background-color-contrast) !important;
+    border: none !important;
+    color: var(--font-color-primary) !important;
+}
+
+div.extra-panel div.extra-eq-change-history-list button.extra-eq-change-history-row--future {
+    background-color: var(--background-color-inputs) !important;
+    border: none !important;
+    color: var(--background-color-contrast-more) !important;
+}
+
+div.extra-panel div.extra-eq-change-history-list button.extra-eq-change-history-row--pinned.extra-eq-change-history-row--past,
+div.extra-panel div.extra-eq-change-history-list button.extra-eq-change-history-row--pinned.extra-eq-change-history-row--current,
+div.extra-panel div.extra-eq-change-history-list button.extra-eq-change-history-row--pinned.extra-eq-change-history-row--future {
+    color: var(--font-color-primary) !important;
+}
+
+div.extra-panel div.extra-eq-change-history-list button.extra-eq-change-history-row--pinned .extra-eq-change-history-col-time {
+    color: var(--font-color-primary) !important;
+}
+
+.extra-eq-change-history-col {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+div.extra-panel div.extra-eq-change-history-list button.extra-eq-change-history-row span {
+    margin: 0 !important;
+    padding: 0 !important;
+    color: inherit !important;
+}
+
+.extra-eq-change-history-col-freq {
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    font-size: 13px;
+    text-align: right;
+    justify-self: stretch;
+}
+
+.extra-eq-change-history-col-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+}
+
+/* Same --icon-plus mask as add-filter / phone list (not the small stroke SVGs) */
+.extra-eq-change-history-icon-plus-mask {
+    display: block;
+    box-sizing: border-box;
+    width: 10px;
+    height: 10px;
+    flex-shrink: 0;
+    background-color: currentColor;
+    mask: var(--icon-plus);
+    -webkit-mask: var(--icon-plus);
+    mask-size: 10px;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-size: 10px;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+}
+
+.extra-eq-change-history-icon-plus-mask.extra-eq-change-history-icon-plus-mask--rot45 {
+    transform: rotate(45deg);
+    transform-origin: center;
+}
+
+.extra-eq-change-history-col-delta {
+    word-break: break-word;
+    font-size: 13px;
+}
+
+.extra-eq-change-history-col-time {
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    text-align: right;
+    font-size: 12px;
+    justify-self: stretch;
+    min-width: 0;
+    max-width: 4.2ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+div.extra-panel div.extra-eq-change-history-list button.extra-eq-change-history-row .extra-eq-change-history-col-time {
+    color: var(--background-color-contrast-more) !important;
+}
+
+.extra-eq-change-history-col-pin-reserved {
+    min-width: 16px;
+    width: 16px;
+    pointer-events: none;
+}
+
+.extra-eq-change-history-col-pin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    cursor: pointer;
+}
+
+/* 14px circle + “A”: same letter styling as .eq-2ch-bank-seg-label (font-secondary 11px bold). */
+div.extra-panel .extra-eq-change-history-pin-ab {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    min-width: 14px;
+    min-height: 14px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+div.extra-panel .extra-eq-change-history-pin-ab--outline {
+    border: var(--eq-switch-border) solid var(--background-color-contrast-more);
+    background-color: transparent;
+}
+
+div.extra-panel .extra-eq-change-history-pin-ab--filled {
+    border: var(--eq-switch-border) solid transparent;
+    background-color: var(--font-color-primary);
+}
+
+div.extra-panel .extra-eq-change-history-pin-ab-letter,
+div.extra-panel .live-sound-eq-switch-thumb--compare .live-sound-eq-switch-thumb-letter,
+div.extra-panel .live-sound-eq-switch-ab-placeholder-letter {
+    font-family: var(--font-secondary);
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: 0.02em;
+    transition: color 200ms ease, text-shadow 200ms ease;
+}
+
+div.extra-panel .live-sound-eq-switch-thumb--compare .live-sound-eq-switch-thumb-letter {
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+div.extra-panel .live-sound-eq-switch-ab-placeholder-letter {
+    color: var(--background-color-contrast-more);
+    text-shadow: none;
+}
+
+/* Beat row `span { color: inherit !important }` for pin “A” colors */
+div.extra-panel div.extra-eq-change-history-list button.extra-eq-change-history-row .extra-eq-change-history-pin-ab--outline .extra-eq-change-history-pin-ab-letter {
+    color: var(--background-color-contrast-more) !important;
+    text-shadow: none !important;
+}
+
+div.extra-panel div.extra-eq-change-history-list button.extra-eq-change-history-row .extra-eq-change-history-pin-ab--filled .extra-eq-change-history-pin-ab-letter {
+    color: var(--background-color) !important;
+    text-shadow: none !important;
+}
+
+.extra-eq-change-history-svg {
+    display: block;
+    width: 16px;
+    height: 16px;
+}
+
+.extra-eq-change-history-svg-stroke {
+    fill: none;
 }
 
 div.extra-panel span {
     color: var(--background-color-contrast-more);
+}
+
+/* Hide native number spinners (tighter right padding; arrow keys / wheel / validation still work) */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
 }
 
 div.extra-panel select {
@@ -1107,7 +1480,7 @@ div.extra-panel select {
     color: var(--font-color-primary);
     font-family: var(--font-family-secondary);
     font-size: 11px;
-    line-height: 1em;
+    line-height: 14px;
     
     cursor: pointer;
     outline: none;
@@ -1117,6 +1490,7 @@ div.extra-panel select {
     box-sizing: border-box;
     -webkit-appearance: none;
     -moz-appearance: none;
+    appearance: none;
 }
 
 div.extra-panel select {
@@ -1124,32 +1498,759 @@ div.extra-panel select {
     linear-gradient(45deg, transparent 50%, var(--background-color-contrast-more) 50%),
     linear-gradient(135deg, var(--background-color-contrast-more) 50%, transparent 50%);
   background-position:
-    calc(100% - 5px) calc(1em + 2px),
-    calc(100% - 0px) calc(1em + 2px);
+    calc(100% - 5px) 50%,
+    calc(100% - 0px) 50%;
   background-size:
     5px 5px,
     5px 5px;
   background-repeat: no-repeat;
 }
 
-div.extra-panel select[name="phone"] {
+div.extra-panel select[name="phone"],
+div.extra-panel select[name="eq-target"],
+div.extra-panel .eq-constraint-preset-stack > select {
   background-position:
-    calc(100% - 14px) calc(1em + 3px),
-    calc(100% - 9px) calc(1em + 3px);
+    calc(100% - 14px) 50%,
+    calc(100% - 9px) 50%;
+}
+
+/* EQ model / target selects: 12px text and line box */
+div.extra-panel > div.extra-eq select {
+    font-size: 12px;
+    line-height: 12px;
+    padding: 10px 0;
+}
+
+div.extra-panel .extra-eq-head {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 12px;
+    row-gap: 6px;
+    margin: 0 0 8px 0;
+    width: 100%;
+}
+
+div.extra-panel .extra-eq-panel-title {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-primary);
+    font-size: 13px;
+    /* Same line box height as reset row + icons (20px) so baselines and vertical centers line up */
+    line-height: 20px;
+    font-weight: 600;
+    color: var(--background-color-contrast-more);
+}
+
+div.extra-panel .extra-eq-head-trailing {
+    flex: 0 0 auto;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2px;
+    margin-left: auto;
+}
+
+div.extra-panel .extra-eq-reset-row {
+    flex: 0 0 auto;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-primary);
+    /* Match panel title (13px / 20px) so “Reset” shares baseline and vertical rhythm with “Parametric Equalizer” */
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 500;
+    color: var(--background-color-contrast-more);
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+div.extra-panel .extra-eq-reset-row .extra-eq-reset-label {
+    margin: 0;
+}
+
+div.extra-panel .extra-eq-reset-btn {
+    box-sizing: border-box;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    transition: color 200ms ease;
+    -webkit-appearance: none;
+    appearance: none;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    min-height: 20px;
+}
+
+div.extra-panel .extra-eq-reset-btn:focus,
+div.extra-panel .extra-eq-reset-btn:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+div.extra-panel .extra-eq-reset-icon {
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    display: block;
+    background-color: currentColor;
+    mask: var(--icon-eq-reset);
+    -webkit-mask: var(--icon-eq-reset);
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-position: center;
+    mask-size: 16px 16px;
+    -webkit-mask-size: 16px 16px;
+}
+
+div.extra-panel > div.extra-eq > div.select-eq-phone-model-target {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+    width: 100%;
+}
+
+/* Same 4-column track + 4px gaps as .filters-header / .filter so Auto EQ lines up with the Q column */
+div.extra-panel > div.extra-eq > div.select-eq-phone-model-target > div.select-eq-phone-target-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 4px;
+    row-gap: 0;
+    align-items: stretch;
+    width: 100%;
+    min-width: 0;
+}
+
+/* div.extra-panel button sets margin-bottom: 4px for wrapped chip rows; that margin skews flex
+   line sizing so the Target select centers against a taller margin box than the button border. */
+div.extra-panel > div.extra-eq > div.select-eq-phone-model-target > div.select-eq-phone-target-row > button {
+    margin: 0 !important;
+}
+
+div.extra-panel > div.extra-eq > div.select-eq-phone-model-target > div.select-eq-phone-target-row > .select-eq-target-select-wrap {
+    grid-column: 1 / span 3;
+    min-width: 0;
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+div.extra-panel > div.extra-eq > div.select-eq-phone-model-target > div.select-eq-phone-target-row > .select-eq-target-select-wrap > select {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    white-space: nowrap;
+}
+
+div.extra-panel > div.extra-eq > div.select-eq-phone-model-target > div.select-eq-phone-target-row > button.autoeq.extra-eq-secondary-btn {
+    box-sizing: border-box;
+    grid-column: 4;
+    min-width: 0;
+    width: 100%;
+    max-width: none;
+    flex: unset !important;
+    order: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 4px;
+    font-size: 12px;
+    line-height: 14px;
+    white-space: normal;
+    text-transform: none;
+    border: 1px solid var(--background-color-contrast-more) !important;
 }
 
 div.extra-panel > div.extra-eq > div.select-eq-phone,
 div.extra-panel > div.extra-eq > div.filters,
+div.extra-panel > div.extra-eq .eq-constraint-preset-row,
+div.extra-panel > div.extra-eq .eq-constraint-top-stack,
+div.extra-panel > div.extra-eq .eq-constraint-ranges-block,
+div.extra-panel > div.extra-eq .eq-constraint-2ch-row,
 div.extra-panel div.settings-row {
     margin: 0 0 0.5em 0;
 }
 
-div.extra-panel > div.extra-eq > div.select-eq-phone > select {
+/* 2ch bank tabs: dim filter rows, swap bank data mid-hold, fade back (~200ms of the return leg) */
+div.extra-panel > div.extra-eq > div.filters.eq-2ch-bank-filters-swap-anim {
+    pointer-events: none;
+    animation: eq2chBankFiltersSwap 0.3s ease-in-out forwards;
+}
+
+@keyframes eq2chBankFiltersSwap {
+    0% {
+        opacity: 1;
+        filter: grayscale(0);
+    }
+    30% {
+        opacity: 0.36;
+        filter: grayscale(1) brightness(0.88);
+    }
+    38% {
+        opacity: 0.36;
+        filter: grayscale(1) brightness(0.88);
+    }
+    100% {
+        opacity: 1;
+        filter: grayscale(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    div.extra-panel > div.extra-eq > div.filters.eq-2ch-bank-filters-swap-anim {
+        animation: none;
+        pointer-events: auto;
+    }
+}
+
+/* Constraints: outer only animates max-height + opacity (+ margin) like Music’s panel shell;
+   card padding/background live on .extra-eq-constraints-inner so they aren’t stripped mid-transition */
+div.extra-panel > div.extra-eq > div.extra-eq-constraints {
+    box-sizing: border-box;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    pointer-events: none;
+    transition: max-height 200ms ease, opacity 200ms ease, margin-bottom 200ms ease;
+}
+
+div.extra-panel > div.extra-eq > div.extra-eq-constraints.extra-eq-constraints-expanded {
+    max-height: 900px;
+    opacity: 1;
+    margin-top: 0;
+    margin-bottom: 10px;
+    pointer-events: auto;
+}
+
+/* Not a panel action chip: override div.extra-panel button (flex grow, border, !important bg) */
+div.extra-panel .extra-eq-head-trailing .extra-eq-constraints-gear {
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    order: 0;
+    position: relative;
+    width: auto;
+    min-width: 0;
+    /* Match reset icon row (20×20) */
+    height: 20px;
+    margin: 0;
+    /* Hit target extends left only so the glyph stays flush with the column’s right edge */
+    padding: 0 0 0 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    border: none !important;
+    border-radius: 0;
+    background: transparent !important;
+    box-shadow: none;
+    color: var(--background-color-contrast-more);
+    font-family: var(--font-primary);
+    font-size: 0;
+    font-weight: 400;
+    line-height: 0;
+    text-transform: none;
+    white-space: nowrap;
+    cursor: pointer;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: color 200ms ease;
+}
+
+div.extra-panel .extra-eq-head-trailing .extra-eq-constraints-gear-char {
+    box-sizing: border-box;
+    display: block;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    background-color: currentColor;
+    mask: var(--icon-eq-settings);
+    -webkit-mask: var(--icon-eq-settings);
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-position: center;
+    mask-size: 16px 16px;
+    -webkit-mask-size: 16px 16px;
+}
+
+div.extra-panel .extra-eq-head-trailing .extra-eq-constraints-gear-preset-badge {
+    position: absolute;
+    top: -4px;
+    right: -2px;
+    box-sizing: border-box;
+    min-width: 11px;
+    height: 11px;
+    padding: 0 2px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-primary);
+    font-size: 8px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0;
+    border-radius: 2px;
+    background-color: var(--accent-color, accent-color);
+    color: var(--font-color-secondary);
+    pointer-events: none;
+    box-shadow: 0 0 0 1px var(--background-color-graph, rgba(255, 255, 255, 0.35));
+}
+
+div.extra-panel .extra-eq-head-trailing .extra-eq-constraints-gear-preset-badge[hidden] {
+    display: none !important;
+}
+
+div.extra-panel .extra-eq-head-trailing .extra-eq-constraints-gear:hover {
+    color: var(--accent-color);
+}
+
+div.extra-panel .extra-eq-head-trailing .extra-eq-constraints-gear:focus,
+div.extra-panel .extra-eq-head-trailing .extra-eq-constraints-gear:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+div.extra-panel > div.extra-eq .extra-eq-constraints-inner {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    min-width: 0;
+    padding: 12px 12px 10px;
+    border-radius: 10px;
+    background-color: var(--background-color-graph);
+}
+
+/* Constraint preset row: width only; bottom margin matches Choose EQ model via .select-eq-phone group */
+div.extra-panel > div.extra-eq .eq-constraint-preset-row {
+    width: 100%;
+    min-width: 0;
+}
+
+/* Stacked selects: visible copy (Constraints: …) + invisible hit target; same shell as Choose EQ model */
+div.extra-panel > div.extra-eq .eq-constraint-preset-stack {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+}
+
+div.extra-panel > div.extra-eq .eq-constraint-preset-stack > select.eq-constraint-preset-display {
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+    text-align: left;
+}
+
+div.extra-panel > div.extra-eq .eq-constraint-preset-stack > select.eq-constraint-preset-hit {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
     box-sizing: border-box;
     width: 100%;
-    padding: 10px;
-    
-    border: 1px solid var(--background-color-contrast-more);
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+div.extra-panel > div.extra-eq select.eq-constraint-preset-hit option.eq-constraint-preset-action-option {
+    font-size: 0.92em;
+    color: rgba(0, 0, 0, 0.55);
+}
+
+body.dark-mode div.extra-panel > div.extra-eq select.eq-constraint-preset-hit option.eq-constraint-preset-action-option {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+div.extra-panel > div.extra-eq .eq-constraint-top-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+}
+
+div.extra-panel > div.extra-eq .eq-constraint-2ch-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    padding-top: 2px;
+}
+
+div.extra-panel > div.extra-eq .eq-constraint-2ch-toggle-label {
+    width: 100%;
+    justify-content: space-between;
+}
+
+div.extra-panel > div.extra-eq .select-eq-phone-model-target .eq-2ch-bank-tabs {
+    width: 100%;
+    min-width: 0;
+    margin-top: 8px;
+    margin-bottom: 2px;
+}
+
+/* Full-width three-position bank switch (L | L + R | R), same pill/track vocabulary as EQ constraint toggles.
+   Fixed track height so the sliding thumb always gets a real vertical size (avoids squashed / odd shapes). */
+div.extra-panel > div.extra-eq .eq-2ch-bank-seg-track {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    height: var(--eq-switch-track-h);
+    min-height: var(--eq-switch-track-h);
+    max-height: var(--eq-switch-track-h);
+    padding: var(--eq-switch-gap);
+    border: var(--eq-switch-border) solid var(--background-color-contrast);
+    border-radius: 9999px;
+    background-color: var(--background-color-inputs);
+    transition: background-color 200ms ease;
+}
+
+div.extra-panel > div.extra-eq .eq-2ch-bank-seg-thumb {
+    position: absolute;
+    left: var(--eq-switch-gap);
+    top: var(--eq-switch-gap);
+    width: calc((100% - 2 * var(--eq-switch-gap)) / 3);
+    height: calc(var(--eq-switch-track-h) - 2 * var(--eq-switch-border) - 2 * var(--eq-switch-gap));
+    box-sizing: border-box;
+    border-radius: 9999px;
+    background-color: var(--accent-color);
+    z-index: 1;
+    pointer-events: none;
+    transform: translate3d(0, 0, 0);
+    transform-origin: left center;
+    transition: transform 200ms ease, background-color 200ms ease;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+div.extra-panel > div.extra-eq .eq-2ch-bank-seg-track[data-eq-2ch-pos="0"] .eq-2ch-bank-seg-thumb {
+    transform: translate3d(0, 0, 0);
+}
+
+div.extra-panel > div.extra-eq .eq-2ch-bank-seg-track[data-eq-2ch-pos="1"] .eq-2ch-bank-seg-thumb {
+    transform: translate3d(100%, 0, 0);
+}
+
+div.extra-panel > div.extra-eq .eq-2ch-bank-seg-track[data-eq-2ch-pos="2"] .eq-2ch-bank-seg-thumb {
+    transform: translate3d(200%, 0, 0);
+}
+
+div.extra-panel > div.extra-eq .eq-2ch-bank-seg-slot {
+    position: relative;
+    flex: 1 1 0;
+    min-width: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+div.extra-panel > div.extra-eq .eq-2ch-bank-seg-label {
+    position: relative;
+    z-index: 4;
+    pointer-events: none;
+    box-sizing: border-box;
+    display: inline-block;
+    max-width: 100%;
+    font-family: var(--font-secondary);
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: 0.02em;
+    color: var(--background-color-contrast-more);
+    transition: color 200ms ease, text-shadow 200ms ease;
+}
+
+div.extra-panel > div.extra-eq .eq-2ch-bank-seg-track[data-eq-2ch-pos="0"] .eq-2ch-bank-seg-slot[data-slot="L"] .eq-2ch-bank-seg-label,
+div.extra-panel > div.extra-eq .eq-2ch-bank-seg-track[data-eq-2ch-pos="1"] .eq-2ch-bank-seg-slot[data-slot="both"] .eq-2ch-bank-seg-label,
+div.extra-panel > div.extra-eq .eq-2ch-bank-seg-track[data-eq-2ch-pos="2"] .eq-2ch-bank-seg-slot[data-slot="R"] .eq-2ch-bank-seg-label {
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+/* Invisible hit targets: div.extra-panel button uses !important bg/border/padding — must override here. */
+div.extra-panel > div.extra-eq .eq-2ch-bank-seg-track button.eq-2ch-bank-seg-btn {
+    position: absolute;
+    inset: 0;
+    order: 0;
+    flex: none;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    color: transparent;
+    font-size: 0;
+    line-height: 0;
+    text-transform: none;
+    white-space: normal;
+    cursor: pointer;
+    z-index: 3;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+div.extra-panel > div.extra-eq .eq-2ch-bank-seg-track button.eq-2ch-bank-seg-btn:focus {
+    outline: none;
+}
+
+div.extra-panel > div.extra-eq .eq-2ch-bank-seg-track:has(.eq-2ch-bank-seg-btn:focus-visible) {
+    box-shadow: 0 0 0 2px var(--background-color-graph), 0 0 0 4px var(--accent-color-contrast);
+}
+
+div.extra-panel > div.extra-eq .eq-constraint-top-headings,
+div.extra-panel > div.extra-eq .eq-constraint-top-controls {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+}
+
+/* Peak / LSQ / HSQ: column width = switch track only; 6px between consecutive toggles only.
+   Remaining horizontal space sits before Max Filters (margin-left: auto on that cell). */
+div.extra-panel > div.extra-eq .eq-constraint-top-headings > .eq-constraint-col-heading:not(.eq-constraint-col-heading-max-filters),
+div.extra-panel > div.extra-eq .eq-constraint-top-control-cell:not(.eq-constraint-top-control-cell-max-filters) {
+    flex: 0 0 var(--eq-switch-track-w);
+    box-sizing: border-box;
+    min-width: 0;
+}
+
+div.extra-panel > div.extra-eq .eq-constraint-top-headings > .eq-constraint-col-heading:not(.eq-constraint-col-heading-max-filters)
+    + .eq-constraint-col-heading:not(.eq-constraint-col-heading-max-filters),
+div.extra-panel > div.extra-eq .eq-constraint-top-control-cell:not(.eq-constraint-top-control-cell-max-filters)
+    + .eq-constraint-top-control-cell:not(.eq-constraint-top-control-cell-max-filters) {
+    margin-left: 6px;
+}
+
+div.extra-panel > div.extra-eq .eq-constraint-top-headings > .eq-constraint-col-heading-max-filters,
+div.extra-panel > div.extra-eq .eq-constraint-top-control-cell.eq-constraint-top-control-cell-max-filters {
+    flex: 0 0 max(75px, 25%);
+    box-sizing: border-box;
+    margin-left: auto;
+}
+
+div.extra-panel > div.extra-eq .eq-constraint-top-control-cell {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 0;
+}
+
+div.extra-panel > div.extra-eq .eq-constraint-top-control-cell.eq-constraint-top-control-cell-max-filters {
+    justify-content: stretch;
+}
+
+div.extra-panel > div.extra-eq .eq-constraint-top-controls .extra-eq-constraint-type-switch-label {
+    margin: 0;
+    min-height: 0;
+}
+
+/* Same text rhythm as div.extra-panel > div.extra-eq > div.filters-header (font on .filters-header + span color) */
+div.extra-panel > div.extra-eq .eq-constraint-col-heading,
+div.extra-panel > div.extra-eq .eq-constraint-ranges-head-cell {
+    font-size: 12px;
+    line-height: 1em;
+    color: var(--background-color-contrast-more);
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Top row: don’t let width:100% stretch PK/LSQ/HSQ heading columns past the switch width */
+div.extra-panel > div.extra-eq .eq-constraint-top-headings > .eq-constraint-col-heading {
+    width: auto;
+}
+
+div.extra-panel > div.extra-eq .eq-constraint-ranges-block {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+}
+
+/* Min / Max: match EQ filter cell width (~75px at typical widths); max(75px, 25%) tracks with EQ flex: 25% 1 1 */
+div.extra-panel > div.extra-eq .eq-constraint-range-row {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) max(75px, 25%) max(75px, 25%);
+    column-gap: 4px;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+}
+
+div.extra-panel > div.extra-eq .eq-constraint-range-row > .eq-constraint-range-label-slot {
+    grid-column: 1;
+    min-width: 0;
+    text-align: left;
+}
+
+div.extra-panel > div.extra-eq .eq-constraint-range-row > .eq-constraint-range-min-slot {
+    grid-column: 2;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+div.extra-panel > div.extra-eq .eq-constraint-range-row > .eq-constraint-range-max-slot {
+    grid-column: 3;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* Frequency row: min/max pair OR one wide graphic-band list */
+div.extra-panel > div.extra-eq .eq-constraint-freq-row .eq-constraint-freq-parametric-cells {
+    grid-column: 2 / -1;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 4px;
+    align-items: center;
+    min-width: 0;
+    width: 100%;
+}
+
+div.extra-panel > div.extra-eq .eq-constraint-freq-row .eq-constraint-freq-parametric-cells > span {
+    min-width: 0;
+}
+
+div.extra-panel > div.extra-eq .eq-constraint-freq-row .eq-constraint-freq-graphic-full {
+    grid-column: 2 / -1;
+    box-sizing: border-box;
+    display: none;
+    min-width: 0;
+    width: 100%;
+    /* Span cols 2-3 like parametric pair: same combined width as Min+Max on Gain/Q (row column-gap included). */
+}
+
+div.extra-panel > div.extra-eq .eq-constraint-freq-row.eq-constraint-freq-row-graphic .eq-constraint-freq-parametric-cells {
+    display: none;
+}
+
+div.extra-panel > div.extra-eq .eq-constraint-freq-row.eq-constraint-freq-row-graphic .eq-constraint-freq-graphic-full {
+    display: block;
+}
+
+div.extra-panel > div.extra-eq .eq-constraint-freq-graphic-list-input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 6px 10px;
+    background-color: var(--background-color-inputs);
+    border: 1px solid var(--background-color-contrast);
+    border-radius: 6px;
+    color: var(--font-color-inputs);
+    font-family: var(--font-secondary);
+    font-size: 11px;
+    line-height: 12px;
+    outline: none;
+    text-align: left;
+}
+
+div.extra-panel > div.extra-eq .eq-constraint-range-row > .eq-constraint-range-min-slot > input,
+div.extra-panel > div.extra-eq .eq-constraint-range-row > .eq-constraint-range-max-slot > input,
+div.extra-panel > div.extra-eq .eq-constraint-freq-row .eq-constraint-range-min-slot > input,
+div.extra-panel > div.extra-eq .eq-constraint-freq-row .eq-constraint-range-max-slot > input {
+    width: 100%;
+    max-width: 100%;
+}
+
+div.extra-panel > div.extra-eq .eq-constraint-range-row-header > .eq-constraint-range-min-slot,
+div.extra-panel > div.extra-eq .eq-constraint-range-row-header > .eq-constraint-range-max-slot {
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+div.extra-panel > div.extra-eq .eq-constraint-top-control-cell .eq-constraint-max-bands-input {
+    width: 100%;
+    text-align: right;
+}
+
+div.extra-panel > div.extra-eq .eq-constraint-max-bands-input:disabled,
+div.extra-panel > div.extra-eq input[name="eq-constraint-q-min"]:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+div.extra-panel > div.extra-eq .eq-constraint-range-row-header {
+    align-items: end;
+}
+
+div.extra-panel > div.extra-eq .eq-constraint-ranges-head-cell {
+    padding-bottom: 2px;
+}
+
+/* Match div.extra-panel select (filter type dropdown in EQ rows) */
+div.extra-panel > div.extra-eq .eq-constraint-range-name {
+    font-family: var(--font-family-secondary);
+    font-size: 11px;
+    line-height: 1em;
+    font-weight: 400;
+    color: var(--font-color-primary);
+}
+
+div.extra-panel > div.extra-eq .eq-constraint-range-cell {
+    position: relative;
+    display: block;
+    min-width: 0;
+}
+
+div.extra-panel > div.extra-eq > div.select-eq-phone > select,
+div.extra-panel > div.extra-eq > div.select-eq-phone-model-target > select,
+div.extra-panel > div.extra-eq > div.select-eq-phone-model-target .select-eq-target-select-wrap > select,
+div.extra-panel > div.extra-eq .eq-constraint-preset-stack > select {
+    box-sizing: border-box;
+    width: 100%;
+    line-height: 14px;
+    padding: 10px 22px 10px 10px;
+    background-color: var(--background-color-contrast);
+    border: 1px solid var(--background-color-contrast);
     border-radius: 6px;
 }
 
@@ -1166,6 +2267,11 @@ div.extra-panel > div.extra-eq > div.filters > div.filter > span > input[type='c
     -webkit-appearance: checkbox;
     appearance: checkbox;
     
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    border-radius: 0;
+    
     accent-color: var(--background-color-contrast);
     
     cursor: pointer;
@@ -1174,8 +2280,12 @@ div.extra-panel > div.extra-eq > div.filters > div.filter > span > input[type='c
 div.extra-panel > div.extra-eq > div.filters > div.filter > span > input[type='checkbox']:checked {
 }
 
+/* PK / LSQ / HSQ: keep minimal chrome (contrast fill lives on model / target / preset selects only) */
 div.extra-panel > div.extra-eq > div.filters > div.filter > span > select {
     width: 70%;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
 }
 
 div.extra-panel div.settings-row > span {
@@ -1183,8 +2293,11 @@ div.extra-panel div.settings-row > span {
     display: inline-block;
 }
 
-div.extra-panel > div.extra-eq > div.filters > div.filter > span > input,
-div.extra-panel div.settings-row > span > input {
+div.extra-panel > div.extra-eq > div.filters > div.filter > span > input:not([type='checkbox']),
+div.extra-panel div.settings-row > span > input,
+div.extra-panel > div.extra-eq .eq-constraint-range-cell > input,
+div.extra-panel > div.extra-eq .eq-constraint-max-bands-input,
+div.extra-panel .live-sound-range-pair > span > input {
     box-sizing: border-box;
     width: 100%;
     padding: 6px 10px;
@@ -1201,38 +2314,117 @@ div.extra-panel div.settings-row > span > input {
     outline: none;
 }
 
-span:has(input[name="freq"]),
-span:has(input[name="gain"]),
-span:has(input[name="autoeq-to"]),
-span:has(input[name="tone-generator-to"]) {
+/* EQ panel + Sound Tools range: right-align numeric/text field values */
+div.extra-panel > div.extra-eq > div.filters > div.filter > span > input:not([type='checkbox']),
+div.extra-panel > div.extra-eq .eq-constraint-range-cell > input,
+div.extra-panel > div.extra-eq .eq-constraint-max-bands-input,
+div.extra-panel .live-sound-range-pair > span > input {
+    text-align: right;
+}
+
+/* Reserve space so right-aligned values stay clear of Hz / dB suffixes (EQ rows + constraint max fields) */
+div.extra-panel > div.extra-eq > div.filters > div.filter > span > input[name="freq"],
+div.extra-panel > div.extra-eq > div.filters > div.filter > span > input[name="gain"],
+div.extra-panel > div.extra-eq .eq-constraint-range-cell > input[name="eq-constraint-freq-max"],
+div.extra-panel > div.extra-eq .eq-constraint-range-cell > input[name="eq-constraint-gain-max"],
+div.extra-panel .live-sound-range-pair span:has(input[name="tone-generator-from"]) > input,
+div.extra-panel .live-sound-range-pair span:has(input[name="tone-generator-to"]) > input {
+    padding-right: 2.75em;
+}
+
+/* Constraint / filter values outside allowed ranges (1px stroke + matching text; no DOM rewrite) */
+div.extra-panel > div.extra-eq .eq-constraint-range-cell > input.eq-constraint-input-violation,
+div.extra-panel > div.extra-eq .eq-constraint-range-cell > input.eq-constraint-input-violation:focus,
+div.extra-panel > div.extra-eq .eq-constraint-freq-graphic-list-input.eq-constraint-input-violation,
+div.extra-panel > div.extra-eq .eq-constraint-freq-graphic-list-input.eq-constraint-input-violation:focus {
+    outline: 1px solid var(--eq-invalid-fg);
+    outline-offset: 1px;
+    color: var(--eq-invalid-fg);
+}
+
+div.extra-panel > div.extra-eq > div.filters > div.filter > span > input.eq-filter-value-constraint-violation,
+div.extra-panel > div.extra-eq > div.filters > div.filter > span > input.eq-filter-value-constraint-violation:focus,
+div.extra-panel > div.extra-eq > div.filters > div.filter > span > select.eq-filter-value-constraint-violation,
+div.extra-panel > div.extra-eq > div.filters > div.filter > span > select.eq-filter-value-constraint-violation:focus {
+    outline: 1px solid var(--eq-invalid-fg);
+    outline-offset: 1px;
+    color: var(--eq-invalid-fg);
+}
+
+div.extra-panel > div.extra-eq > div.filters > div.filter > span:has(input[name="freq"]),
+div.extra-panel > div.extra-eq > div.filters > div.filter > span:has(input[name="gain"]),
+div.extra-panel .live-sound-range-pair span:has(input[name="tone-generator-from"]),
+div.extra-panel .live-sound-range-pair span:has(input[name="tone-generator-to"]) {
     position: relative;
 }
 
-span:has(input[name="freq"]):after,
-span:has(input[name="gain"]):after,
-span:has(input[name="autoeq-to"]):after,
-span:has(input[name="tone-generator-to"]):after {
+div.extra-panel > div.extra-eq > div.filters > div.filter > span:has(input[name="freq"]):after,
+div.extra-panel > div.extra-eq > div.filters > div.filter > span:has(input[name="gain"]):after,
+div.extra-panel .live-sound-range-pair span:has(input[name="tone-generator-from"]):after,
+div.extra-panel .live-sound-range-pair span:has(input[name="tone-generator-to"]):after {
     position: absolute;
-    top: 1px;
+    top: 50%;
     right: 1px;
-    
-    content: 'Hz';
+    transform: translateY(-50%);
     
     box-sizing: border-box;
-    padding: 6px 10px 6px 0;
+    padding: 0 10px 0 0;
     
     border-left: none;
     border-radius: 0 6px 6px 0;
     
     font-family: var(--font-secondary);
     font-size: 11px;
-    line-height: 11px;
+    line-height: 1;
+    color: var(--font-color-inputs);
+    opacity: 0.85;
     
     pointer-events: none;
 }
 
-span:has(input[name="gain"]):after {
+div.extra-panel > div.extra-eq > div.filters > div.filter > span:has(input[name="freq"]):after,
+div.extra-panel .live-sound-range-pair span:has(input[name="tone-generator-from"]):after,
+div.extra-panel .live-sound-range-pair span:has(input[name="tone-generator-to"]):after {
+    content: 'Hz';
+}
+
+div.extra-panel > div.extra-eq > div.filters > div.filter > span:has(input[name="gain"]):after {
     content: 'dB';
+}
+
+div.extra-panel > div.extra-eq span.eq-constraint-input-with-unit {
+    position: relative;
+    display: block;
+}
+
+div.extra-panel > div.extra-eq span.eq-constraint-input-with-unit.eq-constraint-unit-hz::after,
+div.extra-panel > div.extra-eq span.eq-constraint-input-with-unit.eq-constraint-unit-db::after {
+    position: absolute;
+    top: 50%;
+    right: 1px;
+    transform: translateY(-50%);
+    box-sizing: border-box;
+    padding: 0 10px 0 0;
+    border-radius: 0 6px 6px 0;
+    font-family: var(--font-secondary);
+    font-size: 11px;
+    line-height: 1;
+    pointer-events: none;
+    color: var(--font-color-inputs);
+    opacity: 0.85;
+}
+
+div.extra-panel > div.extra-eq span.eq-constraint-input-with-unit.eq-constraint-unit-hz::after {
+    content: 'Hz';
+}
+
+div.extra-panel > div.extra-eq span.eq-constraint-input-with-unit.eq-constraint-unit-db::after {
+    content: 'dB';
+}
+
+div.extra-panel > div.extra-eq div.filters > div.filter.eq-filter-row-inactive {
+    opacity: 0.48;
+    filter: saturate(0.55);
 }
 
 div.filters-header {
@@ -1248,6 +2440,15 @@ div.filter {
     box-sizing: border-box;
     display: flex;
     gap: 4px;
+    border-radius: 6px;
+    transition: opacity 0.15s ease, filter 0.15s ease;
+}
+
+/* Selected band: tint the type/checkbox column only (no dimming of other rows) */
+div.extra-panel > div.extra-eq > div.filters > div.filter.eq-filter-row-selected > span:first-child {
+    background-color: var(--background-color-contrast);
+    border-radius: 6px;
+    transition: background-color 0.15s ease;
 }
 
 div.extra-eq-overlay {
@@ -1288,17 +2489,1353 @@ div.extra-panel button.play + span {
     line-height: 1em;
 }
 
-div.extra-panel > div.extra-tone-generator input[name='tone-generator-freq'] {
+/* Live Sound Tools — heading, source cards, then Range row at bottom (no outer wrapper padding) */
+div.extra-panel .live-sound-tools {
     box-sizing: border-box;
     width: 100%;
-    
-    background-color: var(--background-color-inputs);
-    border-radius: 100px;
-    
-    accent-color: var(--accent-color-contrast);
-    
+    container-type: inline-size;
+    container-name: live-sound-tools;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+div.extra-panel .live-sound-tools-head {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 12px;
+    row-gap: 6px;
+    margin: 0 0 8px 0;
+    width: 100%;
+}
+
+div.extra-panel .live-sound-tools-head-trailing {
+    flex: 0 0 auto;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2px;
+    margin-left: auto;
+}
+
+/* Collapsible settings (output volume); same expand/collapse pattern as Parametric EQ constraints */
+div.extra-panel .live-sound-tools > div.live-sound-tools-settings {
+    box-sizing: border-box;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    pointer-events: none;
+    transition: max-height 200ms ease, opacity 200ms ease, margin-bottom 200ms ease;
+}
+
+div.extra-panel .live-sound-tools > div.live-sound-tools-settings.live-sound-tools-settings-expanded {
+    max-height: 200px;
+    opacity: 1;
+    margin-top: 0;
+    margin-bottom: 10px;
+    pointer-events: auto;
+}
+
+div.extra-panel .live-sound-tools .live-sound-tools-settings-inner {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    min-width: 0;
+    padding: 12px 12px 10px;
+    border-radius: 10px;
+    background-color: var(--background-color-graph);
+}
+
+/* Match Parametric EQ settings gear; height aligns with Compare A/B switch track (24px) */
+div.extra-panel .live-sound-tools-head-trailing .live-sound-tools-settings-gear {
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    align-self: center;
+    order: 0;
+    position: relative;
+    width: auto;
+    min-width: 0;
+    height: var(--eq-switch-track-h);
+    min-height: var(--eq-switch-track-h);
+    margin: 0;
+    /* Override div.extra-panel button { margin-bottom: 4px !important } — no chip wrap here */
+    margin-bottom: 0 !important;
+    padding: 0 0 0 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    border: none !important;
+    border-radius: 0;
+    background: transparent !important;
+    box-shadow: none;
+    color: var(--background-color-contrast-more);
+    font-family: var(--font-primary);
+    font-size: 0;
+    font-weight: 400;
+    line-height: 1;
+    text-transform: none;
+    white-space: nowrap;
     cursor: pointer;
-    
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: color 200ms ease;
+}
+
+div.extra-panel .live-sound-tools-head-trailing .live-sound-tools-settings-gear-char {
+    box-sizing: border-box;
+    display: block;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    background-color: currentColor;
+    mask: var(--icon-eq-settings);
+    -webkit-mask: var(--icon-eq-settings);
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-position: center;
+    mask-size: 16px 16px;
+    -webkit-mask-size: 16px 16px;
+}
+
+div.extra-panel .live-sound-tools-head-trailing .live-sound-tools-settings-gear:hover {
+    color: var(--accent-color);
+}
+
+div.extra-panel .live-sound-tools-head-trailing .live-sound-tools-settings-gear:focus,
+div.extra-panel .live-sound-tools-head-trailing .live-sound-tools-settings-gear:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+div.extra-panel .live-sound-volume-row {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin: 0;
+}
+
+div.extra-panel .live-sound-volume-icon {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    color: var(--background-color-contrast-more);
+}
+
+div.extra-panel .live-sound-volume-icon svg {
+    display: block;
+    width: 20px;
+    height: 20px;
+}
+
+div.extra-panel .live-sound-volume-slider-row {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: 100%;
+    margin: 0;
+    padding-top: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+div.extra-panel .live-sound-volume-pct {
+    flex: 0 0 auto;
+    min-width: 3.5ch;
+    font-family: var(--font-secondary);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+    color: var(--background-color-contrast-more);
+    text-align: right;
+}
+
+div.extra-panel .live-sound-tools-head > h5.live-sound-tools-title {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-primary);
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 600;
+    color: var(--background-color-contrast-more);
+}
+
+div.extra-panel .live-sound-eq-toggle-label {
+    flex: 0 0 auto;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-primary);
+    font-size: 12px;
+    line-height: 1.2;
+    font-weight: 500;
+    color: var(--background-color-contrast-more);
+    cursor: pointer;
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: baseline;
+}
+
+div.extra-panel .live-sound-eq-toggle-text {
+    opacity: 0.9;
+}
+
+/* EQ switch: shared 54×24 track; 14px thumb; symmetric inset + --eq-switch-travel for checked position */
+div.extra-panel .live-sound-eq-switch {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+}
+
+div.extra-panel .live-sound-eq-switch-track {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    width: var(--eq-switch-track-w);
+    height: var(--eq-switch-track-h);
+    box-sizing: border-box;
+    padding: var(--eq-switch-gap);
+    border: var(--eq-switch-border) solid var(--background-color-contrast-more);
+    border-radius: 100px;
+    background-color: var(--background-color);
+    transition: background-color 200ms ease;
+}
+
+div.extra-panel .live-sound-eq-switch-track:has(.live-sound-eq-toggle:checked),
+div.extra-panel .live-sound-eq-switch-track:has(.eq-constraint-type-toggle:checked),
+div.extra-panel .live-sound-eq-switch-track:has(.eq-constraint-2ch-toggle:checked) {
+    background-color: var(--background-color-inputs);
+}
+
+div.extra-panel .live-sound-eq-toggle,
+div.extra-panel .eq-constraint-type-toggle,
+div.extra-panel .eq-constraint-2ch-toggle {
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+}
+
+div.extra-panel .live-sound-eq-toggle:focus,
+div.extra-panel .eq-constraint-type-toggle:focus,
+div.extra-panel .eq-constraint-2ch-toggle:focus {
+    outline: none;
+}
+
+div.extra-panel .live-sound-eq-switch-track:has(.live-sound-eq-toggle:focus-visible),
+div.extra-panel .live-sound-eq-switch-track:has(.eq-constraint-type-toggle:focus-visible),
+div.extra-panel .live-sound-eq-switch-track:has(.eq-constraint-2ch-toggle:focus-visible) {
+    box-shadow: 0 0 0 2px var(--background-color-graph), 0 0 0 4px var(--accent-color-contrast);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    div.extra-panel .live-sound-eq-switch-track,
+    div.extra-panel .live-sound-eq-switch-thumb,
+    div.extra-panel .live-sound-eq-switch-ab-placeholder,
+    div.extra-panel > div.extra-eq .eq-2ch-bank-seg-track,
+    div.extra-panel > div.extra-eq .eq-2ch-bank-seg-thumb,
+    div.extra-panel > div.extra-eq .eq-2ch-bank-seg-label {
+        transition: none;
+    }
+}
+
+div.extra-panel .live-sound-eq-switch-thumb {
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 1;
+    justify-self: start;
+    width: var(--eq-switch-thumb);
+    height: var(--eq-switch-thumb);
+    border-radius: 50%;
+    background-color: var(--background-color-contrast-more);
+    transition: transform 200ms ease, background-color 200ms ease;
+    pointer-events: none;
+}
+
+div.extra-panel .live-sound-eq-switch-thumb--compare {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.extra-panel .live-sound-eq-switch-track--compare:has(input.live-sound-eq-toggle:not(:checked)) .live-sound-eq-switch-thumb--compare .live-sound-eq-switch-thumb-letter--b {
+    display: none;
+}
+
+div.extra-panel .live-sound-eq-switch-track--compare:has(input.live-sound-eq-toggle:checked) .live-sound-eq-switch-thumb--compare .live-sound-eq-switch-thumb-letter--a {
+    display: none;
+}
+
+div.extra-panel .eq-constraint-type-toggle:checked + .live-sound-eq-switch-thumb,
+div.extra-panel .eq-constraint-2ch-toggle:checked + .live-sound-eq-switch-thumb {
+    transform: translateX(var(--eq-switch-travel));
+    background-color: var(--accent-color);
+}
+
+div.extra-panel .live-sound-eq-switch-track--compare:has(input.live-sound-eq-toggle:checked) .live-sound-eq-switch-thumb--compare {
+    transform: translateX(var(--eq-switch-travel));
+    background-color: var(--accent-color);
+}
+
+div.extra-panel .live-sound-eq-switch-track--compare:not(:has(input.live-sound-eq-toggle:checked)) .live-sound-eq-switch-thumb--compare {
+    background-color: var(--font-color-primary);
+}
+
+div.extra-panel .live-sound-eq-switch-track--compare:not(:has(input.live-sound-eq-toggle:checked)) .live-sound-eq-switch-thumb--compare .live-sound-eq-switch-thumb-letter--a {
+    color: var(--background-color);
+    text-shadow: none;
+}
+
+/* Outline A/B at idle end of Compare track (same ring as history pin outline; track is already position: relative). */
+div.extra-panel .live-sound-eq-switch-ab-placeholder {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 0;
+    width: 14px;
+    height: 14px;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 150ms ease;
+}
+
+div.extra-panel .live-sound-eq-switch-ab-placeholder--a {
+    left: var(--eq-switch-gap);
+}
+
+div.extra-panel .live-sound-eq-switch-ab-placeholder--b {
+    right: var(--eq-switch-gap);
+}
+
+div.extra-panel .live-sound-eq-switch-ab-placeholder-ring {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 14px;
+    height: 14px;
+    min-width: 14px;
+    min-height: 14px;
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;
+}
+
+div.extra-panel .live-sound-eq-switch-track--compare:has(input.live-sound-eq-toggle:checked) .live-sound-eq-switch-ab-placeholder--a {
+    opacity: 1;
+}
+
+div.extra-panel .live-sound-eq-switch-track--compare:not(:has(input.live-sound-eq-toggle:checked)) .live-sound-eq-switch-ab-placeholder--b {
+    opacity: 1;
+}
+
+div.extra-panel .live-sound-band {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 0;
+    background-color: transparent;
+}
+
+/* Range label, then reset + inputs (reset flush with inputs) */
+div.extra-panel .live-sound-band-controls {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    gap: 8px;
+    flex: 1 1 200px;
+    min-width: 0;
+    justify-content: flex-end;
+}
+
+/* Same pattern as div.extra-panel .extra-eq-reset-row / .extra-eq-reset-btn (Parametric EQ header) */
+div.extra-panel .live-sound-range-reset-row {
+    flex: 0 0 auto;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-primary);
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 500;
+    color: var(--background-color-contrast-more);
+    white-space: nowrap;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+div.extra-panel .live-sound-range-reset-row .live-sound-range-reset-label {
+    margin: 0;
+}
+
+div.extra-panel .live-sound-range-reset-btn {
+    box-sizing: border-box;
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    transition: color 200ms ease;
+    -webkit-appearance: none;
+    appearance: none;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+    gap: 2px;
+    min-height: 20px;
+}
+
+div.extra-panel .live-sound-range-reset-btn:focus,
+div.extra-panel .live-sound-range-reset-btn:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+div.extra-panel .live-sound-range-reset-icon {
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    display: block;
+    align-self: center;
+    background-color: currentColor;
+    mask: var(--icon-eq-reset);
+    -webkit-mask: var(--icon-eq-reset);
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-position: center;
+    mask-size: 16px 16px;
+    -webkit-mask-size: 16px 16px;
+}
+
+div.extra-panel .live-sound-band-label {
+    flex: 0 0 auto;
+}
+
+/* Match Pink Noise / Tone / Music section titles (13px); normal weight */
+div.extra-panel .live-sound-band-heading {
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 500;
+    color: var(--background-color-contrast-more);
+}
+
+/* Each field ≈25% of Sound Tools width; 4px gap (container query on .live-sound-tools) */
+div.extra-panel .live-sound-range-pair {
+    box-sizing: border-box;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    flex: 0 0 auto;
+    width: calc(50cqw + 4px);
+    max-width: calc(50cqw + 4px);
+    min-width: 0;
+    justify-content: flex-end;
+}
+
+div.extra-panel .live-sound-range-pair > span {
+    flex: 0 0 25cqw;
+    max-width: 25cqw;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+}
+
+div.extra-panel .live-sound-sources {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 0;
+}
+
+div.extra-panel .live-sound-source {
+    box-sizing: border-box;
+    padding: 12px 12px 10px;
+    border-radius: 10px;
+    background-color: var(--background-color-graph);
+}
+
+div.extra-panel .live-sound-source-head {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+    margin: 0 0 8px 0;
+}
+
+div.extra-panel .live-sound-source-title {
+    font-size: 13px;
+    line-height: 1em;
+    color: var(--background-color-contrast-more);
+}
+
+div.extra-panel .live-sound-source.extra-pink-noise .live-sound-source-head {
+    align-items: center;
+}
+
+div.extra-panel .live-sound-tools .live-sound-tone-freq-display {
+    /* Reserve width for "20000 Hz" so the slider track does not resize when the value changes */
+    flex: 0 0 20%;
+    box-sizing: border-box;
+    width: 20%;
+    min-width: 20%;
+    max-width: 20%;
+    white-space: nowrap;
+    text-align: right;
+    font-size: 12px;
+    line-height: 1em;
+    font-variant-numeric: tabular-nums;
+    color: var(--background-color-contrast-more);
+}
+
+div.extra-panel .live-sound-source-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 4px;
+    margin: 0;
+}
+
+div.extra-panel .live-sound-tools .extra-pink-noise .live-sound-source-actions button.play,
+div.extra-panel .live-sound-tools .extra-tone-generator .tone-generator-play-row button.play,
+div.extra-panel .live-sound-tools .extra-music .music-play-row button.play {
+    flex: 100% 0 0;
+    width: 100%;
+    border: 1px solid var(--background-color-contrast-more) !important;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 8px;
+    font-size: 0;
+    line-height: 0;
+    background-color: var(--background-color-contrast) !important;
+    color: var(--background-color-contrast-more) !important;
+    border-radius: 100px !important;
+}
+
+div.extra-panel .live-sound-tools .extra-pink-noise .live-sound-source-actions button.play::before,
+div.extra-panel .live-sound-tools .extra-tone-generator .tone-generator-play-row button.play::before,
+div.extra-panel .live-sound-tools .extra-music .music-play-row button.play::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    background-color: currentColor;
+    mask: var(--icon-player-play);
+    -webkit-mask: var(--icon-player-play);
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-position: center;
+    mask-size: 16px 16px;
+    -webkit-mask-size: 16px 16px;
+}
+
+/* Pink / tone: playing — contrast-more fill, icon uses page background */
+div.extra-panel .live-sound-tools .extra-pink-noise button.play.playback-active,
+div.extra-panel .live-sound-tools .extra-tone-generator .tone-generator-play-row button.play.playback-active,
+div.extra-panel .live-sound-tools .extra-music .music-play-row button.play.playback-active {
+    background-color: var(--background-color-contrast-more) !important;
+    border: 1px solid var(--background-color-contrast-more) !important;
+    color: var(--background-color) !important;
+}
+
+div.extra-panel .live-sound-tools .extra-pink-noise button.play.playback-active::before,
+div.extra-panel .live-sound-tools .extra-tone-generator .tone-generator-play-row button.play.playback-active::before,
+div.extra-panel .live-sound-tools .extra-music .music-play-row button.play.playback-active::before {
+    mask: var(--icon-player-stop);
+    -webkit-mask: var(--icon-player-stop);
+}
+
+div.extra-panel .live-sound-tools .extra-tone-generator .tone-generator-play-row {
+    margin: 8px 0 0 0;
+}
+
+/* Music play row is the first thing inside .music-playback-panel-inner — no extra top gutter */
+div.extra-panel .live-sound-tools .extra-music .music-play-row {
+    margin: 0;
+}
+
+div.extra-panel .live-sound-tools .extra-music .music-play-or-search-slot {
+    flex: 100% 0 0;
+    width: 100%;
+    min-width: 0;
+    position: relative;
+    box-sizing: border-box;
+}
+
+div.extra-panel .live-sound-tools .live-sound-source.extra-music {
+    min-height: 0;
+    transition: min-height 200ms ease-in-out;
+}
+
+/*
+ * Loaded music card height (~157px in DevTools) as a calc of literals already defined elsewhere in this sheet.
+ */
+div.extra-panel .live-sound-tools .extra-music {
+    --music-playback-panel-expand-max: 200px;
+    --music-loaded-source-vertical-padding: calc(12px + 10px); /* .live-sound-source padding */
+    --music-loaded-head-below-headline: calc(8px + 13px); /* .live-sound-source-head margin-bottom + title line (.live-sound-source-title 13px / 1em) */
+    /* .music-play-or-search-slot is a div:has(> button.play) → div.extra-panel div:has(> button.play) { margin-top: 8px } */
+    --music-loaded-play-slot-margin-top: 8px;
+    --music-loaded-play-min-height: 44px; /* music .music-play-row button.play min-height (border-box) */
+    /* div.extra-panel button { margin-bottom: 4px !important } — play chip does not override (file link buttons use margin: 0 !important) */
+    --music-loaded-play-chip-margin-bottom: 4px;
+    --music-loaded-slider-row-margin-top: 8px; /* .extra-music .live-sound-slider-row.music-slider-row */
+    --music-loaded-segment-track-height: 18px; /* .music-segment-track */
+    --music-loaded-file-margin-top: 6px; /* .live-sound-music-file margin-top */
+    /* .music-add-remove / .music-search-apple vertical padding + line box (font-size 12 × line-height 1.2) */
+    --music-loaded-file-actions-block: calc(6px + 6px + (12px * 1.2));
+    --music-loaded-playback-body-height: calc(
+        var(--music-loaded-play-slot-margin-top) + var(--music-loaded-play-min-height)
+            + var(--music-loaded-play-chip-margin-bottom) + var(--music-loaded-slider-row-margin-top)
+            + var(--music-loaded-segment-track-height)
+    );
+    --music-loaded-card-min-height: calc(
+        var(--music-loaded-source-vertical-padding) + var(--music-loaded-head-below-headline)
+            + var(--music-loaded-playback-body-height) + var(--music-loaded-file-margin-top)
+            + var(--music-loaded-file-actions-block)
+    );
+    /* Apple-search open state: animate max-height near real content height (dropdown is absolute); avoids 200px “dead band” where expand finishes visually long before collapse starts moving. */
+    --music-playback-panel-apple-search-max: min(
+        var(--music-playback-panel-expand-max),
+        calc(var(--music-loaded-playback-body-height) + 1.5rem)
+    );
+}
+
+/* No track: play stays in layout flow (smooth panel collapse) but is invisible */
+div.extra-panel .live-sound-tools .extra-music:not(.music-file-loaded) .music-play-row button.play {
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+div.extra-panel .live-sound-tools .extra-music.music-file-loaded .music-play-row button.play {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* Our `display: flex` on the play button and actions row beats the UA `[hidden]` rule; force real collapse. */
+div.extra-panel .live-sound-tools .live-sound-music-file .music-file-actions-row[hidden] {
+    display: none !important;
+}
+
+div.extra-panel .live-sound-tools .extra-music .apple-music-search-inline[hidden] {
+    display: none !important;
+}
+
+div.extra-panel .live-sound-tools .extra-music .music-playback-panel {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    /* ease-in-out: symmetric in/out vs ease (slow–fast can make expand feel snappier than collapse with a tall max-height cap) */
+    transition: max-height 200ms ease-in-out, opacity 200ms ease-in-out;
+    pointer-events: none;
+}
+
+div.extra-panel .live-sound-tools .extra-music.music-file-loaded .music-playback-panel {
+    max-height: var(--music-playback-panel-expand-max);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Same loaded layout footprint as `--music-loaded-card-*` (actions row collapses while search is open). */
+div.extra-panel .live-sound-tools .live-sound-source.extra-music.music-apple-search-mode:not(.music-file-loaded) {
+    min-height: var(--music-loaded-card-min-height);
+}
+
+/* Apple preview search replaces play control; tight max-height keeps open/close max-height tween visually balanced */
+div.extra-panel .live-sound-tools .extra-music.music-apple-search-mode:not(.music-file-loaded) .music-playback-panel {
+    max-height: var(--music-playback-panel-apple-search-max);
+    opacity: 1;
+    pointer-events: auto;
+    overflow: visible;
+}
+
+div.extra-panel .live-sound-tools .extra-music.music-apple-search-mode:not(.music-file-loaded) .music-playback-panel-inner {
+    overflow: visible;
+}
+
+/* Search overlays the invisible play pill (play stays in flow at opacity 0) */
+div.extra-panel .live-sound-tools .extra-music.music-apple-search-mode:not(.music-file-loaded) .music-play-or-search-slot .apple-music-search-inline:not([hidden]) {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    max-width: 100%;
+}
+
+div.extra-panel .live-sound-tools .extra-music.music-apple-search-mode:not(.music-file-loaded) .live-sound-slider-row.music-slider-row {
+    display: none !important;
+}
+
+div.extra-panel .live-sound-tools .extra-music .music-playback-panel-inner {
+    box-sizing: border-box;
+    min-width: 0;
+    /* Inset matches thumb half-width + track border so WebKit thumbs are not clipped by panel overflow:hidden */
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+div.extra-panel .live-sound-tools .live-sound-slider-row {
+    display: block;
+    margin: 0;
+    padding-top: 2px;
+}
+
+div.extra-panel .live-sound-tools .live-sound-slider-row.tone-generator-slider-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin: 8px 0 0 0;
+    padding-top: 0;
+}
+
+div.extra-panel .live-sound-tools .live-sound-slider-row input[name='tone-generator-freq'],
+div.extra-panel .live-sound-tools .live-sound-volume-slider-row input[name='live-sound-master-volume'] {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border-radius: 100px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+}
+
+div.extra-panel .live-sound-tools .live-sound-slider-row input[name='tone-generator-freq']:focus,
+div.extra-panel .live-sound-tools .live-sound-volume-slider-row input[name='live-sound-master-volume']:focus {
+    outline: none;
+}
+
+div.extra-panel .live-sound-tools .live-sound-slider-row input[name='tone-generator-freq']::-moz-focus-outer,
+div.extra-panel .live-sound-tools .live-sound-volume-slider-row input[name='live-sound-master-volume']::-moz-focus-outer {
+    border: 0;
+}
+
+/* 18px tall track; 2px horizontal padding so thumb outer edge stays 2px inside border */
+div.extra-panel .live-sound-tools .live-sound-slider-row input[name='tone-generator-freq']::-webkit-slider-runnable-track {
+    height: 18px;
+    box-sizing: border-box;
+    padding: 0px 2px;
+    border: 1px solid var(--background-color-contrast-more);
+    border-radius: 100px;
+    background-color: var(--background-color-inputs);
+}
+
+/* Volume: left of knob = rail (inputs); right of knob = dimmed (--background-color); --live-sound-vol-pct set in JS */
+div.extra-panel .live-sound-tools .live-sound-volume-slider-row input[name='live-sound-master-volume']::-webkit-slider-runnable-track {
+    height: 18px;
+    box-sizing: border-box;
+    padding: 0px 2px;
+    border: 1px solid var(--background-color-contrast-more);
+    border-radius: 100px;
+    background: linear-gradient(
+        to right,
+        var(--background-color-inputs) 0%,
+        var(--background-color-inputs) var(--live-sound-vol-pct, 100%),
+        var(--background-color) var(--live-sound-vol-pct, 100%),
+        var(--background-color) 100%
+    );
+}
+
+div.extra-panel .live-sound-tools .live-sound-slider-row input[name='tone-generator-freq']::-webkit-slider-thumb,
+div.extra-panel .live-sound-tools .live-sound-volume-slider-row input[name='live-sound-master-volume']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    box-sizing: border-box;
+    width: 12px;
+    height: 12px;
+    margin-top: 2px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--background-color-contrast-more);
+    cursor: pointer;
+}
+
+div.extra-panel .live-sound-tools .tone-generator-slider-row input[name='tone-generator-freq'] {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: auto;
+}
+
+div.extra-panel .live-sound-tools .live-sound-volume-slider-row input[name='live-sound-master-volume'] {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+}
+
+div.extra-panel .live-sound-tools .live-sound-slider-row input[name='tone-generator-freq']::-moz-range-track {
+    height: 16px;
+    box-sizing: border-box;
+    padding: 1px 2px;
+    border: 1px solid var(--background-color-contrast);
+    border-radius: 100px;
+    background-color: var(--background-color-inputs);
+}
+
+div.extra-panel .live-sound-tools .live-sound-volume-slider-row input[name='live-sound-master-volume']::-moz-range-track {
+    height: 16px;
+    box-sizing: border-box;
+    padding: 1px 2px;
+    border: 1px solid var(--background-color-contrast);
+    border-radius: 100px;
+    background: linear-gradient(
+        to right,
+        var(--background-color-inputs) 0%,
+        var(--background-color-inputs) var(--live-sound-vol-pct, 100%),
+        var(--background-color) var(--live-sound-vol-pct, 100%),
+        var(--background-color) 100%
+    );
+}
+
+div.extra-panel .live-sound-tools .live-sound-slider-row input[name='tone-generator-freq']::-moz-range-thumb,
+div.extra-panel .live-sound-tools .live-sound-volume-slider-row input[name='live-sound-master-volume']::-moz-range-thumb {
+    box-sizing: border-box;
+    width: 12px;
+    height: 12px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--background-color-contrast-more);
+    cursor: pointer;
+}
+
+div.extra-panel .live-sound-tools .live-sound-slider-row input[name='tone-generator-freq']::-ms-track,
+div.extra-panel .live-sound-tools .live-sound-volume-slider-row input[name='live-sound-master-volume']::-ms-track {
+    height: 16px;
+    box-sizing: border-box;
+    padding: 0 2px;
+    border: 1px solid var(--background-color-contrast);
+    border-radius: 100px;
+    background-color: transparent;
+    color: transparent;
+}
+
+div.extra-panel .live-sound-tools .live-sound-slider-row input[name='tone-generator-freq']::-ms-fill-lower,
+div.extra-panel .live-sound-tools .live-sound-slider-row input[name='tone-generator-freq']::-ms-fill-upper {
+    background-color: var(--background-color-inputs);
+    border: none;
+    border-radius: 100px;
+}
+
+div.extra-panel .live-sound-tools .live-sound-volume-slider-row input[name='live-sound-master-volume']::-ms-fill-lower {
+    background-color: var(--background-color-inputs);
+    border: none;
+    border-radius: 100px;
+}
+
+div.extra-panel .live-sound-tools .live-sound-volume-slider-row input[name='live-sound-master-volume']::-ms-fill-upper {
+    background-color: var(--background-color);
+    border: none;
+    border-radius: 100px;
+}
+
+div.extra-panel .live-sound-tools .live-sound-slider-row input[name='tone-generator-freq']::-ms-thumb,
+div.extra-panel .live-sound-tools .live-sound-volume-slider-row input[name='live-sound-master-volume']::-ms-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--background-color-contrast-more);
+    border: none;
+}
+
+div.extra-panel .live-sound-tools .extra-music .live-sound-slider-row.music-slider-row {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    margin: 8px 0 0 0;
+    padding-top: 0;
+    min-width: 0;
+}
+
+/* Music segment timeline: loop range + play progress fill + seek */
+div.extra-panel .live-sound-tools .extra-music .music-segment-slider {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+}
+
+div.extra-panel .live-sound-tools .extra-music .music-segment-track {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: 18px;
+    margin: 0;
+    border-radius: 100px;
+    touch-action: none;
+    border: 1px solid var(--background-color-contrast-more);
+}
+
+div.extra-panel .live-sound-tools .extra-music .music-segment-rail-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    border-radius: 100px;
+    background-color: var(--background-color-inputs);
+    z-index: 0;
+    pointer-events: none;
+}
+
+div.extra-panel .live-sound-tools .extra-music.music-file-loaded .music-segment-rail-bg {
+    border-color: var(--background-color-contrast-more);
+}
+
+/* Dimmed regions outside the loop (same fill as volume track right of thumb) */
+div.extra-panel .live-sound-tools .extra-music .music-segment-outside {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    border-radius: 100px;
+    background: none;
+    background-color: var(--background-color);
+    z-index: 1;
+    pointer-events: none;
+}
+
+div.extra-panel .live-sound-tools .extra-music .music-segment-outside-l {
+    left: 0;
+    width: 0;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+div.extra-panel .live-sound-tools .extra-music .music-segment-outside-r {
+    left: 100%;
+    width: 0;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+div.extra-panel .live-sound-tools .extra-music .music-segment-looped {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 100px;
+    background: transparent;
+    z-index: 1;
+    pointer-events: none;
+}
+
+div.extra-panel .live-sound-tools .extra-music.music-file-loaded .music-segment-looped {
+    background-color: var(--background-color-graph);
+}
+
+div.extra-panel .live-sound-tools .extra-music .music-segment-progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    background-color: var(--background-color-contrast);
+    z-index: 2;
+    pointer-events: none;
+}
+
+div.extra-panel .live-sound-tools .extra-music .music-segment-seek {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 3;
+    cursor: default;
+    border-radius: 100px;
+}
+
+div.extra-panel .live-sound-tools .extra-music.music-file-loaded .music-segment-seek {
+    cursor: pointer;
+}
+
+div.extra-panel .live-sound-tools .extra-music .music-segment-handle {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--background-color-contrast-more) !important;
+    z-index: 5;
+    cursor: default;
+    touch-action: none;
+}
+
+div.extra-panel .live-sound-tools .extra-music.music-file-loaded .music-segment-handle {
+    cursor: grab;
+}
+
+div.extra-panel .live-sound-tools .extra-music.music-file-loaded .music-segment-handle:active {
+    cursor: grabbing;
+}
+
+div.extra-panel .live-sound-tools .extra-music .music-segment-slider-disabled .music-segment-seek {
+    pointer-events: none;
+    cursor: default;
+}
+
+div.extra-panel .live-sound-tools .extra-music .music-segment-slider-disabled .music-segment-handle {
+    pointer-events: none;
+    cursor: default;
+}
+
+/* Contrast theme: accent/contrast tokens collapse to black-on-black and white-on-white */
+body.theme-contrast div.extra-panel .live-sound-tools .extra-pink-noise .live-sound-source-actions button.play,
+body.theme-contrast div.extra-panel .live-sound-tools .extra-tone-generator .tone-generator-play-row button.play,
+body.theme-contrast div.extra-panel .live-sound-tools .extra-music .music-play-row button.play:not(:disabled) {
+    background-color: var(--background-color-contrast) !important;
+    color: var(--background-color-contrast-more) !important;
+}
+
+body.theme-contrast div.extra-panel .live-sound-tools .extra-pink-noise button.play.playback-active,
+body.theme-contrast div.extra-panel .live-sound-tools .extra-tone-generator .tone-generator-play-row button.play.playback-active,
+body.theme-contrast div.extra-panel .live-sound-tools .extra-music .music-play-row button.play.playback-active {
+    background-color: var(--background-color-contrast-more) !important;
+    color: var(--background-color) !important;
+}
+
+body.theme-contrast div.extra-panel .live-sound-tools .live-sound-eq-switch-track,
+body.theme-contrast div.extra-panel > div.extra-eq .live-sound-eq-switch-track,
+body.theme-contrast div.extra-panel > div.extra-eq .eq-2ch-bank-seg-track {
+    border-color: var(--background-color-contrast);
+}
+
+div.extra-panel .live-sound-tools .live-sound-tone-create-filter {
+    display: flex;
+    justify-content: center;
+    margin: 6px 0 0 0;
+}
+
+div.extra-panel .live-sound-tools .live-sound-tone-create-filter .tone-generator-add-filter {
+    box-sizing: border-box;
+    width: auto;
+    min-width: 0;
+    padding: 6px 8px;
+    margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: var(--background-color-contrast-more) !important;
+    font-family: var(--font-primary);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.2;
+    text-transform: none;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+div.extra-panel .live-sound-tools .live-sound-tone-create-filter .tone-generator-add-filter:hover {
+    color: var(--accent-color-contrast) !important;
+    text-decoration: underline;
+}
+
+div.extra-panel .live-sound-tools .live-sound-music-file {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    justify-content: center;
+    margin: 6px 0 0 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+div.extra-panel .live-sound-tools .live-sound-music-file .music-file-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+    opacity: 0;
+}
+
+div.extra-panel .live-sound-tools .live-sound-music-file .music-file-actions-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 4px 10px;
+    width: 100%;
+}
+
+div.extra-panel .live-sound-tools .extra-music.music-file-loaded .music-search-apple {
+    display: none !important;
+}
+
+div.extra-panel .live-sound-tools .live-sound-music-file .music-add-remove,
+div.extra-panel .live-sound-tools .live-sound-music-file .music-search-apple {
+    box-sizing: border-box;
+    width: auto;
+    min-width: 0;
+    padding: 6px 8px;
+    margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: var(--background-color-contrast-more) !important;
+    font-family: var(--font-primary);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.2;
+    text-transform: none;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+div.extra-panel .live-sound-tools .live-sound-music-file .music-add-remove:hover,
+div.extra-panel .live-sound-tools .live-sound-music-file .music-search-apple:hover {
+    color: var(--accent-color-contrast) !important;
+    text-decoration: underline;
+}
+
+div.extra-panel .live-sound-tools .extra-music .apple-music-search-inline {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+div.extra-panel .live-sound-tools .extra-music .apple-music-preview-form {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+div.extra-panel .live-sound-tools .extra-music .apple-music-preview-search {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    height: 36px;
+    min-height: 36px;
+    margin: 0;
+    padding: 10px 16px;
+    font-family: var(--font-secondary);
+    font-size: 11px;
+    line-height: 1em;
+    text-transform: uppercase;
+    background-color: var(--background-color-inputs);
+    border: 1px solid var(--background-color-contrast-more);
+    border-radius: 6px;
+    outline: none;
+    color: var(--font-color-primary);
+}
+
+div.extra-panel .live-sound-tools .extra-music .apple-music-search-inline:has(ul.apple-music-preview-results:not([hidden])) .apple-music-preview-search {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+div.extra-panel .live-sound-tools .extra-music .apple-music-preview-search::placeholder {
+    color: var(--background-color-contrast-more);
+    opacity: 1;
+    text-transform: uppercase;
+}
+
+div.extra-panel .live-sound-tools .extra-music .apple-music-preview-search::-webkit-input-placeholder {
+    color: var(--background-color-contrast-more);
+    text-transform: uppercase;
+}
+
+div.extra-panel .live-sound-tools .extra-music .apple-music-preview-search::-moz-placeholder {
+    color: var(--background-color-contrast-more);
+    opacity: 1;
+    text-transform: uppercase;
+}
+
+div.extra-panel .live-sound-tools .extra-music .apple-music-preview-search:focus,
+div.extra-panel .live-sound-tools .extra-music .apple-music-preview-search:focus-visible {
+    outline: none;
+    box-shadow: none;
+}
+
+div.extra-panel .live-sound-tools .extra-music .apple-music-preview-results {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    z-index: 50;
+    list-style: none;
+    margin: 6px 0 0 0;
+    padding: 0;
+    max-height: 9.5rem;
+    overflow-y: auto;
+    border: 1px solid var(--background-color-contrast-more);
+    border-radius: 4px;
+    background: var(--background-color-inputs);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+div.extra-panel .live-sound-tools .extra-music .apple-music-preview-results:not([hidden]) {
+    margin-top: -1px;
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-left-color: var(--background-color-contrast-more);
+    border-right-color: var(--background-color-contrast-more);
+    border-bottom-color: var(--background-color-contrast-more);
+    box-shadow: none;
+}
+
+/* Rows override global `div.extra-panel button`: margin-bottom:4px !important, accent color, bg !important, capitalize, nowrap */
+div.extra-panel .live-sound-tools .extra-music .apple-music-preview-results button {
+    box-sizing: border-box !important;
+    width: 100%;
+    max-width: 100%;
+    order: initial;
+    flex: none !important;
+    margin: 0 !important;
+    margin-bottom: 0 !important;
+    padding: 10px 16px !important;
+    text-align: left !important;
+    font-family: var(--font-primary);
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    line-height: 1.25;
+    text-transform: none !important;
+    white-space: normal !important;
+    border: none !important;
+    border-radius: 0 !important;
+    border-bottom: 1px solid var(--background-color-contrast-faint, rgba(127, 127, 127, 0.15));
+    background: transparent !important;
+    background-color: transparent !important;
+    color: var(--font-color-primary);
+    cursor: pointer;
+    outline: none;
+}
+
+div.extra-panel .live-sound-tools .extra-music .apple-music-preview-results button .apple-music-preview-title {
+    display: block;
+    color: var(--font-color-primary) !important;
+    font-weight: inherit;
+}
+
+div.extra-panel .live-sound-tools .extra-music .apple-music-preview-results li:last-child button {
+    border-bottom: none;
+}
+
+div.extra-panel .live-sound-tools .extra-music .apple-music-preview-results button:hover,
+div.extra-panel .live-sound-tools .extra-music .apple-music-preview-results button:focus-visible {
+    background: var(--background-color-contrast-faint, rgba(127, 127, 127, 0.08));
+    outline: none;
+}
+
+div.extra-panel .live-sound-tools .extra-music .apple-music-preview-results button.apple-music-preview-highlight {
+    background: var(--background-color-contrast) !important;
+    background-color: var(--background-color-contrast) !important;
+}
+
+div.extra-panel .live-sound-tools .extra-music .apple-music-preview-results button.apple-music-preview-highlight:hover,
+div.extra-panel .live-sound-tools .extra-music .apple-music-preview-results button.apple-music-preview-highlight:focus-visible {
+    background: var(--background-color-contrast) !important;
+    background-color: var(--background-color-contrast) !important;
+}
+
+div.extra-panel .live-sound-tools .extra-music .apple-music-preview-meta {
+    display: block;
+    margin-top: 2px;
+    font-size: 12px;
+    text-transform: none;
+    color: var(--background-color-contrast-more) !important;
+}
+
+div.extra-panel .live-sound-tools .extra-music .apple-music-preview-results > li {
+    margin: 0;
+    padding: 0;
+}
+
+div.extra-panel .live-sound-tools .extra-music .apple-music-preview-recent-heading {
+    padding: 8px 12px 4px;
+    margin: 0;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--background-color-contrast-more);
+    border-bottom: 1px solid var(--background-color-contrast-more);
 }
 
 /*****
@@ -1501,10 +4038,10 @@ tbody.curves > tr > td.remove:after {
     mask: var(--icon-remove);
     -webkit-mask: var(--icon-remove);
     
-    mask-size: 20px;
+    mask-size: 16px;
     mask-repeat: no-repeat;
     mask-position: center;
-    -webkit-mask-size: 20px;
+    -webkit-mask-size: 16px;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
 }
@@ -1517,10 +4054,10 @@ tbody.curves > tr > td.button-pin:after {
     mask: var(--icon-pin);
     -webkit-mask: var(--icon-pin);
     
-    mask-size: 20px;
+    mask-size: 16px;
     mask-repeat: no-repeat;
     mask-position: center;
-    -webkit-mask-size: 20px;
+    -webkit-mask-size: 16px;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
 }
@@ -1529,10 +4066,22 @@ tbody.curves > tr > td.button.hideIcon:after {
     mask: var(--icon-hide);
     -webkit-mask: var(--icon-hide);
     
-    mask-size: 20px;
+    mask-size: 16px;
     mask-repeat: no-repeat;
     mask-position: center;
-    -webkit-mask-size: 20px;
+    -webkit-mask-size: 16px;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+}
+
+tbody.curves > tr > td.button.hideIcon.selected:after {
+    mask: var(--icon-hidden);
+    -webkit-mask: var(--icon-hidden);
+    
+    mask-size: 16px;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-size: 16px;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
 }
@@ -1541,10 +4090,10 @@ tbody.curves > tr > td.button.button-export:after {
     mask: var(--icon-download);
     -webkit-mask: var(--icon-download);
     
-    mask-size: 20px;
+    mask-size: 16px;
     mask-repeat: no-repeat;
     mask-position: center;
-    -webkit-mask-size: 20px;
+    -webkit-mask-size: 16px;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
 }
@@ -1553,10 +4102,10 @@ tbody.curves > tr > td.button.button-baseline:after {
     mask: var(--icon-squiggle);
     -webkit-mask: var(--icon-squiggle);
     
-    mask-size: 20px;
+    mask-size: 16px;
     mask-repeat: no-repeat;
     mask-position: center;
-    -webkit-mask-size: 20px;
+    -webkit-mask-size: 16px;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
 }
@@ -1565,10 +4114,10 @@ tbody.curves > tr > td.button.button-baseline.selected:after {
     mask: var(--icon-baseline);
     -webkit-mask: var(--icon-baseline);
     
-    mask-size: 20px;
+    mask-size: 16px;
     mask-repeat: no-repeat;
     mask-position: center;
-    -webkit-mask-size: 20px;
+    -webkit-mask-size: 16px;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
 }
@@ -2310,6 +4859,15 @@ div.scroll > div.phone-item div.phone-item-add:before {
     -webkit-mask-position: center;
     
     pointer-events: none;
+    transition: transform 0.15s ease;
+}
+
+@keyframes phone-item-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(-360deg); }
+}
+div.scroll > div.phone-item div.phone-item-add.loading:before {
+    animation: phone-item-spin 0.7s linear infinite;
 }
 
 div.scroll div[style*="border"] div.phone-item-add {
@@ -2369,6 +4927,10 @@ div.scroll > div.phone-item[style*="border"] div.phone-item-add {
 div.scroll div[style*="border"] div.phone-item-add:before {
     display: none;
     pointer-events: none;
+}
+div.scroll div[style*="border"] div.phone-item-add.loading:before {
+    display: block;
+    background-color: var(--font-color-secondary);
 }
 
 div.scroll div[style*="border"] div.phone-item-add span.remove {
@@ -2920,10 +5482,10 @@ div.fadeAll:after {
     
     mask: var(--icon-remove);
     -webkit-mask: var(--icon-remove);
-    mask-size: 20px;
+    mask-size: 16px;
     mask-repeat: no-repeat;
     mask-position: center;
-    -webkit-mask-size: 20px;
+    -webkit-mask-size: 16px;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
     
@@ -3264,10 +5826,10 @@ Responsive styles *****/
         background-color: var(--header-menu-icon-color);
         mask: var(--icon-hamburger);
         -webkit-mask: var(--icon-hamburger);
-        mask-size: 20px;
+        mask-size: 16px;
         mask-repeat: no-repeat;
         mask-position: center;
-        -webkit-mask-size: 20px;
+        -webkit-mask-size: 16px;
         -webkit-mask-repeat: no-repeat;
         -webkit-mask-position: center;
 
@@ -3531,4 +6093,123 @@ body[embed-mode="true"] svg#fr-graph {
     width: 100%;
 
     pointer-events: none;
+}
+
+/* ── Tilt / Custom DF panel ─────────────────────────────────────── */
+
+div.customDF {
+    display: flex;
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding: 16px;
+    padding-left: 5px;
+    max-height: 68px;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+div.customDF > span {
+    margin-right: 10px;
+    padding-left: 10px;
+    padding-top: 12px;
+    color: var(--background-color-contrast-more);
+    font-family: var(--font-secondary);
+    font-size: 11px;
+    line-height: 1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+div.customDF .helptip {
+    display: none;
+}
+
+div.customDF > div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 10px 0 0;
+}
+
+div.customDF > button + div {
+    margin-left: 6px;
+}
+
+div.customDF > div > input {
+    order: 2;
+    box-sizing: border-box;
+    width: 70px;
+    height: 36px;
+    padding: 10px 0 10px 11px;
+    background-color: var(--background-color-inputs);
+    border: 1px solid var(--background-color-contrast-more);
+    border-right: none;
+    border-left: none;
+    border-radius: 0;
+    outline: none;
+    color: var(--font-color-inputs);
+    font-family: var(--font-secondary);
+    font-size: 11px;
+    line-height: 1em;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+div.customDF > div::after {
+    order: 3;
+    content: '';
+    box-sizing: border-box;
+    display: block;
+    width: 6px;
+    height: 36px;
+    background-color: var(--background-color-inputs);
+    border: 1px solid var(--background-color-contrast-more);
+    border-left: none;
+    border-radius: 0 6px 6px 0;
+}
+
+div.customDF > div > span {
+    order: 1;
+    padding: 11px 16px;
+    background-color: var(--background-color) !important;
+    border: 1px solid var(--background-color-contrast-more);
+    border-right: none;
+    border-radius: 6px 0 0 6px;
+    color: var(--accent-color-contrast);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1em;
+    white-space: nowrap;
+}
+
+div.customDF > div.selected > span {
+    background-color: var(--accent-color) !important;
+    border-color: var(--accent-color);
+    color: var(--font-color-secondary);
+}
+
+div.customDF > button {
+    padding: 11px 16px;
+    background-color: var(--background-color) !important;
+    border: 1px solid var(--background-color-contrast-more);
+    border-radius: 6px;
+    color: var(--accent-color-contrast);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1em;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+div.customDF > button:active {
+    box-sizing: border-box;
+    background-color: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+    color: var(--font-color-secondary);
+}
+
+div.customDF > button.selected {
+    background-color: var(--accent-color) !important;
+    border-color: var(--accent-color);
+    color: var(--font-color-secondary);
 }

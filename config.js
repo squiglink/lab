@@ -1,18 +1,19 @@
 // Configuration options
 const init_phones = ["BKF"],            // Optional. Which graphs to display on initial load. Note: Share URLs will override this set
-      DIR = "data/",                                // Directory where graph files are stored
+//      DIR = "/data/",                                // Directory where graph files are stored
+      DIR = "https://squig.link/data/",                                // Directory where graph files are stored
+//      num_samples = 3,
       default_channels = ["L","R"],                 // Which channels to display. Avoid javascript errors if loading just one channel per phone
       default_normalization = "dB",                 // Sets default graph normalization mode. Accepts "dB" or "Hz"
       default_norm_db = 60,                         // Sets default dB normalization point
       default_norm_hz = 500,                        // Sets default Hz normalization point (500Hz is recommended by IEC)
       max_channel_imbalance = 5,                    // Channel imbalance threshold to show ! in the channel selector
-      alt_layout = true,                            // Toggle between classic and alt layouts
       alt_sticky_graph = true,                      // If active graphs overflows the viewport, does the graph scroll with the page or stick to the viewport?
       alt_animated = false,                         // Determines if new graphs are drawn with a 1-second animation, or appear instantly
       alt_header = true,                            // Display a configurable header at the top of the alt layout
       alt_header_new_tab = false,                   // Clicking alt_header links opens in new tab
       alt_tutorial = true,                          // Display a configurable frequency response guide below the graph
-      alt_augment = false,                          // Display augment card in phone list, e.g. review sore, shop link
+      alt_augment = true,                          // Display augment card in phone list, e.g. review sore, shop link
       site_url = 'graph.html',                      // URL of your graph "homepage"
       share_url = true,                             // If true, enables shareable URLs
       watermark_text = "CrinGraph",                 // Optional. Watermark appears behind graphs
@@ -30,7 +31,7 @@ const init_phones = ["BKF"],            // Optional. Which graphs to display on 
       targetDashed = false,                         // If true, makes target curves dashed lines
       targetColorCustom = false,                    // If false, targets appear as a random gray value. Can replace with a fixed color value to make all targets the specified color, e.g. "black"
       targetRestoreLastUsed = false,				// Restore user's last-used target settings on load
-      labelsPosition = "default",                   // Up to four labels will be grouped in a specified corner. Accepts "top-left," bottom-left," "bottom-right," and "default"
+      labelsPosition = "bottom-left",                   // Up to four labels will be grouped in a specified corner. Accepts "top-left," bottom-left," "bottom-right," and "default"
       stickyLabels = true,                          // "Sticky" labels 
       analyticsEnabled = true,                     // Enables Google Analytics 4 measurement of site usage
       exportableGraphs = true,                      // Enables export graph button
@@ -39,15 +40,41 @@ const init_phones = ["BKF"],            // Optional. Which graphs to display on 
       extraEQEnabled = true,                        // Enable parametic eq function
       extraEQBands = 10,                            // Default EQ bands available
       extraEQBandsMax = 20,                         // Max EQ bands available
-      extraToneGeneratorEnabled = true;             // Enable tone generator function
+      extraToneGeneratorEnabled = true,             // Enable tone generator function
+      extraPinkNoiseEnabled = true,                 // Pink noise through parametric EQ (Equalizer tab)
+      extraMusicEnabled = true;                     // Local file music player through parametric EQ (Equalizer tab)
 
 // Specify which targets to display
 const targets = [
-    { type:"Neutral",    files:["Diffuse Field","Etymotic","Free Field","Innerfidelity ID"] },
+    { type:"Neutral",    files:["KEMAR DF","Diffuse Field","Etymotic","Free Field","Innerfidelity ID"] },
     { type:"Reviewer",   files:["Antdroid","Bad Guy","Banbeucmas","Crinacle","Precogvision","Super Review"] },
     { type:"Preference", files:["Harman","Rtings","Sonarworks"] }
 ];
 
+// Tilt / Preference Adjustments
+const
+        default_y_scale = "40db",                       // Default Y scale; values: ["20db", "30db", "40db", "50db", "crin"]
+        default_DF_name = "KEMAR DF",                   // Default RAW DF name
+        dfBaseline = true,                              // If true, DF is used as baseline when custom df tilt is on
+        default_bass_shelf = 8,                         // Default Custom DF bass shelf value
+        default_tilt = -0.8,                            // Default Custom DF tilt value
+        default_ear = 0,                                // Default Custom DF ear gain value
+        default_treble = 0,
+        tiltableTargets = [],                           // Targets that are allowed to be tilted
+        compTargets = [],                     // Targets that are allowed to be used for compensation
+        preference_bounds_name   = "Bounds",           // Preference bounds file prefix (null to disable)
+        preference_bounds_dir    = "data/pref_bounds/",// Directory containing bounds files
+        preference_bounds_startup = false;             // Show bounds curve on startup
+
+const harmanFilters = [
+    { name: "Harman C1 2024 IE", tilt: -0.9, bass_shelf: 1,   ear: 0,    treble: 0.5  },
+    { name: "Harman C2 2024 IE", tilt: -0.3, bass_shelf: 0.5, ear: -0.2, treble: 1    },
+    { name: "Harman C3 2024 IE", tilt: -2.1, bass_shelf: 0,   ear: 0,    treble: 10   },
+    { name: "Harman C4 2024 IE", tilt: -2.1, bass_shelf: 0,   ear: 0.5,  treble: 3.7  },
+    { name: "Harman 2013 OE",    tilt: 0,    bass_shelf: 4.8, ear: 0,    treble: -4.4 },
+    { name: "Harman 2015 OE",    tilt: 0,    bass_shelf: 6.6, ear: 0,    treble: -1.4 },
+    { name: "Harman 2018 OE",    tilt: 0,    bass_shelf: 6,   ear: -1,   treble: -4   },
+];
 
 
 // *************************************************************
@@ -88,7 +115,8 @@ function tsvParse(fr) {
         .filter(t => !isNaN(t[0]) && !isNaN(t[1]));
 }
 
-// Apply stylesheet based layout options above
+// Main app uses style-alt (+ theme) only. Legacy classic layout lives in style.css for old
+// standalone pages (e.g. graph_hp.html) that link it directly — not loaded here.
 function setLayout() {
     function applyStylesheet(styleSheet) {
         var docHead = document.querySelector("head"),
@@ -101,12 +129,8 @@ function setLayout() {
         docHead.append(linkTag);
     }
 
-    if ( !alt_layout ) {
-        applyStylesheet("style.css");
-    } else {
-        applyStylesheet("style-alt.css");
-        applyStylesheet("style-alt-theme.css");
-    }
+    applyStylesheet("style-alt.css");
+    applyStylesheet("style-alt-theme.css");
 }
 setLayout();
 
@@ -299,5 +323,15 @@ let tutorialDefinitions = [
 ]
 // Configure paths to extraEQ plugins here
 let extraEQplugins = [
-    //'./devicePEQ/plugin.js' // Path to one or more "extraEQ" plugins
+    '/plugins/devicePEQ/devicePEQ/plugin.js' // Path to one or more "extraEQ" plugins
 ];
+
+let devicePEQConfig = {
+    advanced: false,               // Shows connection-type dropdown instead of the old modal
+    showLogs: false,
+    pullValuesOnConnect: true,
+    connectButtonLabel: "Link Device",  // Override default "Connect to device" label
+    showTitle: false,             // Hide the "Device PEQ" heading in this context
+    showInfoButton: false,        // Hide the ℹ️ info button for a cleaner look
+    showSuccessToasts: true,     // Hide "pulled/pushed successfully" toasts (spinner communicates state)
+}

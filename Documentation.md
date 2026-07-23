@@ -24,9 +24,10 @@ Most parts of the interface are arranged using flexboxes, and rearranged
 with CSS media queries to detect screen width and aspect ratio.
 
 There are three main layouts:
-* The desktop layout places the graph window at the top with the selector and manager side by side below it.
-* The mobile layout (for narrow screens) stacks everything vertically with the selector above the manager.
-* When the screen is very wide relative to its height, the selector and manager are stacked as in the mobile layout but placed right of the graph window.
+
+- The desktop layout places the graph window at the top with the selector and manager side by side below it.
+- The mobile layout (for narrow screens) stacks everything vertically with the selector above the manager.
+- When the screen is very wide relative to its height, the selector and manager are stacked as in the mobile layout but placed right of the graph window.
 
 If the screen is narrow enough, the toolbar below the graph window will
 collapse to avoid clutter. The entire toolbar can be shown by clicking
@@ -120,6 +121,7 @@ natural spline tends to emphasize little bumps in the data, making it
 worse even than linear interpolation.
 
 Mathematically, a smoothing spline minimizes a weighted sum of:
+
 1. All the square differences between the original and smoothed values, and
 2. The integral of the square of the second derivative of the smoothed function.
 
@@ -324,9 +326,10 @@ cross-section along the ring, like a thick washer. Three modifications
 are made to this ring in order to account for human perception, or maybe
 imperfect perceptual uniformity of HCL space, or even unsuitability for
 lines rather than color fields.
-* Hues are shifted so cool colors like blues and greens appear less often, and reds and yellows more often.
-* Hues are shifted towards six colors with evenly spaced hues—the primary and secondary colors red, yellow, green, cyan, blue, and purple.
-* Chroma and luminance are shifted so that yellows are brighter and bolder, and blues darker.
+
+- Hues are shifted so cool colors like blues and greens appear less often, and reds and yellows more often.
+- Hues are shifted towards six colors with evenly spaced hues—the primary and secondary colors red, yellow, green, cyan, blue, and purple.
+- Chroma and luminance are shifted so that yellows are brighter and bolder, and blues darker.
 
 Channels are separated from one another primarily by adjusting hue and
 chroma. Channels with different luminance don't look related. The
