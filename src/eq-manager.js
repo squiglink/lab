@@ -2866,7 +2866,7 @@ function initEqHistory() {
                 });
             }
         } else {
-            nextEqChannels = phoneObj.rawChannels.map(
+            nextEqChannels = (phoneObj.rawChannels || []).map(
                 (c) => (c ? Equalizer.apply(c, filters) : null));
         }
         let liveGraphEqDrag = Boolean(execOpt.liveGraphEqDrag && eqGraphPointerState
@@ -3807,16 +3807,29 @@ function initExtraBootstrap() {
     });
 
     let calcEqDevPreamp = (filters) => {
-        const phoneSelected = eqPhoneSelect.value;
+        const fallbackPreamp = () => {
+            const gains = (filters || []).map((f) => Number(f && f.gain)).filter(Number.isFinite);
+            if (!gains.length) {
+                return 0;
+            }
+            const maxGain = Math.max(...gains);
+            return maxGain < 0 ? 0 : -maxGain;
+        };
+
+        const phoneSelected = eqPhoneSelect && eqPhoneSelect.value;
         const phoneObj = phoneSelected &&
-            context.activePhones.find(
+            activePhones.find(
                 (p) => p.fullName === phoneSelected && p.eq
             );
 
-        return context.Equalizer.calc_preamp(
-            phoneObj.rawChannels.filter(Boolean)[0],
-            phoneObj.eq.rawChannels.filter(Boolean)[0]
-        );
+        const fr1 = phoneObj && phoneObj.rawChannels && phoneObj.rawChannels.filter(Boolean)[0];
+        const fr2 = phoneObj && phoneObj.eq && phoneObj.eq.rawChannels
+            && phoneObj.eq.rawChannels.filter(Boolean)[0];
+        if (!fr1 || !fr2 || typeof Equalizer === "undefined" || !Equalizer.calc_preamp) {
+            return fallbackPreamp();
+        }
+
+        return Equalizer.calc_preamp(fr1, fr2);
     };
 
     async function loadPlugins(pluginsToLoad, context) {

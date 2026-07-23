@@ -327,7 +327,7 @@ let extraEQplugins = [
 ];
 
 let devicePEQConfig = {
-    advanced: true,               // Shows connection-type dropdown instead of the old modal
+    advanced: false,               // Shows connection-type dropdown instead of the old modal
     showLogs: false,
     pullValuesOnConnect: true,
     connectButtonLabel: "Link Device",  // Override default "Connect to device" label
